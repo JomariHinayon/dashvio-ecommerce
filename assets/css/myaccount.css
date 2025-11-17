@@ -1,0 +1,192 @@
+.woocommerce-account .woocommerce {
+    display: flex;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
+}
+
+.woocommerce-account .woocommerce::before,
+.woocommerce-account .woocommerce::after {
+    content: none;
+}
+
+.woocommerce-account .woocommerce > nav {
+    flex: 0 0 250px;
+}
+
+.woocommerce-account .woocommerce > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.woocommerce-MyAccount-navigation {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    height: fit-content;
+}
+
+.woocommerce-MyAccount-navigation ul {
+    list-style: none;
+}
+
+.woocommerce-MyAccount-navigation li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.woocommerce-MyAccount-navigation a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.woocommerce-MyAccount-navigation a:hover {
+    background: var(--color-background-alt);
+    color: var(--color-primary);
+}
+
+.woocommerce-MyAccount-navigation li.is-active a {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.woocommerce-MyAccount-content {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+}
+
+.woocommerce-MyAccount-content h2 {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.woocommerce-account-fields {
+    margin-bottom: var(--spacing-lg);
+}
+
+.woocommerce-form-row {
+    margin-bottom: var(--spacing-md);
+}
+
+.woocommerce-form-row label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.woocommerce-form-row input[type="text"],
+.woocommerce-form-row input[type="email"],
+.woocommerce-form-row input[type="password"] {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.woocommerce-form-row input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.woocommerce-orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-lg);
+}
+
+.woocommerce-orders-table th,
+.woocommerce-orders-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.woocommerce-orders-table th {
+    font-weight: 600;
+    background: var(--color-background-alt);
+    color: var(--color-secondary);
+}
+
+.woocommerce-orders-table a {
+    color: var(--color-primary);
+}
+
+.woocommerce-orders-table a:hover {
+    text-decoration: underline;
+}
+
+.woocommerce-button {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.woocommerce-button:hover {
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+.woocommerce-Address {
+    background: var(--color-background-alt);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.woocommerce-Address-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.woocommerce-Address-title h3 {
+    margin: 0;
+}
+
+.woocommerce-Address address {
+    font-style: normal;
+    line-height: 1.8;
+}
+
+@media (max-width: 992px) {
+    .woocommerce-account-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .woocommerce-MyAccount-navigation {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .woocommerce-MyAccount-navigation ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 576px) {
+    .woocommerce-orders-table {
+        font-size: 0.875rem;
+    }
+    
+    .woocommerce-orders-table th,
+    .woocommerce-orders-table td {
+        padding: var(--spacing-sm);
+    }
+}
+
