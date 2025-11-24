@@ -1,6 +1,7 @@
 .site-main {
     min-height: 60vh;
     padding: var(--spacing-xl) 0;
+    background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background-alt) 100%);
 }
 
 .entry-header {
@@ -9,6 +10,7 @@
 
 .entry-title {
     color: var(--color-secondary);
+    font-family: var(--font-heading);
 }
 
 .entry-content {
@@ -26,8 +28,9 @@
 }
 
 .entry-content img {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     margin: var(--spacing-md) 0;
+    box-shadow: var(--shadow-sm);
 }
 
 @media (max-width: 768px) {

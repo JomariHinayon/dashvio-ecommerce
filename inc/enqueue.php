@@ -5,7 +5,13 @@ if (!defined('ABSPATH')) {
 }
 
 function dashvio_enqueue_scripts() {
-    wp_enqueue_style('dashvio-style', get_stylesheet_uri(), array(), DASHVIO_VERSION);
+    wp_enqueue_style(
+        'dashvio-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap',
+        array(),
+        null
+    );
+    wp_enqueue_style('dashvio-style', get_stylesheet_uri(), array('dashvio-fonts'), DASHVIO_VERSION);
     
     wp_enqueue_style('dashvio-main', DASHVIO_URI . '/assets/css/main.css', array(), DASHVIO_VERSION);
     wp_enqueue_style('dashvio-header', DASHVIO_URI . '/assets/css/header.css', array(), DASHVIO_VERSION);

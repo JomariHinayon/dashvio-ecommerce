@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> data-theme="light">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +37,9 @@
             </nav>
 
             <div class="header-actions">
+                <button class="theme-toggle" id="dashvio-theme-toggle" aria-label="Toggle color theme">
+                    <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
+                </button>
                 <?php if (class_exists('WooCommerce')) : ?>
                     <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="cart-icon">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
