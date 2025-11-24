@@ -37,8 +37,18 @@
             </nav>
 
             <div class="header-actions">
-                <button class="theme-toggle" id="dashvio-theme-toggle" aria-label="Toggle color theme">
-                    <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
+                <button class="theme-toggle" id="dashvio-theme-toggle" aria-label="Switch to dark mode">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 4V2M12 22V20M4 12H2M22 12H20M5.64 5.64L4.22 4.22M19.78 19.78L18.36 18.36M5.64 18.36L4.22 19.78M19.78 4.22L18.36 5.64" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/>
+                        </svg>
+                    </span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 14.5C19.4 14.7 18.8 14.8 18.2 14.8C14.5 14.8 11.5 11.8 11.5 8.2C11.5 6.4 12.2 4.8 13.3 3.6C13.5 3.3 13.3 2.8 12.9 2.8C7.9 2.8 3.8 6.9 3.8 11.9C3.8 17 8 21.2 13.1 21.2C16.6 21.2 19.7 19.2 21.1 16.2C21.3 15.7 20.7 14.3 20 14.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
                 </button>
                 <?php if (class_exists('WooCommerce')) : ?>
                     <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="cart-icon">

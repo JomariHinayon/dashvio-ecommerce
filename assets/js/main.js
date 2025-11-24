@@ -40,11 +40,11 @@
                 return;
             }
             if (theme === 'dark') {
-                toggle.classList.add('active');
-                toggle.querySelector('.theme-toggle__icon').textContent = '🌙';
+                toggle.classList.add('is-dark');
+                toggle.setAttribute('aria-label', 'Switch to light mode');
             } else {
-                toggle.classList.remove('active');
-                toggle.querySelector('.theme-toggle__icon').textContent = '☀️';
+                toggle.classList.remove('is-dark');
+                toggle.setAttribute('aria-label', 'Switch to dark mode');
             }
         }
 
