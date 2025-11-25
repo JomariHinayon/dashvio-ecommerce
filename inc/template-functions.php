@@ -92,3 +92,89 @@ function dashvio_breadcrumbs() {
     echo '</nav>';
 }
 
+function dashvio_get_mock_posts() {
+    return array(
+        array(
+            'title' => 'Building a high-performance WooCommerce store',
+            'excerpt' => 'Learn the essential strategies and best practices to optimize your online store for speed, conversions, and customer satisfaction.',
+            'category' => 'Performance',
+            'date' => 'November 15, 2025',
+            'featured' => true,
+        ),
+        array(
+            'title' => 'Design trends shaping e-commerce in 2025',
+            'excerpt' => 'Explore the latest design patterns, color schemes, and UX principles that modern online shoppers expect from their favorite brands.',
+            'category' => 'Design',
+            'date' => 'November 12, 2025',
+            'featured' => true,
+        ),
+        array(
+            'title' => 'Customer retention strategies that actually work',
+            'excerpt' => 'Discover proven tactics to turn one-time buyers into loyal customers with personalized experiences and smart engagement.',
+            'category' => 'Marketing',
+            'date' => 'November 8, 2025',
+            'featured' => true,
+        ),
+        array(
+            'title' => 'Scaling your store: from startup to enterprise',
+            'excerpt' => 'A practical roadmap for growing your WooCommerce business while maintaining performance and customer experience.',
+            'category' => 'Growth',
+            'date' => 'November 5, 2025',
+        ),
+        array(
+            'title' => 'Mobile commerce best practices',
+            'excerpt' => 'Optimize your store for mobile users with responsive design, fast checkout, and seamless navigation.',
+            'category' => 'Mobile',
+            'date' => 'November 1, 2025',
+        ),
+        array(
+            'title' => 'SEO essentials for online stores',
+            'excerpt' => 'Master the fundamentals of search optimization to drive organic traffic and increase visibility in search results.',
+            'category' => 'SEO',
+            'date' => 'October 28, 2025',
+        ),
+    );
+}
+
+function dashvio_generate_placeholder_image($width = 800, $height = 500, $index = 0) {
+    $gradients = array(
+        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+        'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+        'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+        'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+    );
+    
+    $gradient = $gradients[$index % count($gradients)];
+    
+    $svg = '<svg width="' . esc_attr($width) . '" height="' . esc_attr($height) . '" xmlns="http://www.w3.org/2000/svg">';
+    $svg .= '<defs><linearGradient id="grad' . $index . '" x1="0%" y1="0%" x2="100%" y2="100%">';
+    
+    if (strpos($gradient, '#667eea') !== false) {
+        $svg .= '<stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />';
+        $svg .= '<stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />';
+    } elseif (strpos($gradient, '#f093fb') !== false) {
+        $svg .= '<stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />';
+        $svg .= '<stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />';
+    } elseif (strpos($gradient, '#4facfe') !== false) {
+        $svg .= '<stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />';
+        $svg .= '<stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />';
+    } elseif (strpos($gradient, '#43e97b') !== false) {
+        $svg .= '<stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />';
+        $svg .= '<stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />';
+    } elseif (strpos($gradient, '#fa709a') !== false) {
+        $svg .= '<stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />';
+        $svg .= '<stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />';
+    } else {
+        $svg .= '<stop offset="0%" style="stop-color:#30cfd0;stop-opacity:1" />';
+        $svg .= '<stop offset="100%" style="stop-color:#330867;stop-opacity:1" />';
+    }
+    
+    $svg .= '</linearGradient></defs>';
+    $svg .= '<rect width="100%" height="100%" fill="url(#grad' . $index . ')" />';
+    $svg .= '</svg>';
+    
+    return 'data:image/svg+xml;base64,' . base64_encode($svg);
+}
+
