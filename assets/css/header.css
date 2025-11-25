@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-lg);
+    position: relative;
 }
 
 .site-branding {
@@ -87,6 +88,43 @@
     gap: var(--spacing-sm);
 }
 
+.menu-toggle {
+    display: none;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-soft);
+    background: var(--color-background);
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-direction: column;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.menu-toggle__bar {
+    width: 18px;
+    height: 2px;
+    background: var(--color-text);
+    display: block;
+    border-radius: 999px;
+    transition: var(--transition);
+}
+
+.menu-toggle.is-active .menu-toggle__bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.is-active .menu-toggle__bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active .menu-toggle__bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
 .cart-icon {
     position: relative;
     display: inline-flex;
@@ -153,19 +191,57 @@
     color: var(--color-dark-bg);
 }
 
+[data-theme="dark"] .menu-toggle {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .menu-toggle__bar {
+    background: var(--color-text-light);
+}
+
 @media (max-width: 768px) {
     .header-inner {
         flex-wrap: wrap;
+        align-items: flex-start;
     }
     
+    .menu-toggle {
+        display: inline-flex;
+    }
+
     .main-navigation {
         order: 3;
         width: 100%;
+        position: absolute;
+        top: calc(100% + var(--spacing-sm));
+        left: 0;
+        z-index: 20;
+        background: var(--color-background);
+        border: 1px solid var(--color-border-soft);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: var(--transition);
+    }
+
+    .main-navigation.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
     
     .menu-primary {
         flex-direction: column;
         align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+
+    .header-actions {
+        margin-left: auto;
         gap: var(--spacing-xs);
     }
 }

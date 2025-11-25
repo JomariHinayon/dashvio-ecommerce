@@ -25,12 +25,19 @@
                 ?>
             </div>
 
+            <button class="menu-toggle" aria-label="<?php esc_attr_e('Toggle navigation', 'dashvio'); ?>" aria-controls="primary-menu" aria-expanded="false">
+                <span class="menu-toggle__bar"></span>
+                <span class="menu-toggle__bar"></span>
+                <span class="menu-toggle__bar"></span>
+            </button>
+
             <nav class="main-navigation">
                 <?php
                 wp_nav_menu(array(
                     'theme_location' => 'primary',
                     'container' => false,
                     'menu_class' => 'menu-primary',
+                    'menu_id' => 'primary-menu',
                     'fallback_cb' => false,
                 ));
                 ?>

@@ -4,31 +4,37 @@
     $(document).ready(function() {
         
         const mobileBreakpoint = 768;
+        const $menuToggle = $('.menu-toggle');
+        const $mainNavigation = $('.main-navigation');
         
-        function initMobileMenu() {
-            if ($(window).width() <= mobileBreakpoint) {
-                $('.main-navigation').addClass('mobile-menu');
-            } else {
-                $('.main-navigation').removeClass('mobile-menu');
+        function closeMobileMenu() {
+            $mainNavigation.removeClass('is-open');
+            $menuToggle.attr('aria-expanded', 'false').removeClass('is-active');
+        }
+        
+        function handleOutsideClick(event) {
+            if (!$mainNavigation.hasClass('is-open')) {
+                return;
+            }
+            if (!$(event.target).closest('.site-header').length) {
+                closeMobileMenu();
             }
         }
         
-        initMobileMenu();
-        
-        $(window).on('resize', function() {
-            initMobileMenu();
-        });
-        
-        $('.site-header').on('click', '.menu-toggle', function(e) {
-            e.preventDefault();
-            $('.main-navigation').toggleClass('active');
-        });
-        
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('.site-header').length) {
-                $('.main-navigation').removeClass('active');
+        function handleResize() {
+            if ($(window).width() > mobileBreakpoint) {
+                closeMobileMenu();
             }
+        }
+        
+        $menuToggle.on('click', function(e) {
+            e.preventDefault();
+            const isOpen = $mainNavigation.toggleClass('is-open').hasClass('is-open');
+            $(this).toggleClass('is-active', isOpen).attr('aria-expanded', isOpen);
         });
+        
+        $(document).on('click', handleOutsideClick);
+        $(window).on('resize', handleResize);
 
         const THEME_KEY = 'dashvio-theme';
         const root = document.documentElement;
