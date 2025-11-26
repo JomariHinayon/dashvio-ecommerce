@@ -19,7 +19,7 @@
     padding: var(--spacing-md);
     text-align: left;
     font-weight: 600;
-    color: var(--color-secondary);
+    color: var(--color-primary-strong);
     border-bottom: 2px solid var(--color-border);
 }
 
@@ -48,7 +48,7 @@
 }
 
 .product-name a {
-    color: var(--color-secondary);
+    color: var(--color-primary-strong);
     font-weight: 500;
 }
 
@@ -71,7 +71,7 @@
 
 .product-subtotal {
     font-weight: 600;
-    color: var(--color-secondary);
+    color: var(--color-primary-strong);
 }
 
 .actions {
@@ -81,7 +81,7 @@
 
 .actions button {
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: var(--color-secondary);
+    background: var(--color-primary);
     color: #fff;
     border: none;
     border-radius: var(--radius-md);
@@ -91,7 +91,7 @@
 }
 
 .actions button:hover {
-    background: var(--color-primary);
+    background: var(--color-primary-strong);
 }
 
 .cart-collaterals {
@@ -160,7 +160,7 @@
 }
 
 .wc-proceed-to-checkout a:hover {
-    background: var(--color-secondary);
+    background: var(--color-primary-strong);
     color: #fff;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .return-to-shop a:hover {
-    background: var(--color-secondary);
+    background: var(--color-primary-strong);
     color: #fff;
 }
 

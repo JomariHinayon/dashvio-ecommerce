@@ -80,7 +80,7 @@
 .woocommerce-form-row input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px rgba(245, 168, 2, 0.25);
 }
 
 .woocommerce-orders-table {
@@ -99,7 +99,7 @@
 .woocommerce-orders-table th {
     font-weight: 600;
     background: var(--color-background-alt);
-    color: var(--color-secondary);
+    color: var(--color-primary-strong);
 }
 
 .woocommerce-orders-table a {
@@ -123,7 +123,7 @@
 }
 
 .woocommerce-button:hover {
-    background: var(--color-secondary);
+    background: var(--color-primary-strong);
     color: #fff;
 }
 

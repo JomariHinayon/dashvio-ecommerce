@@ -9,15 +9,38 @@
 }
 
 .woocommerce-breadcrumb a {
-    color: var(--color-secondary);
+    color: var(--color-primary-strong);
 }
 
 .woocommerce-breadcrumb a:hover {
     color: var(--color-primary);
 }
 
+[data-theme="dark"] .woocommerce-breadcrumb {
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .woocommerce-breadcrumb a {
+    color: var(--color-primary-strong);
+}
+
 .woocommerce-products-header {
     margin-bottom: var(--spacing-lg);
+}
+
+/* Ensure WooCommerce page titles are readable in light & dark mode */
+.woocommerce div.product .product_title,
+.woocommerce-cart .entry-title,
+.woocommerce-checkout .entry-title,
+.woocommerce-account .entry-title {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .woocommerce div.product .product_title,
+[data-theme="dark"] .woocommerce-cart .entry-title,
+[data-theme="dark"] .woocommerce-checkout .entry-title,
+[data-theme="dark"] .woocommerce-account .entry-title {
+    color: var(--color-text-light);
 }
 
 .woocommerce-before-shop-loop {
@@ -206,7 +229,7 @@
 
 .woocommerce ul.products li.product .product-title a,
 .woocommerce-page ul.products li.product .product-title a {
-    color: var(--color-secondary);
+    color: var(--color-text);
 }
 
 .woocommerce ul.products li.product .product-title a:hover,
@@ -214,19 +237,64 @@
     color: var(--color-primary);
 }
 
+/* Ensure product names are readable in dark mode */
+[data-theme="dark"] .woocommerce ul.products li.product .product-title a,
+[data-theme="dark"] .woocommerce-page ul.products li.product .product-title a {
+    color: var(--color-text-light);
+}
+
 .woocommerce ul.products li.product .price,
 .woocommerce-page ul.products li.product .price {
-    color: var(--color-primary);
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: baseline;
     font-weight: 600;
     font-size: 1.125rem;
-    display: block;
     margin-bottom: var(--spacing-xs);
+}
+
+.woocommerce ul.products li.product .price ins,
+.woocommerce-page ul.products li.product .price ins,
+.woocommerce ul.products li.product .price .amount,
+.woocommerce-page ul.products li.product .price .amount,
+.woocommerce ul.products li.product .price ins .amount,
+.woocommerce-page ul.products li.product .price ins .amount,
+.woocommerce ul.products li.product .price > span,
+.woocommerce-page ul.products li.product .price > span,
+.woocommerce ul.products li.product .price a,
+.woocommerce-page ul.products li.product .price a {
+    color: var(--color-primary-strong) !important;
 }
 
 .woocommerce ul.products li.product .price del,
 .woocommerce-page ul.products li.product .price del {
-    color: var(--color-text-light);
-    margin-right: var(--spacing-xs);
+    color: rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .woocommerce ul.products li.product .price del,
+[data-theme="dark"] .woocommerce-page ul.products li.product .price del {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Single product price (regular + sale) */
+.woocommerce div.product span.price,
+.woocommerce div.product span.price ins,
+.woocommerce div.product span.price .amount,
+.woocommerce div.product p.price,
+.woocommerce div.product p.price ins,
+.woocommerce div.product p.price .amount {
+    color: var(--color-primary-strong) !important;
+}
+
+.woocommerce div.product span.price del,
+.woocommerce div.product p.price del {
+    color: rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .woocommerce div.product span.price del,
+[data-theme="dark"] .woocommerce div.product p.price del {
+    color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .woocommerce ul.products li.product .add_to_cart_button,
@@ -239,8 +307,8 @@
     width: 100%;
     margin-top: var(--spacing-xs);
     background: #fff !important;
-    color: var(--color-secondary) !important;
-    border: 1px solid rgba(58, 95, 255, 0.2) !important;
+    color: var(--color-primary-strong) !important;
+    border: 1px solid rgba(245, 168, 2, 0.28) !important;
     box-shadow: none;
 }
 
@@ -250,7 +318,7 @@
 .woocommerce-page ul.products li.product .button:hover,
 .woocommerce ul.products li.product .added_to_cart:hover,
 .woocommerce-page ul.products li.product .added_to_cart:hover {
-    background: var(--color-secondary) !important;
+    background: var(--color-primary-strong) !important;
     color: #fff !important;
 }
 
@@ -296,7 +364,7 @@
 }
 
 .cart_button:hover {
-    background: var(--color-secondary);
+    background: var(--color-primary-strong);
     color: #fff;
 }
 

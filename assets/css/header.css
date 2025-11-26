@@ -132,8 +132,8 @@
     gap: 8px;
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: 999px;
-    background: rgba(58, 95, 255, 0.12);
-    color: var(--color-secondary);
+    background: rgba(245, 200, 2, 0.18);
+    color: var(--color-primary-strong);
 }
 
 .cart-icon svg {
@@ -141,8 +141,8 @@
 }
 
 .cart-icon:hover {
-    background: var(--color-secondary);
-    color: #fff;
+    background: var(--color-primary-strong);
+    color: #111;
 }
 
 .cart-count {

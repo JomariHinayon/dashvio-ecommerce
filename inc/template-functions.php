@@ -95,43 +95,55 @@ function dashvio_breadcrumbs() {
 function dashvio_get_mock_posts() {
     return array(
         array(
-            'title' => 'Building a high-performance WooCommerce store',
-            'excerpt' => 'Learn the essential strategies and best practices to optimize your online store for speed, conversions, and customer satisfaction.',
-            'category' => 'Performance',
-            'date' => 'November 15, 2025',
+            'title' => 'Dashvio 2.0: Introducing Our Revolutionary E-commerce Platform',
+            'excerpt' => 'We\'re excited to announce the launch of Dashvio 2.0, featuring advanced analytics, AI-powered recommendations, and seamless e-commerce integration. Discover how our platform transforms online selling.',
+            'category' => 'Product Launch',
+            'date' => 'December 1, 2025',
             'featured' => true,
         ),
         array(
-            'title' => 'Design trends shaping e-commerce in 2025',
-            'excerpt' => 'Explore the latest design patterns, color schemes, and UX principles that modern online shoppers expect from their favorite brands.',
-            'category' => 'Design',
-            'date' => 'November 12, 2025',
+            'title' => 'How Dashvio Helped 10,000+ Stores Increase Revenue by 300%',
+            'excerpt' => 'Real success stories from merchants using Dashvio. Learn the strategies, tools, and techniques that helped these businesses achieve remarkable growth in just six months.',
+            'category' => 'Success Stories',
+            'date' => 'November 28, 2025',
             'featured' => true,
         ),
         array(
-            'title' => 'Customer retention strategies that actually work',
-            'excerpt' => 'Discover proven tactics to turn one-time buyers into loyal customers with personalized experiences and smart engagement.',
-            'category' => 'Marketing',
-            'date' => 'November 8, 2025',
+            'title' => 'The Complete Guide to E-commerce Customization with Dashvio',
+            'excerpt' => 'Master the art of customizing your online store with Dashvio\'s powerful tools. From product pages to checkout flows, learn how to create a unique shopping experience.',
+            'category' => 'Tutorials',
+            'date' => 'November 25, 2025',
             'featured' => true,
         ),
         array(
-            'title' => 'Scaling your store: from startup to enterprise',
-            'excerpt' => 'A practical roadmap for growing your WooCommerce business while maintaining performance and customer experience.',
-            'category' => 'Growth',
-            'date' => 'November 5, 2025',
+            'title' => 'Dark Mode & Light Mode: Why Dashvio Supports Both Themes',
+            'excerpt' => 'Understanding user preferences and accessibility needs. We explore why offering both dark and light themes improves user experience and increases engagement.',
+            'category' => 'UX Design',
+            'date' => 'November 22, 2025',
         ),
         array(
-            'title' => 'Mobile commerce best practices',
-            'excerpt' => 'Optimize your store for mobile users with responsive design, fast checkout, and seamless navigation.',
-            'category' => 'Mobile',
-            'date' => 'November 1, 2025',
+            'title' => 'Mobile-First E-commerce: Optimizing for 70% of Your Traffic',
+            'excerpt' => 'With mobile commerce representing the majority of online sales, discover how Dashvio\'s responsive design and mobile optimization features help you capture every opportunity.',
+            'category' => 'Mobile Commerce',
+            'date' => 'November 19, 2025',
         ),
         array(
-            'title' => 'SEO essentials for online stores',
-            'excerpt' => 'Master the fundamentals of search optimization to drive organic traffic and increase visibility in search results.',
-            'category' => 'SEO',
-            'date' => 'October 28, 2025',
+            'title' => 'Advanced Analytics: Understanding Your Store\'s Performance Metrics',
+            'excerpt' => 'Dive deep into Dashvio\'s analytics dashboard. Learn how to interpret key metrics, identify trends, and make data-driven decisions that boost your bottom line.',
+            'category' => 'Analytics',
+            'date' => 'November 16, 2025',
+        ),
+        array(
+            'title' => 'Security Best Practices: Protecting Your Online Store',
+            'excerpt' => 'Essential security measures every online store owner should implement. From SSL certificates to payment gateways, ensure your customers\' data stays safe.',
+            'category' => 'Security',
+            'date' => 'November 13, 2025',
+        ),
+        array(
+            'title' => 'Building Your Brand: Creating a Cohesive Visual Identity',
+            'excerpt' => 'Learn how to use Dashvio\'s brand kit features to maintain consistency across your store. From colors to typography, create a memorable brand experience.',
+            'category' => 'Branding',
+            'date' => 'November 10, 2025',
         ),
     );
 }
@@ -176,5 +188,27 @@ function dashvio_generate_placeholder_image($width = 800, $height = 500, $index 
     $svg .= '</svg>';
     
     return 'data:image/svg+xml;base64,' . base64_encode($svg);
+}
+
+/**
+ * Get mock post URL
+ */
+function dashvio_get_mock_post_url($index) {
+    $blog_url = get_permalink(get_option('page_for_posts'));
+    if (!$blog_url) {
+        $blog_url = home_url('/blog/');
+    }
+    return add_query_arg('mock_post', $index, $blog_url);
+}
+
+/**
+ * Get mock post by index
+ */
+function dashvio_get_mock_post($index) {
+    $mock_posts = dashvio_get_mock_posts();
+    if (isset($mock_posts[$index])) {
+        return $mock_posts[$index];
+    }
+    return null;
 }
 

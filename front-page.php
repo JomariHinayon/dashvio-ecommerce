@@ -5,11 +5,11 @@
         <section class="dash-hero">
             <div class="dash-hero__grid">
                 <div class="dash-hero__content">
-                    <span class="dash-badge"><?php bloginfo('name'); ?> · WooCommerce</span>
+                    <span class="dash-badge"><?php bloginfo('name'); ?></span>
                     <h1>Modern commerce experiences built for scaling brands.</h1>
-                    <p>Create immersive storefronts, convert more shoppers, and manage your entire catalog with Dashvio’s modular WooCommerce theme.</p>
+                    <p>Create immersive storefronts, convert more shoppers, and manage your entire catalog with Dashvio's modular e-commerce platform.</p>
                     <div class="dash-btn-group">
-                        <?php if (function_exists('wc_get_page_id')) :
+                        <?php if (dashvio_show_woocommerce() && function_exists('wc_get_page_id')) :
                             $shop_id = wc_get_page_id('shop');
                             ?>
                             <a class="button button-primary" href="<?php echo esc_url($shop_id > 0 ? get_permalink($shop_id) : home_url('/shop')); ?>">
@@ -36,7 +36,7 @@
                 <div class="dash-hero__card glass-card">
                     <h3>Why Dashvio</h3>
                     <ul>
-                        <li>- Instant storefront setup with WooCommerce.</li>
+                        <li>- Instant storefront setup and configuration.</li>
                         <li>- Reusable components for every funnel stage.</li>
                         <li>- Optimized for conversion & Core Web Vitals.</li>
                         <li>- Built-in dark & light experiences.</li>
@@ -59,7 +59,7 @@
                 </article>
                 <article class="dash-card">
                     <h4>Commerce-ready</h4>
-                    <p>Shop, product, cart, checkout, and account templates crafted for WooCommerce.</p>
+                    <p>Shop, product, cart, checkout, and account templates crafted for modern e-commerce.</p>
                 </article>
                 <article class="dash-card">
                     <h4>Performance focused</h4>
@@ -68,7 +68,7 @@
             </div>
         </section>
 
-        <?php if (class_exists('WooCommerce')) : ?>
+        <?php if (dashvio_show_woocommerce()) : ?>
             <section class="dash-section">
                 <div class="dash-section__header">
                     <div>
@@ -85,7 +85,7 @@
         <section class="dash-section" id="dashvio-insights">
             <div class="dash-cta">
                 <h3>Launch smarter with Dashvio Insights.</h3>
-                <p>Join our weekly digest for product strategy, conversion tips, and theme updates built for serious WooCommerce teams.</p>
+                <p>Join our weekly digest for product strategy, conversion tips, and platform updates built for serious e-commerce teams.</p>
                 <form class="dash-newsletter">
                     <input type="email" placeholder="you@brand.com" required>
                     <button type="submit" class="button button-primary">Subscribe</button>

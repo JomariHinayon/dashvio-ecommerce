@@ -57,7 +57,7 @@
                         </svg>
                     </span>
                 </button>
-                <?php if (function_exists('dashvio_cart_icon')) : ?>
+                <?php if (dashvio_show_woocommerce() && function_exists('dashvio_cart_icon')) : ?>
                     <?php dashvio_cart_icon(); ?>
                 <?php endif; ?>
             </div>

@@ -79,3 +79,41 @@ function dashvio_widgets_init() {
 }
 add_action('widgets_init', 'dashvio_widgets_init');
 
+/**
+ * Delete default "Hello world!" post on theme activation
+ */
+function dashvio_delete_default_post() {
+    $default_post = get_posts(array(
+        'title' => 'Hello world!',
+        'post_status' => 'any',
+        'numberposts' => 1,
+    ));
+    
+    if (!empty($default_post)) {
+        wp_delete_post($default_post[0]->ID, true);
+    }
+}
+add_action('after_switch_theme', 'dashvio_delete_default_post');
+
+/**
+ * Delete default post on admin init (for existing installations)
+ */
+function dashvio_delete_default_post_on_init() {
+    // Only run once
+    if (get_option('dashvio_deleted_default_post')) {
+        return;
+    }
+    
+    $default_post = get_posts(array(
+        'title' => 'Hello world!',
+        'post_status' => 'any',
+        'numberposts' => 1,
+    ));
+    
+    if (!empty($default_post)) {
+        wp_delete_post($default_post[0]->ID, true);
+        update_option('dashvio_deleted_default_post', true);
+    }
+}
+add_action('admin_init', 'dashvio_delete_default_post_on_init');
+

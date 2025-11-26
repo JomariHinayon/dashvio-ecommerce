@@ -15,9 +15,15 @@ Tags: woocommerce, e-commerce, shop, modern, clean, responsive
 */
 
 :root {
-    --color-primary: #FFA733;
-    --color-secondary: #3A5FFF;
-    --color-accent: #0E4FFF;
+    /* Primary palette (Dashvio Orange) */
+    --color-primary: #FFA733;        /* base orange */
+    --color-primary-soft: #F5C802;   /* lighter tint for subtle backgrounds */
+    --color-primary-mid: #F5AA02;    /* mid tone accent */
+    --color-primary-strong: #F56102; /* strong accent / emphasis */
+
+    /* Legacy secondary/accent now mapped into the primary palette (no blue) */
+    --color-secondary: #F5AA02;
+    --color-accent: #F56102;
     --color-dark-bg: #0E0E0E;
     --color-light-bg: #FFFFFF;
     --color-text: #2A2A2A;
@@ -143,6 +149,11 @@ button, input, textarea, select {
     backdrop-filter: blur(12px);
     box-shadow: var(--shadow-md);
     border-radius: var(--radius-lg);
+}
+
+[data-theme="dark"] .glass-card {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .button,
