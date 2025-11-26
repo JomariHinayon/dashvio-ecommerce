@@ -177,7 +177,7 @@ input[type="reset"],
     cursor: pointer;
     box-shadow: var(--shadow-sm);
     background: var(--color-primary);
-    color: #111;
+    color: #ffffff;
 }
 
 .button.button-secondary,
