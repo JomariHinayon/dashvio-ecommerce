@@ -1,0 +1,434 @@
+.dashvio-demo-active,
+.dashvio-demo-active body {
+    background: var(--demo-dark, #050607);
+}
+
+.dashvio-demo-active .site-header,
+.dashvio-demo-active .site-footer {
+    display: none;
+}
+
+.dashvio-demo-shell {
+    min-height: 100vh;
+    max-width: 1280px;
+    margin: 0 auto;
+    background: linear-gradient(130deg, rgba(10, 12, 18, 0.98), rgba(15, 23, 36, 0.94));
+    color: #fff;
+    padding: 48px 24px 96px;
+    border-radius: 32px;
+}
+
+.dashvio-demo-shell--fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashvio-demo-fallback {
+    max-width: 560px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.dashvio-demo-fallback a {
+    color: var(--demo-primary, #FFA733);
+    font-weight: 600;
+}
+
+.dashvio-demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.dashvio-demo-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dashvio-demo-logo {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.dashvio-demo-tagline {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.dashvio-demo-nav {
+    display: flex;
+    gap: 16px;
+    font-weight: 600;
+}
+
+.dashvio-demo-nav a {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: background 0.2s ease;
+}
+
+.dashvio-demo-nav a.is-active,
+.dashvio-demo-nav a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.dashvio-demo-cta {
+    background: var(--demo-primary, #FFA733);
+    color: #0b0d11;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.dashvio-demo-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-bottom: 64px;
+}
+
+.dashvio-demo-hero__content {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 40px;
+}
+
+.demo-eyebrow {
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--demo-secondary, #F7931E);
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+}
+
+.dashvio-demo-hero__content h1,
+.dashvio-demo-section h2 {
+    margin: 0 0 16px 0;
+    font-size: 2.6rem;
+    line-height: 1.2;
+}
+
+.demo-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+}
+
+.demo-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.demo-btn {
+    border-radius: 999px;
+    padding: 12px 22px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.demo-btn--primary {
+    background: var(--demo-primary, #FFA733);
+    color: #0b0d11;
+}
+
+.demo-btn--ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+}
+
+.demo-btn:hover {
+    transform: translateY(-1px);
+}
+
+.demo-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+}
+
+.demo-stat {
+    flex: 1;
+    min-width: 120px;
+}
+
+.demo-stat__value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.demo-stat__label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dashvio-demo-hero__visual {
+    display: grid;
+    gap: 20px;
+}
+
+.demo-hero-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 28px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.demo-hero-card--dark {
+    background: rgba(9, 13, 22, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.demo-hero-card span {
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.demo-hero-card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.demo-hero-card__badge,
+.demo-hero-card__price {
+    margin-top: auto;
+    font-weight: 600;
+    color: var(--demo-primary, #FFA733);
+}
+
+.dashvio-demo-section {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 48px;
+    margin-bottom: 48px;
+}
+
+.demo-section-header {
+    max-width: 720px;
+    margin-bottom: 32px;
+}
+
+.demo-section-header p {
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+.demo-collection-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.demo-collection-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.demo-collection-card button {
+    align-self: flex-start;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    padding: 8px 18px;
+    cursor: pointer;
+}
+
+.demo-product-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.demo-product-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.demo-product-thumb {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #151823;
+}
+
+.demo-product-thumb img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.demo-product-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+}
+
+.demo-product-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.dashvio-demo-section--about {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.demo-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.demo-bullets li::before {
+    content: '•';
+    margin-right: 8px;
+    color: var(--demo-primary, #FFA733);
+}
+
+.demo-timeline {
+    border-left: 2px solid rgba(255, 255, 255, 0.18);
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.demo-timeline-year {
+    font-weight: 700;
+    color: var(--demo-primary, #FFA733);
+}
+
+.dashvio-demo-section--contact {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.demo-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.demo-contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.demo-contact-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 6px;
+}
+
+.demo-contact-value {
+    font-weight: 600;
+}
+
+.demo-contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.demo-contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.demo-contact-form input,
+.demo-contact-form textarea {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    padding: 12px 14px;
+}
+
+.demo-contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.demo-contact-form input::placeholder,
+.demo-contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.demo-contact-hours {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dashvio-demo-footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .dashvio-demo-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .dashvio-demo-nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .dashvio-demo-section {
+        padding: 32px;
+    }
+}
+

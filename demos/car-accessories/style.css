@@ -1,0 +1,37 @@
+.dashvio-demo-shell {
+    background: radial-gradient(circle at 20% 20%, rgba(255, 167, 51, 0.12), transparent 45%),
+        radial-gradient(circle at 80% 0%, rgba(245, 97, 2, 0.25), transparent 50%),
+        linear-gradient(135deg, #050608, #0f1a24);
+}
+
+.dashvio-demo-header,
+.dashvio-demo-section,
+.dashvio-demo-hero__content,
+.demo-hero-card,
+.demo-collection-card,
+.demo-product-card,
+.demo-contact-card {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dashvio-demo-nav a {
+    font-size: 0.95rem;
+}
+
+.demo-hero-card {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.demo-hero-card--dark {
+    background: rgba(6, 8, 13, 0.85);
+}
+
+.demo-product-thumb {
+    background: #0b0d11;
+}
+
+.demo-contact-form input,
+.demo-contact-form textarea {
+    background: rgba(5, 7, 12, 0.85);
+}
+

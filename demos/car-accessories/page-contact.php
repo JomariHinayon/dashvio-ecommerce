@@ -1,0 +1,45 @@
+<section class="dashvio-demo-section dashvio-demo-section--contact">
+    <div class="demo-contact-info">
+        <p class="demo-eyebrow">Contact</p>
+        <h2>Let’s build your next upgrade</h2>
+        <p>Tell us about your vehicle, driving habits, and wishlist. Our specialists will curate a personalized upgrade kit within 24 hours.</p>
+        <div class="demo-contact-grid">
+            <div class="demo-contact-card">
+                <span class="demo-contact-label">Service desk</span>
+                <span class="demo-contact-value">garage@dashvio.com</span>
+            </div>
+            <div class="demo-contact-card">
+                <span class="demo-contact-label">Call us</span>
+                <span class="demo-contact-value">+1 (415) 555-0149</span>
+            </div>
+            <div class="demo-contact-card">
+                <span class="demo-contact-label">Showroom</span>
+                <span class="demo-contact-value">1430 Bryant Street, San Francisco</span>
+            </div>
+        </div>
+        <p class="demo-contact-hours">Mon – Sat · 9:00 AM – 7:00 PM PST</p>
+    </div>
+    <div class="demo-contact-form">
+        <h3>Tell us about your vehicle</h3>
+        <form>
+            <label>
+                Full name
+                <input type="text" placeholder="Juan Dela Cruz">
+            </label>
+            <label>
+                Email address
+                <input type="email" placeholder="you@example.com">
+            </label>
+            <label>
+                Vehicle model
+                <input type="text" placeholder="e.g. 2024 Ford Ranger Wildtrak">
+            </label>
+            <label>
+                Upgrade goals
+                <textarea placeholder="Interior refresh, smart cockpit integration, etc."></textarea>
+            </label>
+            <button type="button" class="demo-btn demo-btn--primary">Send request</button>
+        </form>
+    </div>
+</section>
+

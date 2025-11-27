@@ -1,0 +1,324 @@
+.dashvio-prebuilt-wrap {
+    max-width: 100%;
+    padding: 40px 0;
+}
+
+.dashvio-prebuilt-wrap .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.dashvio-prebuilt-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    color: var(--color-text);
+}
+
+.dashvio-prebuilt-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 60px 40px;
+    margin-bottom: 40px;
+    color: #fff;
+    text-align: center;
+}
+
+.dashvio-prebuilt-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dashvio-prebuilt-hero-number {
+    font-size: 72px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    line-height: 1;
+}
+
+.dashvio-prebuilt-hero-text {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.dashvio-prebuilt-hero-description {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin: 0;
+}
+
+.dashvio-prebuilt-content {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.dashvio-prebuilt-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.dashvio-prebuilt-search {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.dashvio-prebuilt-search-input {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.dashvio-prebuilt-search-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.dashvio-prebuilt-search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.dashvio-prebuilt-categories {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.dashvio-prebuilt-categories-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: var(--color-text);
+}
+
+.dashvio-prebuilt-categories-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dashvio-prebuilt-category-item {
+    margin: 0;
+    padding: 0;
+}
+
+.dashvio-prebuilt-category-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: var(--color-text);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+}
+
+.dashvio-prebuilt-category-link:hover {
+    background: #f0f0f1;
+    color: #2271b1;
+}
+
+.dashvio-prebuilt-category-item.active .dashvio-prebuilt-category-link {
+    background: #2271b1;
+    color: #fff;
+}
+
+.dashvio-prebuilt-category-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dashvio-prebuilt-category-count {
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.dashvio-prebuilt-category-item.active .dashvio-prebuilt-category-count {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.dashvio-prebuilt-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.dashvio-prebuilt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.dashvio-prebuilt-demo {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dashvio-prebuilt-demo:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+.dashvio-prebuilt-demo-thumbnail {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    overflow: hidden;
+    background: #f0f0f1;
+}
+
+.dashvio-prebuilt-demo-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dashvio-prebuilt-demo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dashvio-prebuilt-demo:hover .dashvio-prebuilt-demo-overlay {
+    opacity: 1;
+}
+
+.dashvio-prebuilt-import-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dashvio-prebuilt-import-btn:hover {
+    background: #135e96;
+    transform: scale(1.05);
+}
+
+.dashvio-prebuilt-import-icon {
+    font-size: 18px;
+}
+
+.dashvio-prebuilt-demo-info {
+    padding: 20px;
+}
+
+.dashvio-prebuilt-demo-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    color: var(--color-text);
+}
+
+.dashvio-prebuilt-demo-description {
+    font-size: 14px;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin: 0 0 15px 0;
+}
+
+.dashvio-prebuilt-demo-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dashvio-prebuilt-demo-feature {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #f0f0f1;
+    color: var(--color-text);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+    .dashvio-prebuilt-content {
+        flex-direction: column;
+    }
+    
+    .dashvio-prebuilt-sidebar {
+        width: 100%;
+    }
+    
+    .dashvio-prebuilt-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dashvio-prebuilt-hero {
+        padding: 40px 20px;
+    }
+    
+    .dashvio-prebuilt-hero-number {
+        font-size: 48px;
+    }
+    
+    .dashvio-prebuilt-hero-text {
+        font-size: 24px;
+    }
+    
+    .dashvio-prebuilt-hero-description {
+        font-size: 16px;
+    }
+    
+    .dashvio-prebuilt-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+[data-theme="dark"] .dashvio-prebuilt-category-link {
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .dashvio-prebuilt-category-link:hover {
+    color: var(--color-primary);
+}
+

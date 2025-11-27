@@ -16,4 +16,5 @@ require_once DASHVIO_DIR . '/inc/template-functions.php';
 require_once DASHVIO_DIR . '/inc/woocommerce.php';
 require_once DASHVIO_DIR . '/inc/theme-options.php';
 require_once DASHVIO_DIR . '/inc/ajax-handlers.php';
+require_once DASHVIO_DIR . '/inc/admin-prebuilt.php';
 
