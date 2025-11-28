@@ -219,6 +219,28 @@ function dashvio_get_prebuilt_demos() {
                 'hours' => 'Mon – Sat · 9:00 AM – 7:00 PM PST',
             ),
         ),
+        'food-delivery' => array(
+            'id' => 'food-delivery',
+            'name' => 'Food Delivery',
+            'category' => 'food',
+            'description' => 'Built for restaurant groups, cloud kitchens, and premium food delivery brands.',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/food-delivery-thumb.png',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/food-delivery-thumb.png',
+            'preview_url' => home_url('/demo/food-delivery/'),
+            'colors' => array(
+                'primary' => '#E63946',
+                'secondary' => '#F77F00',
+                'accent' => '#FFCD38',
+                'dark' => '#2B2D42',
+                'light' => '#FFFFFF',
+            ),
+            'features' => array(
+                'Menu showcase',
+                'Chef spotlights',
+                'Dark mode ready',
+                'Logistics CTA',
+            ),
+        ),
     );
 }
 
@@ -226,10 +248,14 @@ function dashvio_get_demo_categories() {
     return array(
         'all' => array(
             'name' => 'All',
-            'count' => 1,
+            'count' => 2,
         ),
         'car-accessories' => array(
             'name' => 'Car Accessories',
+            'count' => 1,
+        ),
+        'food' => array(
+            'name' => 'Food & Beverage',
             'count' => 1,
         ),
     );

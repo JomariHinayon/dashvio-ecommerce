@@ -66,7 +66,7 @@ $header_path = trailingslashit($preview_dir) . 'header.php';
 $footer_path = trailingslashit($preview_dir) . 'footer.php';
 ?>
 
-<section class="dashvio-demo-shell" style="--demo-primary: <?php echo esc_attr($primary); ?>; --demo-secondary: <?php echo esc_attr($secondary); ?>; --demo-accent: <?php echo esc_attr($accent); ?>; --demo-dark: <?php echo esc_attr($dark); ?>; --demo-light: <?php echo esc_attr($light); ?>;">
+<section class="dashvio-demo-shell dashvio-demo-shell--<?php echo esc_attr($demo_slug); ?>" style="--demo-primary: <?php echo esc_attr($primary); ?>; --demo-secondary: <?php echo esc_attr($secondary); ?>; --demo-accent: <?php echo esc_attr($accent); ?>; --demo-dark: <?php echo esc_attr($dark); ?>; --demo-light: <?php echo esc_attr($light); ?>;">
     <?php
     if (file_exists($header_path)) {
         include $header_path;

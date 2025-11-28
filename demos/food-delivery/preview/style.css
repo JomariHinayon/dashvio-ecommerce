@@ -1,0 +1,598 @@
+:root {
+    --food-primary: #E63946;
+    --food-secondary: #F77F00;
+    --food-accent: #FFCD38;
+    --food-dark: #2B2D42;
+    --food-light: #FFFFFF;
+}
+
+/* Override dark theme defaults for food demo */
+.dashvio-demo-active body,
+.dashvio-demo-active {
+    background: #fffdf8 !important;
+    color: var(--food-dark);
+    position: relative;
+}
+
+/* Professional background pattern with shapes */
+.dashvio-demo-active body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 18% 18%, rgba(255, 205, 56, 0.55) 0%, rgba(255, 205, 56, 0) 35%),
+        radial-gradient(circle at 82% 15%, rgba(247, 127, 0, 0.4) 0%, rgba(247, 127, 0, 0) 30%),
+        radial-gradient(circle at 35% 5%, rgba(230, 57, 70, 0.25) 0%, rgba(230, 57, 70, 0) 28%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.75;
+}
+
+/* Geometric accent shapes */
+.dashvio-demo-active body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(45deg, transparent 45%, rgba(255, 205, 56, 0.08) 45%, rgba(255, 205, 56, 0.08) 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, rgba(247, 127, 0, 0.08) 45%, rgba(247, 127, 0, 0.08) 55%, transparent 55%);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.3;
+    mix-blend-mode: normal;
+}
+
+.dashvio-demo-shell {
+    background: transparent !important;
+    color: var(--food-dark);
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure content is above shapes */
+.dashvio-demo-header,
+.dashvio-demo-hero,
+.dashvio-demo-section,
+.demo-section--highlights,
+.demo-section--menu,
+.demo-section--steps,
+.demo-section--stories {
+    position: relative;
+    z-index: 2;
+}
+
+body {
+    background: var(--food-light);
+    color: var(--food-dark);
+    font-family: 'DM Sans', 'Inter', sans-serif;
+}
+
+.dashvio-demo-header--food {
+    background: var(--food-accent);
+    border: 1px solid rgba(43, 45, 66, 0.12);
+    border-radius: 20px;
+    padding: 20px 32px;
+    box-shadow: 0 8px 24px rgba(255, 205, 56, 0.3), 0 4px 12px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.dashvio-demo-header--food .dashvio-demo-logo {
+    font-size: 1.4rem;
+    color: var(--food-dark);
+}
+
+.dashvio-demo-header--food .dashvio-demo-nav a {
+    color: var(--food-dark);
+}
+
+.dashvio-demo-header--food .dashvio-demo-nav a:hover,
+.dashvio-demo-header--food .dashvio-demo-nav a.is-active {
+    color: var(--food-primary);
+}
+
+.dashvio-demo-header--food .dashvio-demo-cta {
+    background: var(--food-primary);
+    color: var(--food-light);
+}
+
+.dashvio-demo-hero--food {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.dashvio-demo-hero__content {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 32px;
+    padding: 48px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(43, 45, 66, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.dashvio-demo-hero--food h1 {
+    font-size: 3.2rem;
+    color: var(--food-dark);
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.dashvio-demo-hero--food .demo-eyebrow {
+    color: var(--food-primary);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    display: inline-block;
+    background: rgba(230, 57, 70, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+.dashvio-demo-hero--food .demo-subtitle {
+    color: rgba(43, 45, 66, 0.75);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.dashvio-demo-hero__visual img {
+    width: 100%;
+    border-radius: 32px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+    border: 8px solid rgba(255, 255, 255, 0.8);
+}
+
+.demo-hero-card--badge {
+    margin-top: -60px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(43, 45, 66, 0.12);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 28px;
+}
+
+.demo-hero-card--badge h3 {
+    color: var(--food-dark);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.demo-hero-card--badge p {
+    color: rgba(43, 45, 66, 0.7);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.demo-hero-card__price {
+    color: var(--food-primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.demo-cta-group {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.demo-stats--food {
+    display: flex;
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 2px solid rgba(43, 45, 66, 0.1);
+}
+
+.demo-stats--food .demo-stat__value {
+    color: var(--food-primary);
+    font-size: 2.2rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.demo-stats--food .demo-stat__label {
+    color: rgba(43, 45, 66, 0.65);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.demo-section--highlights {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(43, 45, 66, 0.08);
+    border-radius: 24px;
+    padding: 60px 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.demo-highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.demo-highlight-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid rgba(43, 45, 66, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.demo-highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.demo-highlight-card h3 {
+    color: var(--food-dark);
+    margin-bottom: 12px;
+}
+
+.demo-highlight-card p {
+    color: rgba(43, 45, 66, 0.7);
+}
+
+.demo-section--menu {
+    padding: 80px 0;
+}
+
+.demo-section--highlights,
+.demo-section--steps,
+.demo-section--stories {
+    margin-bottom: 60px;
+}
+
+.demo-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+.demo-menu-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 18px;
+    border: 1px solid rgba(43, 45, 66, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.demo-menu-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+    border-color: rgba(230, 57, 70, 0.3);
+}
+
+.demo-menu-thumb {
+    margin-bottom: 16px;
+}
+
+.demo-menu-thumb img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.demo-menu-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.demo-menu-meta h3 {
+    color: var(--food-dark);
+    margin: 8px 0 6px 0;
+    font-size: 1.15rem;
+}
+
+.demo-menu-meta p {
+    color: rgba(43, 45, 66, 0.65);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.demo-menu-meta strong {
+    color: var(--food-primary);
+    font-size: 1.3rem;
+    white-space: nowrap;
+}
+
+.demo-menu-label {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.12), rgba(247, 127, 0, 0.12));
+    color: var(--food-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+.demo-section--steps {
+    background: rgba(254, 249, 245, 0.8);
+    border-radius: 24px;
+    border: 1px solid rgba(43, 45, 66, 0.08);
+    padding: 60px 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.demo-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
+
+.demo-step {
+    text-align: center;
+}
+
+.demo-step span {
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--food-accent), var(--food-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.demo-step h4 {
+    color: var(--food-dark);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.demo-step p {
+    color: rgba(43, 45, 66, 0.7);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.demo-section--stories {
+    padding: 60px 0;
+}
+
+.demo-stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.demo-stories-grid article {
+    background: rgba(249, 249, 251, 0.8);
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid rgba(43, 45, 66, 0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.demo-stories-grid article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.demo-stories-grid article p {
+    color: rgba(43, 45, 66, 0.8);
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 24px;
+}
+
+.demo-stories-grid article p::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -8px;
+    font-size: 3rem;
+    color: var(--food-accent);
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.demo-stories-grid article strong {
+    color: var(--food-dark);
+    font-weight: 700;
+    font-style: normal;
+    display: block;
+    margin-top: 8px;
+}
+
+.dashvio-demo-section--food {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(43, 45, 66, 0.1);
+    border-radius: 24px;
+    padding: 60px 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.dashvio-demo-section--food .demo-about-content,
+.dashvio-demo-section--food .demo-contact-info {
+    color: var(--food-dark);
+}
+
+.dashvio-demo-section--food .demo-eyebrow {
+    color: var(--food-secondary);
+}
+
+.dashvio-demo-section--food h2 {
+    color: var(--food-dark);
+}
+
+.dashvio-demo-section--food p,
+.dashvio-demo-section--food li {
+    color: rgba(43, 45, 66, 0.75);
+}
+
+.demo-timeline-year {
+    color: var(--food-primary);
+}
+
+.demo-contact-card {
+    background: rgba(249, 249, 251, 0.8);
+    border: 1px solid rgba(43, 45, 66, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.demo-contact-label {
+    color: rgba(43, 45, 66, 0.6);
+}
+
+.demo-contact-value {
+    color: var(--food-dark);
+}
+
+.demo-contact-form input,
+.demo-contact-form textarea {
+    background: var(--food-light);
+    border: 1px solid rgba(43, 45, 66, 0.2);
+    color: var(--food-dark);
+}
+
+.demo-contact-form input:focus,
+.demo-contact-form textarea:focus {
+    border-color: var(--food-primary);
+    outline: none;
+}
+
+.demo-contact-form button {
+    background: var(--food-primary);
+    color: var(--food-light);
+}
+
+.demo-contact-form button:hover {
+    background: #d32f3c;
+}
+
+.dashvio-demo-footer {
+    margin-top: 40px;
+    border-top: 1px solid rgba(43, 45, 66, 0.08);
+    padding: 36px 0 12px;
+    color: rgba(43, 45, 66, 0.65);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 24px 24px 8px 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+}
+
+.dashvio-demo-footer h4,
+.dashvio-demo-footer h5 {
+    color: var(--food-dark);
+}
+
+.dashvio-demo-footer-bottom {
+    text-align: center;
+    margin: 32px auto 20px;
+    color: rgba(43, 45, 66, 0.55);
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+}
+
+.dashvio-demo-footer-bottom p {
+    margin: 0;
+}
+
+.demo-btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+}
+
+.demo-btn--primary {
+    background: linear-gradient(135deg, var(--food-primary), #d32f3c);
+    color: var(--food-light);
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.3);
+}
+
+.demo-btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(230, 57, 70, 0.4);
+}
+
+.demo-btn--ghost {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--food-dark);
+    border: 2px solid rgba(43, 45, 66, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.demo-btn--ghost:hover {
+    border-color: var(--food-primary);
+    color: var(--food-primary);
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-3px);
+}
+
+.dashvio-demo-shell--food-delivery::before,
+.dashvio-demo-shell--food-delivery::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(0px);
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.dashvio-demo-shell--food-delivery::before {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(255, 205, 56, 0.4) 0%, rgba(255, 205, 56, 0) 70%);
+    top: -120px;
+    right: -80px;
+}
+
+.dashvio-demo-shell--food-delivery::after {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(247, 127, 0, 0.35) 0%, rgba(247, 127, 0, 0) 70%);
+    bottom: -200px;
+    left: -160px;
+}
+
+.dashvio-demo-shell--food-delivery > * {
+    position: relative;
+    z-index: 1;
+}
