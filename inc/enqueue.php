@@ -26,6 +26,10 @@ function dashvio_enqueue_scripts() {
     
     wp_enqueue_script('dashvio-main', DASHVIO_URI . '/assets/js/main.js', array('jquery'), DASHVIO_VERSION, true);
     
+    if (is_front_page()) {
+        wp_enqueue_script('dashvio-carousel', DASHVIO_URI . '/assets/js/carousel.js', array('jquery'), DASHVIO_VERSION, true);
+    }
+    
     if (class_exists('WooCommerce')) {
         wp_enqueue_script('dashvio-woocommerce', DASHVIO_URI . '/assets/js/woocommerce.js', array('jquery'), DASHVIO_VERSION, true);
     }

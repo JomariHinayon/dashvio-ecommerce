@@ -2,79 +2,103 @@
 
 <main class="site-main">
     <div class="container">
-        <section class="dash-hero">
+        <section class="dash-hero dash-hero--templates">
             <div class="dash-hero__grid">
                 <div class="dash-hero__content">
-                    <span class="dash-badge"><?php bloginfo('name'); ?></span>
-                    <h1>Modern commerce experiences built for scaling brands.</h1>
-                    <p>Create immersive storefronts, convert more shoppers, and manage your entire catalog with Dashvio's modular e-commerce platform.</p>
+                    <span class="dash-badge">Premium Templates</span>
+                    <h1>Launch your store in minutes with professional templates</h1>
+                    <p>Choose from our collection of stunning, conversion-optimized templates. Each design is crafted for specific industries and ready to import with one click.</p>
                     <div class="dash-btn-group">
+                        <a class="button button-primary" href="<?php echo esc_url(home_url('/prebuilt-websites/')); ?>">
+                            Browse Templates
+                        </a>
                         <?php if (dashvio_show_woocommerce() && function_exists('wc_get_page_id')) :
                             $shop_id = wc_get_page_id('shop');
                             ?>
-                            <a class="button button-primary" href="<?php echo esc_url($shop_id > 0 ? get_permalink($shop_id) : home_url('/shop')); ?>">
-                                Shop now
+                            <a class="button button-outline" href="<?php echo esc_url($shop_id > 0 ? get_permalink($shop_id) : home_url('/shop')); ?>">
+                                Shop Products
                             </a>
                         <?php endif; ?>
-                        <a class="button button-outline" href="#dashvio-insights">View insights</a>
                     </div>
                     <div class="dash-hero__stats">
                         <div class="dash-stat">
-                            <strong>1200+</strong>
-                            <span>Products styled</span>
+                            <strong>3+</strong>
+                            <span>Ready Templates</span>
                         </div>
                         <div class="dash-stat">
-                            <strong>24/7</strong>
-                            <span>Automated support</span>
+                            <strong>1-Click</strong>
+                            <span>Import System</span>
                         </div>
                         <div class="dash-stat">
-                            <strong>98%</strong>
-                            <span>Happier customers</span>
+                            <strong>100%</strong>
+                            <span>Customizable</span>
                         </div>
                     </div>
                 </div>
-                <div class="dash-hero__card glass-card">
-                    <h3>Why Dashvio</h3>
-                    <ul>
-                        <li>- Instant storefront setup and configuration.</li>
-                        <li>- Reusable components for every funnel stage.</li>
-                        <li>- Optimized for conversion & Core Web Vitals.</li>
-                        <li>- Built-in dark & light experiences.</li>
-                    </ul>
+                <div class="dash-hero__carousel">
+                    <?php
+                    $demos = function_exists('dashvio_get_prebuilt_demos') ? dashvio_get_prebuilt_demos() : array();
+                    if (!empty($demos)) :
+                    ?>
+                        <div class="demo-carousel">
+                            <div class="demo-carousel__track">
+                                <?php foreach ($demos as $demo) : ?>
+                                    <div class="demo-carousel__slide">
+                                        <a href="<?php echo esc_url($demo['preview_url']); ?>" target="_blank">
+                                            <img src="<?php echo esc_url($demo['thumbnail']); ?>" alt="<?php echo esc_attr($demo['name']); ?>">
+                                            <div class="demo-carousel__info">
+                                                <h4><?php echo esc_html($demo['name']); ?></h4>
+                                                <p><?php echo esc_html($demo['description']); ?></p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="demo-carousel__dots"></div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
 
-        <section class="dash-section">
+        <section class="dash-section dash-section--templates">
             <div class="dash-section__header">
                 <div>
-                    <h2>Everything you need to launch, iterate, and grow.</h2>
+                    <h2>Professional Templates for Every Industry</h2>
                 </div>
-                <p>Composable sections, rounded UI, glassmorphism, and reusable flows aligned to the Dashvio brand kit.</p>
+                <a class="button button-outline" href="<?php echo esc_url(home_url('/prebuilt-websites/')); ?>">View All Templates</a>
             </div>
-            <div class="dash-cards">
-                <article class="dash-card">
-                    <h4>Component Library</h4>
-                    <p>Buttons, cards, forms, and tables that keep every page visually cohesive.</p>
-                </article>
-                <article class="dash-card">
-                    <h4>Commerce-ready</h4>
-                    <p>Shop, product, cart, checkout, and account templates crafted for modern e-commerce.</p>
-                </article>
-                <article class="dash-card">
-                    <h4>Performance focused</h4>
-                    <p>Lightweight assets, modern typography, and responsive spacing tokens.</p>
-                </article>
+            <div class="dash-templates-grid">
+                <?php
+                $demos = function_exists('dashvio_get_prebuilt_demos') ? dashvio_get_prebuilt_demos() : array();
+                $demo_count = 0;
+                foreach ($demos as $demo) :
+                    if ($demo_count >= 3) break;
+                    $demo_count++;
+                ?>
+                    <article class="dash-template-card">
+                        <div class="dash-template-card__thumb">
+                            <img src="<?php echo esc_url($demo['thumbnail']); ?>" alt="<?php echo esc_attr($demo['name']); ?>">
+                            <div class="dash-template-card__overlay">
+                                <a href="<?php echo esc_url($demo['preview_url']); ?>" class="button button-primary" target="_blank">Preview Demo</a>
+                            </div>
+                        </div>
+                        <div class="dash-template-card__content">
+                            <h4><?php echo esc_html($demo['name']); ?></h4>
+                            <p><?php echo esc_html($demo['description']); ?></p>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
             </div>
         </section>
 
         <?php if (dashvio_show_woocommerce()) : ?>
-            <section class="dash-section">
+            <section class="dash-section dash-section--products">
                 <div class="dash-section__header">
                     <div>
-                        <h2>Fresh drops for modern storefronts.</h2>
+                        <h2>Featured Products</h2>
                     </div>
-                    <a class="button button-outline" href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>">Browse catalog</a>
+                    <a class="button button-outline" href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>">Shop All Products</a>
                 </div>
                 <div class="dash-products">
                     <?php echo do_shortcode('[products limit="4" columns="4" orderby="date" visibility="visible"]'); ?>
