@@ -34,6 +34,27 @@ function dashvio_enqueue_scripts() {
         'ajaxUrl' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('dashvio-nonce'),
     ));
+    
+    if (is_page()) {
+        $page_id = get_the_ID();
+        $demo_id = get_post_meta($page_id, '_dashvio_demo_id', true);
+        if ($demo_id) {
+            $demo_css_path = DASHVIO_DIR . '/demos/' . $demo_id . '/preview/style.css';
+            if (file_exists($demo_css_path)) {
+                wp_enqueue_style(
+                    'dashvio-demo-' . $demo_id,
+                    DASHVIO_URI . '/demos/' . $demo_id . '/preview/style.css',
+                    array(),
+                    DASHVIO_VERSION
+                );
+                
+                $demo_css = get_post_meta($page_id, '_dashvio_demo_css', true);
+                if ($demo_css) {
+                    wp_add_inline_style('dashvio-demo-' . $demo_id, $demo_css);
+                }
+            }
+        }
+    }
 }
 add_action('wp_enqueue_scripts', 'dashvio_enqueue_scripts');
 

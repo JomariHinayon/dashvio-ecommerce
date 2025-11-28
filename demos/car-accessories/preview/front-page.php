@@ -1,5 +1,5 @@
 <?php
-$demo_assets = isset($demo_uri) ? $demo_uri . '/assets' : '';
+$demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $demo_uri . '/preview/assets' : '');
 ?>
 <section class="dashvio-demo-hero">
     <div class="dashvio-demo-hero__content">

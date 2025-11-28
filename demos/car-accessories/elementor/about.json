@@ -1,0 +1,63 @@
+[
+    {
+        "id": "about-section",
+        "elType": "section",
+        "settings": {
+            "layout": "boxed",
+            "content_width": {
+                "unit": "px",
+                "size": 1200
+            },
+            "padding": {
+                "unit": "px",
+                "top": "80",
+                "right": "20",
+                "bottom": "80",
+                "left": "20"
+            }
+        },
+        "elements": [
+            {
+                "id": "about-inner",
+                "elType": "container",
+                "settings": {
+                    "content_width": "full"
+                },
+                "elements": [
+                    {
+                        "id": "about-column",
+                        "elType": "column",
+                        "settings": {
+                            "_column_size": 100
+                        },
+                        "elements": [
+                            {
+                                "id": "about-content",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"demo-about-content\"><p class=\"demo-eyebrow\">About Dashvio Garage</p><h2>Engineered for drivers who demand more</h2><p>Dashvio Garage curates performance-driven accessories for premium and enthusiast vehicles. We collaborate with OEM-certified makers, ensuring every piece meets safety, durability, and style standards.</p><ul class=\"demo-bullets\"><li>Curated catalog for sedans, SUVs, and sports builds.</li><li>Personalized fitting support with real technicians.</li><li>Nationwide fulfillment with 24/7 after-sales assistance.</li></ul></div>",
+                                    "_margin": {
+                                        "unit": "px",
+                                        "top": "0",
+                                        "right": "0",
+                                        "bottom": "60",
+                                        "left": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "id": "about-timeline",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"demo-timeline\"><div class=\"demo-timeline-item\"><span class=\"demo-timeline-year\">2015</span><p>Started as a bespoke detailing studio.</p></div><div class=\"demo-timeline-item\"><span class=\"demo-timeline-year\">2018</span><p>Launched our first premium accessories line.</p></div><div class=\"demo-timeline-item\"><span class=\"demo-timeline-year\">2024</span><p>Powered 5K+ garage upgrades worldwide.</p></div></div>"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -26,6 +26,9 @@ $about_url = trailingslashit(home_url('/demo/' . $demo_slug . '/about/'));
 $contact_url = trailingslashit(home_url('/demo/' . $demo_slug . '/contact/'));
 $demo_dir = DASHVIO_DIR . '/demos/' . $demo_slug;
 $demo_uri = DASHVIO_URI . '/demos/' . $demo_slug;
+$preview_dir = trailingslashit($demo_dir) . 'preview';
+$preview_uri = trailingslashit($demo_uri) . 'preview';
+$preview_assets = trailingslashit($preview_uri) . 'assets';
 
 if (!is_dir($demo_dir)) {
     ?>
@@ -58,9 +61,9 @@ $page_map = array(
 );
 
 $page_file = $page_map[$demo_page];
-$page_path = trailingslashit($demo_dir) . $page_file;
-$header_path = trailingslashit($demo_dir) . 'header.php';
-$footer_path = trailingslashit($demo_dir) . 'footer.php';
+$page_path = trailingslashit($preview_dir) . $page_file;
+$header_path = trailingslashit($preview_dir) . 'header.php';
+$footer_path = trailingslashit($preview_dir) . 'footer.php';
 ?>
 
 <section class="dashvio-demo-shell" style="--demo-primary: <?php echo esc_attr($primary); ?>; --demo-secondary: <?php echo esc_attr($secondary); ?>; --demo-accent: <?php echo esc_attr($accent); ?>; --demo-dark: <?php echo esc_attr($dark); ?>; --demo-light: <?php echo esc_attr($light); ?>;">

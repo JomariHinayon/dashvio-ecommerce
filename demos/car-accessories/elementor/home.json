@@ -1,0 +1,248 @@
+[
+    {
+        "id": "hero-section",
+        "elType": "section",
+        "settings": {
+            "layout": "boxed",
+            "content_width": {
+                "unit": "px",
+                "size": 1200
+            },
+            "padding": {
+                "unit": "px",
+                "top": "80",
+                "right": "20",
+                "bottom": "80",
+                "left": "20"
+            }
+        },
+        "elements": [
+            {
+                "id": "hero-inner",
+                "elType": "container",
+                "settings": {
+                    "content_width": "full"
+                },
+                "elements": [
+                    {
+                        "id": "hero-column-1",
+                        "elType": "column",
+                        "settings": {
+                            "_column_size": 50
+                        },
+                        "elements": [
+                            {
+                                "id": "hero-eyebrow",
+                                "elType": "widget",
+                                "widgetType": "text-editor",
+                                "settings": {
+                                    "editor": "<p class=\"demo-eyebrow\">Premium Automotive Gear</p>",
+                                    "_margin": {
+                                        "unit": "px",
+                                        "top": "0",
+                                        "right": "0",
+                                        "bottom": "20",
+                                        "left": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "id": "hero-heading",
+                                "elType": "widget",
+                                "widgetType": "heading",
+                                "settings": {
+                                    "title": "Drive in style with curated car accessories",
+                                    "size": "xl",
+                                    "_margin": {
+                                        "unit": "px",
+                                        "top": "0",
+                                        "right": "0",
+                                        "bottom": "20",
+                                        "left": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "id": "hero-subtitle",
+                                "elType": "widget",
+                                "widgetType": "text-editor",
+                                "settings": {
+                                    "editor": "<p class=\"demo-subtitle\">Upgrade your ride with leather-crafted interiors, smart devices, and everyday essentials built for performance and comfort.</p>",
+                                    "_margin": {
+                                        "unit": "px",
+                                        "top": "0",
+                                        "right": "0",
+                                        "bottom": "30",
+                                        "left": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "id": "hero-cta-group",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"demo-cta-group\"><a class=\"demo-btn demo-btn--primary\" href=\"#demo-products\">Shop Accessories</a><a class=\"demo-btn demo-btn--ghost\" href=\"#demo-collections\">View Catalogue</a></div>",
+                                    "_margin": {
+                                        "unit": "px",
+                                        "top": "0",
+                                        "right": "0",
+                                        "bottom": "40",
+                                        "left": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "id": "hero-stats",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"demo-stats\"><div class=\"demo-stat\"><span class=\"demo-stat__value\">150+</span><span class=\"demo-stat__label\">New arrivals</span></div><div class=\"demo-stat\"><span class=\"demo-stat__value\">20</span><span class=\"demo-stat__label\">Certified brands</span></div><div class=\"demo-stat\"><span class=\"demo-stat__value\">4.9/5</span><span class=\"demo-stat__label\">Customer rating</span></div></div>"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "hero-column-2",
+                        "elType": "column",
+                        "settings": {
+                            "_column_size": 50
+                        },
+                        "elements": [
+                            {
+                                "id": "hero-visual",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"dashvio-demo-hero__visual\"><div class=\"demo-hero-card\"><span>Featured drop</span><h3>Urban Touring Kit</h3><p>Includes premium steering cover, adaptive roof carrier, and ambient lighting pack.</p><div class=\"demo-hero-card__badge\">Ships in 24h</div></div><div class=\"demo-hero-card demo-hero-card--dark\"><span>Membership</span><h3>Garage Concierge</h3><p>Personal upgrade specialist and seasonal maintenance reminders.</p><div class=\"demo-hero-card__price\">from $39/mo</div></div></div>"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "collections-section",
+        "elType": "section",
+        "settings": {
+            "layout": "boxed",
+            "content_width": {
+                "unit": "px",
+                "size": 1200
+            },
+            "padding": {
+                "unit": "px",
+                "top": "80",
+                "right": "20",
+                "bottom": "80",
+                "left": "20"
+            }
+        },
+        "elements": [
+            {
+                "id": "collections-inner",
+                "elType": "container",
+                "settings": {
+                    "content_width": "full"
+                },
+                "elements": [
+                    {
+                        "id": "collections-column",
+                        "elType": "column",
+                        "settings": {
+                            "_column_size": 100
+                        },
+                        "elements": [
+                            {
+                                "id": "collections-header",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"demo-section-header\"><h2>Signature Collections</h2><p>Modular kits built to match sedans, SUVs, and performance builds.</p></div>",
+                                    "_margin": {
+                                        "unit": "px",
+                                        "top": "0",
+                                        "right": "0",
+                                        "bottom": "40",
+                                        "left": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "id": "collections-grid",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"demo-collection-grid\"><div class=\"demo-collection-card\"><h3>Smart Cockpit Tech</h3><p>HUD displays, performance monitors, and voice assistants tailor-fit for every model.</p><button type=\"button\">View set</button></div><div class=\"demo-collection-card\"><h3>Comfort Interiors</h3><p>Premium seat covers, cooling cushions, and protective mats for all weather drives.</p><button type=\"button\">View set</button></div><div class=\"demo-collection-card\"><h3>Adventure Ready</h3><p>Roof racks, modular storage, and rugged lights for off-road journeys.</p><button type=\"button\">View set</button></div></div>"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "products-section",
+        "elType": "section",
+        "settings": {
+            "layout": "boxed",
+            "content_width": {
+                "unit": "px",
+                "size": 1200
+            },
+            "padding": {
+                "unit": "px",
+                "top": "80",
+                "right": "20",
+                "bottom": "80",
+                "left": "20"
+            }
+        },
+        "elements": [
+            {
+                "id": "products-inner",
+                "elType": "container",
+                "settings": {
+                    "content_width": "full"
+                },
+                "elements": [
+                    {
+                        "id": "products-column",
+                        "elType": "column",
+                        "settings": {
+                            "_column_size": 100
+                        },
+                        "elements": [
+                            {
+                                "id": "products-header",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"demo-section-header\"><h2>Highlighted Accessories</h2><p>Handpicked accessories engineered for daily comfort and long drives.</p></div>",
+                                    "_margin": {
+                                        "unit": "px",
+                                        "top": "0",
+                                        "right": "0",
+                                        "bottom": "40",
+                                        "left": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "id": "products-grid",
+                                "elType": "widget",
+                                "widgetType": "html",
+                                "settings": {
+                                    "html": "<div class=\"demo-product-grid\"><article class=\"demo-product-card\"><div class=\"demo-product-thumb\"><img src=\"{{DEMO_ASSETS_URI}}/product-seat.jpg\" alt=\"Contour Leather Seat Kit\"><span class=\"demo-product-tag\">Bestseller</span></div><h3>Contour Leather Seat Kit</h3><div class=\"demo-product-price\">$249</div><button type=\"button\" class=\"demo-btn demo-btn--ghost\">Add to build</button></article><article class=\"demo-product-card\"><div class=\"demo-product-thumb\"><img src=\"{{DEMO_ASSETS_URI}}/product-hud.jpg\" alt=\"Matrix HUD Display\"><span class=\"demo-product-tag\">Smart Tech</span></div><h3>Matrix HUD Display</h3><div class=\"demo-product-price\">$189</div><button type=\"button\" class=\"demo-btn demo-btn--ghost\">Add to build</button></article><article class=\"demo-product-card\"><div class=\"demo-product-thumb\"><img src=\"{{DEMO_ASSETS_URI}}/product-roof.jpg\" alt=\"Adaptive Roof Carrier\"><span class=\"demo-product-tag\">New</span></div><h3>Adaptive Roof Carrier</h3><div class=\"demo-product-price\">$329</div><button type=\"button\" class=\"demo-btn demo-btn--ghost\">Add to build</button></article></div>"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

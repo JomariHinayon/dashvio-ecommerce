@@ -284,6 +284,68 @@
     padding: 20px;
 }
 
+.dashvio-prebuilt-demo-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.dashvio-prebuilt-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashvio-prebuilt-btn--preview {
+    background: var(--color-background-alt);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-soft);
+}
+
+.dashvio-prebuilt-btn--preview:hover {
+    background: var(--color-background);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .dashvio-prebuilt-btn--preview {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-light);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dashvio-prebuilt-btn--preview:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.dashvio-prebuilt-btn--import {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.dashvio-prebuilt-btn--import:hover {
+    background: var(--color-primary-strong);
+    transform: translateY(-1px);
+}
+
+.dashvio-prebuilt-btn--import:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
 [data-theme="dark"] .dashvio-prebuilt-demo-info {
     background: transparent;
     color: var(--color-text-light);
@@ -374,5 +436,225 @@
 
 [data-theme="dark"] .dashvio-prebuilt-category-link:hover {
     color: var(--color-primary);
+}
+
+.dashvio-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.dashvio-modal.active {
+    display: flex;
+}
+
+.dashvio-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.dashvio-modal-content {
+    position: relative;
+    background: var(--color-background);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+[data-theme="dark"] .dashvio-modal-content {
+    background: var(--color-dark-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashvio-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+[data-theme="dark"] .dashvio-modal-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dashvio-modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .dashvio-modal-title {
+    color: var(--color-text-light);
+}
+
+.dashvio-modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.dashvio-modal-close:hover {
+    background: var(--color-background-alt);
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .dashvio-modal-close {
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .dashvio-modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dashvio-modal-body {
+    padding: 24px;
+}
+
+.dashvio-modal-message {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0 0 20px 0;
+}
+
+[data-theme="dark"] .dashvio-modal-message {
+    color: var(--color-text-light);
+}
+
+.dashvio-modal-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 12px 0;
+}
+
+[data-theme="dark"] .dashvio-modal-subtitle {
+    color: var(--color-text-light);
+}
+
+.dashvio-modal-pages-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--color-background-alt);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+[data-theme="dark"] .dashvio-modal-pages-list {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dashvio-modal-pages-list li {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+.dashvio-modal-pages-list li:last-child {
+    border-bottom: none;
+}
+
+[data-theme="dark"] .dashvio-modal-pages-list li {
+    color: var(--color-text-light);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dashvio-modal-footer {
+    display: flex;
+    gap: 12px;
+    padding: 20px 24px;
+    border-top: 1px solid var(--color-border-soft);
+    justify-content: flex-end;
+}
+
+[data-theme="dark"] .dashvio-modal-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.dashvio-modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 100px;
+}
+
+.dashvio-modal-btn--cancel,
+.dashvio-modal-btn--secondary {
+    background: var(--color-background-alt);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-soft);
+}
+
+.dashvio-modal-btn--cancel:hover,
+.dashvio-modal-btn--secondary:hover {
+    background: var(--color-background);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .dashvio-modal-btn--cancel,
+[data-theme="dark"] .dashvio-modal-btn--secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-light);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dashvio-modal-btn--cancel:hover,
+[data-theme="dark"] .dashvio-modal-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-primary);
+}
+
+.dashvio-modal-btn--confirm,
+.dashvio-modal-btn--primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.dashvio-modal-btn--confirm:hover,
+.dashvio-modal-btn--primary:hover {
+    background: var(--color-primary-strong);
+    transform: translateY(-1px);
+}
+
+.dashvio-modal-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
 }
 
