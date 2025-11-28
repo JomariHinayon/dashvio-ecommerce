@@ -241,6 +241,28 @@ function dashvio_get_prebuilt_demos() {
                 'Logistics CTA',
             ),
         ),
+        'fashion' => array(
+            'id' => 'fashion',
+            'name' => 'Fashion Atelier',
+            'category' => 'fashion',
+            'description' => 'Minimal luxury design for high-end fashion brands and boutique retailers.',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/fashion-thumb.png',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/fashion-thumb.png',
+            'preview_url' => home_url('/demo/fashion/'),
+            'colors' => array(
+                'primary' => '#000000',
+                'secondary' => '#333333',
+                'accent' => '#B4B4B4',
+                'dark' => '#000000',
+                'light' => '#FFFFFF',
+            ),
+            'features' => array(
+                'Minimal luxury design',
+                'Collection showcase',
+                'Premium typography',
+                'Elegant animations',
+            ),
+        ),
     );
 }
 
@@ -248,7 +270,7 @@ function dashvio_get_demo_categories() {
     return array(
         'all' => array(
             'name' => 'All',
-            'count' => 2,
+            'count' => 3,
         ),
         'car-accessories' => array(
             'name' => 'Car Accessories',
@@ -256,6 +278,10 @@ function dashvio_get_demo_categories() {
         ),
         'food' => array(
             'name' => 'Food & Beverage',
+            'count' => 1,
+        ),
+        'fashion' => array(
+            'name' => 'Fashion',
             'count' => 1,
         ),
     );
@@ -333,11 +359,6 @@ function dashvio_prebuilt_websites_content() {
                             <div class="dashvio-prebuilt-demo-info">
                                 <h4 class="dashvio-prebuilt-demo-name"><?php echo esc_html($demo['name']); ?></h4>
                                 <p class="dashvio-prebuilt-demo-description"><?php echo esc_html($demo['description']); ?></p>
-                                <div class="dashvio-prebuilt-demo-features">
-                                    <?php foreach ($demo['features'] as $feature): ?>
-                                        <span class="dashvio-prebuilt-demo-feature"><?php echo esc_html($feature); ?></span>
-                                    <?php endforeach; ?>
-                                </div>
                                 <div class="dashvio-prebuilt-demo-actions">
                                     <a href="<?php echo esc_url($demo['preview_url']); ?>" target="_blank" rel="noopener" class="dashvio-prebuilt-btn dashvio-prebuilt-btn--preview">Try Demo</a>
                                     <button type="button" class="dashvio-prebuilt-btn dashvio-prebuilt-btn--import" data-demo-id="<?php echo esc_attr($demo['id']); ?>" data-demo-name="<?php echo esc_attr($demo['name']); ?>">Import Demo</button>
