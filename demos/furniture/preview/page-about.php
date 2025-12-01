@@ -8,7 +8,7 @@
 
 <section class="furniture-story">
     <div class="furniture-story__image">
-        <img src="<?php echo esc_url($demo_assets . '/about-workshop.png'); ?>" alt="Our workshop" />
+        <img src="<?php echo esc_url($demo_assets . '/about-workshop.jpg'); ?>" alt="Our workshop" />
     </div>
     <div class="furniture-story__content">
         <h2>Where it all began</h2>
