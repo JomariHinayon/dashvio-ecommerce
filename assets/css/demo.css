@@ -3,6 +3,11 @@
     background: var(--demo-dark, #050607);
 }
 
+.dashvio-demo-active.dashvio-demo-shell--furniture,
+body.dashvio-demo-active:has(.dashvio-demo-shell--furniture) {
+    background: #F5F1E8 !important;
+}
+
 .dashvio-demo-active .site-header,
 .dashvio-demo-active .site-footer {
     display: none;
@@ -211,6 +216,11 @@
     color: #fff;
     padding: 48px 24px 96px;
     border-radius: 32px;
+}
+
+.dashvio-demo-shell--furniture {
+    background: #F5F1E8;
+    color: #2C2C2C;
 }
 
 .dashvio-demo-shell--fallback {

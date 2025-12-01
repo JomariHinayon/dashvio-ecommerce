@@ -53,6 +53,7 @@ $demo_base_url = $base_url;
 $demo_about_url = $about_url;
 $demo_contact_url = $contact_url;
 $demo_data = $demo;
+$demo_assets = $preview_assets;
 
 $page_map = array(
     'home' => 'front-page.php',

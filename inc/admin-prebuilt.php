@@ -276,6 +276,28 @@ function dashvio_get_prebuilt_demos() {
                 'Elegant animations',
             ),
         ),
+        'furniture' => array(
+            'id' => 'furniture',
+            'name' => 'Furniture Store',
+            'category' => 'furniture',
+            'description' => 'Modern furniture showroom for home decor, interior design, and lifestyle brands.',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/furniture-thumb.webp',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/furniture-thumb.webp',
+            'preview_url' => home_url('/demo/furniture/'),
+            'colors' => array(
+                'primary' => '#8B7355',
+                'secondary' => '#2C2C2C',
+                'accent' => '#A8B5A0',
+                'dark' => '#2C2C2C',
+                'light' => '#F5F1E8',
+            ),
+            'features' => array(
+                'Modern furniture design',
+                'Product showcase',
+                'Sustainable materials',
+                'Design consultation',
+            ),
+        ),
     );
 }
 
@@ -283,7 +305,7 @@ function dashvio_get_demo_categories() {
     return array(
         'all' => array(
             'name' => 'All',
-            'count' => 3,
+            'count' => 4,
         ),
         'car-accessories' => array(
             'name' => 'Car Accessories',
@@ -295,6 +317,10 @@ function dashvio_get_demo_categories() {
         ),
         'fashion' => array(
             'name' => 'Fashion',
+            'count' => 1,
+        ),
+        'furniture' => array(
+            'name' => 'Furniture',
             'count' => 1,
         ),
     );
