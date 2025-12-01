@@ -8,6 +8,201 @@
     display: none;
 }
 
+.dashvio-demo-purchase-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--demo-primary, #000000);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px 24px;
+    margin: -48px -24px 48px -24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashvio-demo-purchase-bar__content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.dashvio-demo-purchase-bar__info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.dashvio-demo-purchase-bar__info h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--demo-light, #FFFFFF);
+    font-weight: 600;
+}
+
+.dashvio-demo-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--demo-light, #FFFFFF);
+}
+
+.dashvio-demo-purchase-bar__actions {
+    display: flex;
+    gap: 12px;
+}
+
+.dashvio-demo-purchase-bar__actions .button {
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.dashvio-demo-purchase-bar__actions .button-primary {
+    background: var(--demo-light, #FFFFFF);
+    color: var(--demo-primary, #000000);
+    border: none;
+    font-weight: 600;
+}
+
+.dashvio-demo-purchase-bar__actions .button-primary:visited {
+    color: var(--demo-primary, #000000);
+}
+
+.dashvio-demo-purchase-bar__actions .button-primary:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dashvio-add-to-cart-btn[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.dashvio-demo-shell--fashion-atelier .dashvio-demo-purchase-bar {
+    background: var(--fashion-black, #000000);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashvio-demo-shell--fashion-atelier .dashvio-demo-purchase-bar__info h3,
+.dashvio-demo-shell--fashion-atelier .dashvio-demo-price {
+    color: var(--fashion-white, #FFFFFF);
+}
+
+.dashvio-demo-shell--fashion-atelier .dashvio-demo-purchase-bar__actions .button-primary {
+    background: var(--fashion-white, #FFFFFF);
+    color: var(--fashion-black, #000000);
+}
+
+.dashvio-cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.dashvio-cart-notification.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.dashvio-cart-notification__content {
+    background: #FFFFFF;
+    color: #000000;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 320px;
+    max-width: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .dashvio-cart-notification__content {
+    background: #1a1a1a;
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.dashvio-cart-notification__info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dashvio-cart-notification__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: #10B981;
+}
+
+.dashvio-cart-notification__message {
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #000000;
+}
+
+[data-theme="dark"] .dashvio-cart-notification__message {
+    color: #FFFFFF;
+}
+
+.dashvio-cart-notification__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: var(--color-primary, #FF6B35);
+    color: #FFFFFF;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.dashvio-cart-notification__btn:hover {
+    background: var(--color-primary-strong, #F7931E);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+@media (max-width: 768px) {
+    .dashvio-cart-notification {
+        top: 80px;
+        right: 16px;
+        left: 16px;
+        transform: translateY(-100px);
+    }
+    
+    .dashvio-cart-notification.active {
+        transform: translateY(0);
+    }
+    
+    .dashvio-cart-notification__content {
+        min-width: auto;
+        max-width: none;
+    }
+}
+
 .dashvio-demo-shell {
     min-height: 100vh;
     max-width: 1280px;
@@ -417,6 +612,41 @@
 }
 
 @media (max-width: 768px) {
+    .dashvio-demo-purchase-bar {
+        padding: 12px 16px;
+        margin: -48px -24px 32px -24px;
+    }
+    
+    .dashvio-demo-purchase-bar__content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .dashvio-demo-purchase-bar__info {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .dashvio-demo-purchase-bar__info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .dashvio-demo-price {
+        font-size: 1.25rem;
+    }
+    
+    .dashvio-demo-purchase-bar__actions {
+        width: 100%;
+    }
+    
+    .dashvio-demo-purchase-bar__actions .button {
+        width: 100%;
+        text-align: center;
+    }
+    
     .dashvio-demo-header {
         flex-direction: column;
         align-items: flex-start;

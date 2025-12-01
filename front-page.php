@@ -22,16 +22,32 @@
                     </div>
                     <div class="dash-hero__stats">
                         <div class="dash-stat">
-                            <strong>3+</strong>
-                            <span>Ready Templates</span>
+                            <svg class="dash-stat__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div>
+                                <strong>3+</strong>
+                                <span>Ready Templates</span>
+                            </div>
                         </div>
                         <div class="dash-stat">
-                            <strong>1-Click</strong>
-                            <span>Import System</span>
+                            <svg class="dash-stat__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div>
+                                <strong>1-Click</strong>
+                                <span>Import System</span>
+                            </div>
                         </div>
                         <div class="dash-stat">
-                            <strong>100%</strong>
-                            <span>Customizable</span>
+                            <svg class="dash-stat__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div>
+                                <strong>100%</strong>
+                                <span>Customizable</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,12 +70,66 @@
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                            <div class="demo-carousel__dots"></div>
                         </div>
                     <?php endif; ?>
                 </div>
             </div>
         </section>
+
+        <div class="dash-why-toggle">
+            <button class="dash-why-toggle__btn" id="dashvio-why-toggle" aria-expanded="false" aria-controls="dashvio-why-content">
+                <svg class="dash-why-toggle__icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Why Dashvio</span>
+                <svg class="dash-why-toggle__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="dash-why-content" id="dashvio-why-content">
+                <div class="dash-why-content__inner">
+                    <div class="dash-why-grid">
+                        <div class="dash-why-item">
+                            <div class="dash-why-item__header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <h4>Instant storefront setup and configuration</h4>
+                            </div>
+                            <p>Get your online store up and running in minutes with pre-configured settings and ready-to-use templates.</p>
+                        </div>
+                        <div class="dash-why-item">
+                            <div class="dash-why-item__header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <h4>Reusable components for every funnel stage</h4>
+                            </div>
+                            <p>Build consistent user experiences with modular components designed for product pages, checkout, and customer accounts.</p>
+                        </div>
+                        <div class="dash-why-item">
+                            <div class="dash-why-item__header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <h4>Optimized for conversion & Core Web Vitals</h4>
+                            </div>
+                            <p>Fast-loading pages and performance-optimized code ensure better rankings and higher conversion rates.</p>
+                        </div>
+                        <div class="dash-why-item">
+                            <div class="dash-why-item__header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <h4>Built-in dark & light experiences</h4>
+                            </div>
+                            <p>Automatic theme switching adapts to user preferences, providing a comfortable browsing experience day or night.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section class="dash-section dash-section--templates">
             <div class="dash-section__header">

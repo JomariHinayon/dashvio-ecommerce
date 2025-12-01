@@ -99,3 +99,51 @@ function dashvio_cart_fragment($fragments) {
 }
 add_filter('woocommerce_add_to_cart_fragments', 'dashvio_cart_fragment');
 
+function dashvio_remove_view_cart_link($message, $products) {
+    $message = preg_replace('/<a[^>]*class="[^"]*wc-forward[^"]*"[^>]*>.*?View cart.*?<\/a>/i', '', $message);
+    $message = preg_replace('/<a[^>]*>.*?View cart.*?<\/a>/i', '', $message);
+    return $message;
+}
+add_filter('woocommerce_add_to_cart_message_html', 'dashvio_remove_view_cart_link', 10, 2);
+
+function dashvio_exclude_demo_templates_from_shop($query) {
+    if (is_admin()) {
+        return;
+    }
+    
+    if (!isset($query->query_vars['post_type']) || $query->query_vars['post_type'] !== 'product') {
+        return;
+    }
+    
+    $meta_query = $query->get('meta_query');
+    if (!is_array($meta_query)) {
+        $meta_query = array();
+    }
+    
+    $meta_query[] = array(
+        'key' => '_dashvio_demo_id',
+        'compare' => 'NOT EXISTS'
+    );
+    
+    $query->set('meta_query', $meta_query);
+}
+add_action('woocommerce_product_query', 'dashvio_exclude_demo_templates_from_shop');
+
+function dashvio_exclude_demo_templates_from_shortcode($args) {
+    $meta_query = isset($args['meta_query']) ? $args['meta_query'] : array();
+    
+    if (!is_array($meta_query)) {
+        $meta_query = array();
+    }
+    
+    $meta_query[] = array(
+        'key' => '_dashvio_demo_id',
+        'compare' => 'NOT EXISTS'
+    );
+    
+    $args['meta_query'] = $meta_query;
+    
+    return $args;
+}
+add_filter('woocommerce_shortcode_products_query', 'dashvio_exclude_demo_templates_from_shortcode', 10, 1);
+

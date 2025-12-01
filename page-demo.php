@@ -64,9 +64,37 @@ $page_file = $page_map[$demo_page];
 $page_path = trailingslashit($preview_dir) . $page_file;
 $header_path = trailingslashit($preview_dir) . 'header.php';
 $footer_path = trailingslashit($preview_dir) . 'footer.php';
+
+$product_id = function_exists('dashvio_get_demo_product_id') ? dashvio_get_demo_product_id($demo_slug) : false;
+$has_purchased = function_exists('dashvio_user_has_purchased_demo') ? dashvio_user_has_purchased_demo($demo_slug) : false;
+$product = $product_id && class_exists('WooCommerce') ? wc_get_product($product_id) : false;
+$price = $product ? $product->get_price_html() : '$99.00';
 ?>
 
-<section class="dashvio-demo-shell dashvio-demo-shell--<?php echo esc_attr($demo_slug); ?>" style="--demo-primary: <?php echo esc_attr($primary); ?>; --demo-secondary: <?php echo esc_attr($secondary); ?>; --demo-accent: <?php echo esc_attr($accent); ?>; --demo-dark: <?php echo esc_attr($dark); ?>; --demo-light: <?php echo esc_attr($light); ?>;">
+<section class="dashvio-demo-shell dashvio-demo-shell--<?php echo esc_attr($demo_slug); ?>" style="--demo-primary: <?php echo esc_attr($primary); ?>; --demo-secondary: <?php echo esc_attr($secondary); ?>; --demo-accent: <?php echo esc_attr($accent); ?>; --demo-dark: <?php echo esc_attr($dark); ?>; --demo-light: <?php echo esc_attr($light); ?>; <?php if ($demo_slug === 'fashion-atelier') : ?>--fashion-black: #000000; --fashion-white: #FFFFFF; --fashion-bg-gray: #E8E8E8; --fashion-cool-gray: #D2D2D2; --fashion-dark-gray: #333333; --fashion-silver: #B4B4B4;<?php endif; ?>">
+    <div class="dashvio-demo-purchase-bar">
+        <div class="dashvio-demo-purchase-bar__content">
+            <div class="dashvio-demo-purchase-bar__info">
+                <h3><?php echo esc_html($demo['name']); ?> Template</h3>
+                <span class="dashvio-demo-price"><?php echo $price; ?></span>
+            </div>
+            <div class="dashvio-demo-purchase-bar__actions">
+                <?php if ($has_purchased) : ?>
+                    <button type="button" class="button button-primary dashvio-import-demo-btn" data-demo-id="<?php echo esc_attr($demo_slug); ?>" data-demo-name="<?php echo esc_attr($demo['name']); ?>">Import Demo</button>
+                <?php else : ?>
+                    <?php if ($product_id && class_exists('WooCommerce')) : ?>
+                        <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" class="button button-primary dashvio-add-to-cart-btn" data-product-id="<?php echo esc_attr($product_id); ?>">
+                            Add to Cart
+                        </a>
+                    <?php else : ?>
+                        <a href="<?php echo esc_url(home_url('/shop')); ?>" class="button button-primary">
+                            Add to Cart
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
     <?php
     if (file_exists($header_path)) {
         include $header_path;

@@ -2,6 +2,17 @@
     padding: var(--spacing-xl) 0;
 }
 
+.woocommerce-message,
+.woocommerce-info {
+    display: none !important;
+}
+
+.woocommerce-message a.wc-forward,
+.woocommerce-info a.wc-forward,
+.added_to_cart.wc-forward {
+    display: none !important;
+}
+
 .woocommerce-breadcrumb {
     margin-bottom: var(--spacing-lg);
     color: rgba(42, 42, 42, 0.7);

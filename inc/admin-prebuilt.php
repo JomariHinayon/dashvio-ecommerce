@@ -109,6 +109,19 @@ function dashvio_prebuilt_enqueue() {
             DASHVIO_VERSION
         );
         
+        wp_enqueue_script(
+            'dashvio-demo',
+            DASHVIO_URI . '/assets/js/demo.js',
+            array('jquery'),
+            DASHVIO_VERSION,
+            true
+        );
+        
+        wp_localize_script('dashvio-demo', 'dashvioData', array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('dashvio_import_demo_nonce'),
+        ));
+        
         $demo_slug = get_query_var('demo_slug');
         if ($demo_slug) {
             $demo_style_path = DASHVIO_DIR . '/demos/' . $demo_slug . '/preview/style.css';
@@ -361,7 +374,6 @@ function dashvio_prebuilt_websites_content() {
                                 <p class="dashvio-prebuilt-demo-description"><?php echo esc_html($demo['description']); ?></p>
                                 <div class="dashvio-prebuilt-demo-actions">
                                     <a href="<?php echo esc_url($demo['preview_url']); ?>" target="_blank" rel="noopener" class="dashvio-prebuilt-btn dashvio-prebuilt-btn--preview">Try Demo</a>
-                                    <button type="button" class="dashvio-prebuilt-btn dashvio-prebuilt-btn--import" data-demo-id="<?php echo esc_attr($demo['id']); ?>" data-demo-name="<?php echo esc_attr($demo['name']); ?>">Import Demo</button>
                                 </div>
                             </div>
                         </div>
@@ -761,4 +773,92 @@ function dashvio_enqueue_demo_css_before_elementor() {
         );
     }
 }
+
+function dashvio_get_demo_product_id($demo_id) {
+    $product_id = get_option('dashvio_demo_product_' . $demo_id);
+    
+    if ($product_id && get_post($product_id)) {
+        return $product_id;
+    }
+    
+    if (!class_exists('WooCommerce')) {
+        return false;
+    }
+    
+    $demos = dashvio_get_prebuilt_demos();
+    if (!isset($demos[$demo_id])) {
+        return false;
+    }
+    
+    $demo = $demos[$demo_id];
+    
+    $product = new WC_Product_Simple();
+    $product->set_name($demo['name'] . ' Template');
+    $product->set_description($demo['description']);
+    $product->set_regular_price('99.00');
+    $product->set_status('publish');
+    $product->set_catalog_visibility('visible');
+    $product->set_virtual(true);
+    $product->set_downloadable(true);
+    
+    $product_id = $product->save();
+    
+    if ($product_id) {
+        update_option('dashvio_demo_product_' . $demo_id, $product_id);
+        update_post_meta($product_id, '_dashvio_demo_id', $demo_id);
+        
+        if (isset($demo['thumbnail'])) {
+            $attachment_id = attachment_url_to_postid($demo['thumbnail']);
+            if ($attachment_id) {
+                set_post_thumbnail($product_id, $attachment_id);
+            }
+        }
+    }
+    
+    return $product_id;
+}
+
+function dashvio_user_has_purchased_demo($demo_id, $user_id = null) {
+    if (!class_exists('WooCommerce')) {
+        return false;
+    }
+    
+    if (!$user_id) {
+        $user_id = get_current_user_id();
+    }
+    
+    if (!$user_id) {
+        return false;
+    }
+    
+    $product_id = dashvio_get_demo_product_id($demo_id);
+    if (!$product_id) {
+        return false;
+    }
+    
+    $customer_orders = wc_get_orders(array(
+        'customer_id' => $user_id,
+        'status' => array('wc-completed', 'wc-processing'),
+        'limit' => -1,
+    ));
+    
+    foreach ($customer_orders as $order) {
+        foreach ($order->get_items() as $item) {
+            if ($item->get_product_id() == $product_id) {
+                return true;
+            }
+        }
+    }
+    
+    return false;
+}
+
+add_action('init', function() {
+    if (class_exists('WooCommerce')) {
+        $demos = dashvio_get_prebuilt_demos();
+        foreach ($demos as $demo_id => $demo) {
+            dashvio_get_demo_product_id($demo_id);
+        }
+    }
+});
 

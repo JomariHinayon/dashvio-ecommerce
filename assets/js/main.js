@@ -67,6 +67,17 @@
                 localStorage.setItem(THEME_KEY, nextTheme);
             });
         }
+
+        const whyToggle = document.getElementById('dashvio-why-toggle');
+        const whyContent = document.getElementById('dashvio-why-content');
+        
+        if (whyToggle && whyContent) {
+            whyToggle.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                whyContent.classList.toggle('is-open');
+            });
+        }
         
     });
 
