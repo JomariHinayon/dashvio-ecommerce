@@ -145,8 +145,8 @@ function dashvio_get_prebuilt_demos() {
             'name' => 'Car Accessories',
             'category' => 'car-accessories',
             'description' => 'Perfect for automotive parts, car accessories, and vehicle-related products.',
-            'thumbnail' => DASHVIO_URI . '/assets/images/demos/car-accessories-thumb.png',
-            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/car-accessories-thumb.png',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/car-accessories-thumb.webp',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/car-accessories-thumb.webp',
             'preview_url' => home_url('/demo/car-accessories/'),
             'colors' => array(
                 'primary' => '#FF6B35',
@@ -237,8 +237,8 @@ function dashvio_get_prebuilt_demos() {
             'name' => 'Food Delivery',
             'category' => 'food',
             'description' => 'Built for restaurant groups, cloud kitchens, and premium food delivery brands.',
-            'thumbnail' => DASHVIO_URI . '/assets/images/demos/food-delivery-thumb.png',
-            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/food-delivery-thumb.png',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/food-delivery-thumb.webp',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/food-delivery-thumb.webp',
             'preview_url' => home_url('/demo/food-delivery/'),
             'colors' => array(
                 'primary' => '#E63946',
@@ -259,8 +259,8 @@ function dashvio_get_prebuilt_demos() {
             'name' => 'Fashion Atelier',
             'category' => 'fashion',
             'description' => 'Minimal luxury design for high-end fashion brands and boutique retailers.',
-            'thumbnail' => DASHVIO_URI . '/assets/images/demos/fashion-thumb.png',
-            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/fashion-thumb.png',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/fashion-thumb.webp',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/fashion-thumb.webp',
             'preview_url' => home_url('/demo/fashion/'),
             'colors' => array(
                 'primary' => '#000000',

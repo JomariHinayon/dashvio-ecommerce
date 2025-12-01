@@ -26,7 +26,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
         </div>
     </div>
     <div class="dashvio-demo-hero__visual">
-        <img src="<?php echo esc_url($demo_assets . '/hero-platter.png'); ?>" alt="Hero platter" />
+        <img src="<?php echo esc_url($demo_assets . '/hero-platter.webp'); ?>" alt="Hero platter" />
         <div class="demo-hero-card demo-hero-card--badge">
             <h3>Tonight's drop</h3>
             <p>Smoked harissa salmon, burnt lemon couscous, charred greens.</p>
@@ -64,7 +64,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
     <div class="demo-menu-grid">
         <article class="demo-menu-card">
             <div class="demo-menu-thumb">
-                <img src="<?php echo esc_url($demo_assets . '/dish-bowl.png'); ?>" alt="Spiced grain bowl" />
+                <img src="<?php echo esc_url($demo_assets . '/dish-bowl.webp'); ?>" alt="Spiced grain bowl" />
             </div>
             <div class="demo-menu-meta">
                 <div>
@@ -77,7 +77,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
         </article>
         <article class="demo-menu-card">
             <div class="demo-menu-thumb">
-                <img src="<?php echo esc_url($demo_assets . '/fresh-salad.png'); ?>" alt="Garden salad" />
+                <img src="<?php echo esc_url($demo_assets . '/fresh-salad.webp'); ?>" alt="Garden salad" />
             </div>
             <div class="demo-menu-meta">
                 <div>
@@ -90,7 +90,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
         </article>
         <article class="demo-menu-card">
             <div class="demo-menu-thumb">
-                <img src="<?php echo esc_url($demo_assets . '/dessert-bites.png'); ?>" alt="Dessert bites" />
+                <img src="<?php echo esc_url($demo_assets . '/dessert-bites.webp'); ?>" alt="Dessert bites" />
             </div>
             <div class="demo-menu-meta">
                 <div>

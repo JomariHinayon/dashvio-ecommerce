@@ -26,7 +26,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
         </div>
     </div>
     <div class="dashvio-demo-hero__visual">
-        <img src="<?php echo esc_url($demo_assets . '/hero-fashion.png'); ?>" alt="Fashion hero" />
+        <img src="<?php echo esc_url($demo_assets . '/hero-fashion.webp'); ?>" alt="Fashion hero" />
     </div>
 </section>
 
@@ -39,7 +39,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
         <article class="demo-collection-card">
             <div class="demo-collection-thumb">
                 <span class="demo-collection-label">New Arrival</span>
-                <img src="<?php echo esc_url($demo_assets . '/collection-1.png'); ?>" alt="Tailored Blazer" />
+                <img src="<?php echo esc_url($demo_assets . '/collection-1.webp'); ?>" alt="Tailored Blazer" />
             </div>
             <div class="demo-collection-meta">
                 <h3>Tailored Wool Blazer</h3>
@@ -50,7 +50,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
         <article class="demo-collection-card">
             <div class="demo-collection-thumb">
                 <span class="demo-collection-label">Bestseller</span>
-                <img src="<?php echo esc_url($demo_assets . '/collection-2.png'); ?>" alt="Silk Dress" />
+                <img src="<?php echo esc_url($demo_assets . '/collection-2.webp'); ?>" alt="Silk Dress" />
             </div>
             <div class="demo-collection-meta">
                 <h3>Silk Evening Dress</h3>
@@ -61,7 +61,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
         <article class="demo-collection-card">
             <div class="demo-collection-thumb">
                 <span class="demo-collection-label">Limited</span>
-                <img src="<?php echo esc_url($demo_assets . '/collection-3.png'); ?>" alt="Leather Bag" />
+                <img src="<?php echo esc_url($demo_assets . '/collection-3.webp'); ?>" alt="Leather Bag" />
             </div>
             <div class="demo-collection-meta">
                 <h3>Structured Leather Tote</h3>
@@ -100,7 +100,7 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
         <p>Sustainability and ethical production are at the heart of everything we do. We work exclusively with certified suppliers and ensure fair practices throughout our supply chain.</p>
     </div>
     <div class="demo-philosophy-visual">
-        <img src="<?php echo esc_url($demo_assets . '/philosophy.png'); ?>" alt="Atelier philosophy" />
+        <img src="<?php echo esc_url($demo_assets . '/philosophy.webp'); ?>" alt="Atelier philosophy" />
     </div>
 </section>
 
