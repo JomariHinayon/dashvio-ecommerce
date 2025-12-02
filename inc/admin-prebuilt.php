@@ -320,6 +320,28 @@ function dashvio_get_prebuilt_demos() {
                 'Smart integrations',
             ),
         ),
+        'health' => array(
+            'id' => 'health',
+            'name' => 'HealthCare Plus',
+            'category' => 'health',
+            'description' => 'Professional healthcare website for hospitals, clinics, and medical practices.',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/health-thumb.webp',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/health-thumb.webp',
+            'preview_url' => home_url('/demo/health/'),
+            'colors' => array(
+                'primary' => '#00B4A6',
+                'secondary' => '#1A4D7E',
+                'accent' => '#6FCF97',
+                'dark' => '#4A5568',
+                'light' => '#FFFFFF',
+            ),
+            'features' => array(
+                'Full-screen hero design',
+                'Medical services showcase',
+                'Appointment booking',
+                'Team profiles',
+            ),
+        ),
     );
 }
 
@@ -327,7 +349,7 @@ function dashvio_get_demo_categories() {
     return array(
         'all' => array(
             'name' => 'All',
-            'count' => 5,
+            'count' => 6,
         ),
         'car-accessories' => array(
             'name' => 'Car Accessories',
@@ -347,6 +369,10 @@ function dashvio_get_demo_categories() {
         ),
         'gadgets' => array(
             'name' => 'Tech & Gadgets',
+            'count' => 1,
+        ),
+        'health' => array(
+            'name' => 'Health & Medical',
             'count' => 1,
         ),
     );

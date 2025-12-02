@@ -1,0 +1,478 @@
+:root {
+    --health-primary: #00B4A6;
+    --health-secondary: #1A4D7E;
+    --health-accent: #6FCF97;
+    --health-dark: #4A5568;
+    --health-light: #FFFFFF;
+    --health-surface: #FFFFFF;
+    --health-border: rgba(0, 0, 0, 0.08);
+    --health-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --health-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --health-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --health-radius-sm: 8px;
+    --health-radius-md: 16px;
+    --health-radius-lg: 24px;
+    --health-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.7;
+    color: var(--health-dark);
+    background: #FFFFFF;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+}
+
+.dashvio-demo-header--health {
+    background: linear-gradient(to bottom, rgba(10, 32, 68, 0.85), rgba(10, 32, 68, 0.0));
+    padding: 1.25rem 0;
+    border-bottom: none;
+    position: relative;
+    z-index: 100;
+    transition: var(--health-transition);
+}
+
+.dashvio-demo-nav--health {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashvio-demo-logo--health {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: var(--health-transition);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashvio-demo-logo--health:hover {
+    opacity: 0.9;
+}
+
+.dashvio-demo-menu--health {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.dashvio-demo-menu--health a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: var(--health-transition);
+    position: relative;
+}
+
+.dashvio-demo-menu--health a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+}
+
+.dashvio-demo-section--health {
+    padding: 6rem 2rem;
+    background: var(--health-secondary);
+    color: #FFFFFF;
+}
+
+.dashvio-demo-container--health {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.dashvio-demo-hero--health {
+    background: 
+        linear-gradient(135deg, rgba(0, 180, 166, 0.88) 0%, rgba(26, 77, 126, 0.92) 100%),
+        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80') center/cover no-repeat;
+    color: #fff;
+    padding: 8rem 2rem 8rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashvio-demo-hero--health::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 40% 50%, rgba(111, 207, 151, 0.2), transparent 60%);
+    pointer-events: none;
+    animation: pulse-glow-health 8s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-health {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.dashvio-demo-hero--health h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+}
+
+.dashvio-demo-hero--health p {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    opacity: 0.96;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.dashvio-demo-btn--health {
+    display: inline-block;
+    padding: 1.125rem 2.75rem;
+    background: #fff;
+    color: var(--health-primary);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--health-transition);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.01em;
+}
+
+.dashvio-demo-btn--health:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.dashvio-demo-btn--health:active {
+    transform: translateY(-1px) scale(1);
+}
+
+.dashvio-demo-title--health {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    color: #FFFFFF;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.dashvio-demo-subtitle--health {
+    text-align: center;
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 4rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.dashvio-demo-grid--health {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.dashvio-demo-card--health {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--health-radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: var(--health-transition);
+    box-shadow: var(--health-shadow-sm);
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.dashvio-demo-card--health:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 180, 166, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.dashvio-demo-card-icon--health {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 1.75rem;
+    background: linear-gradient(135deg, var(--health-primary), var(--health-accent));
+    border-radius: var(--health-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 180, 166, 0.2);
+    transition: var(--health-transition);
+}
+
+.dashvio-demo-card--health:hover .dashvio-demo-card-icon--health {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.dashvio-demo-card--health h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.875rem;
+    color: var(--health-primary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.dashvio-demo-card--health p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.dashvio-demo-features--health {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.dashvio-demo-feature--health {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--health-radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: var(--health-transition);
+}
+
+.dashvio-demo-feature--health:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 180, 166, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.dashvio-demo-feature-icon--health {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 1.75rem;
+    background: linear-gradient(135deg, var(--health-primary), var(--health-accent));
+    border-radius: var(--health-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 180, 166, 0.2);
+    transition: var(--health-transition);
+}
+
+.dashvio-demo-feature--health:hover .dashvio-demo-feature-icon--health {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.dashvio-demo-feature--health h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0.875rem;
+    color: #FFFFFF;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.dashvio-demo-feature--health p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.dashvio-demo-cta--health {
+    background: var(--health-secondary);
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.dashvio-demo-cta--health h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashvio-demo-cta--health p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.dashvio-demo-form--health {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.dashvio-demo-form-group--health {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.dashvio-demo-form-group--health label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.dashvio-demo-form-group--health input,
+.dashvio-demo-form-group--health textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.dashvio-demo-form-group--health input::placeholder,
+.dashvio-demo-form-group--health textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.dashvio-demo-form-group--health input:focus,
+.dashvio-demo-form-group--health textarea:focus {
+    outline: none;
+    border-color: var(--health-accent);
+    background: rgba(255,255,255,0.15);
+}
+
+.dashvio-demo-form-group--health textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.dashvio-demo-btn-submit--health {
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--health-primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dashvio-demo-btn-submit--health:hover {
+    background: var(--health-accent);
+    transform: translateY(-2px);
+}
+
+.dashvio-demo-footer--health {
+    background: var(--health-secondary);
+    color: #fff;
+    padding: 3rem 2rem 2rem;
+}
+
+.dashvio-demo-footer-content--health {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.dashvio-demo-footer-section--health h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--health-accent);
+}
+
+.dashvio-demo-footer-section--health p,
+.dashvio-demo-footer-section--health a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.dashvio-demo-footer-section--health a:hover {
+    color: var(--health-accent);
+}
+
+.dashvio-demo-footer-bottom--health {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .dashvio-demo-menu--health {
+        gap: 0.25rem;
+    }
+    
+    .dashvio-demo-menu--health a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .dashvio-demo-hero--health {
+        padding: 8rem 2rem 6rem;
+        min-height: 80vh;
+    }
+    
+    .dashvio-demo-hero--health h1 {
+        font-size: 2.5rem;
+    }
+    
+    .dashvio-demo-hero--health p {
+        font-size: 1.125rem;
+    }
+    
+    .dashvio-demo-title--health {
+        font-size: 2rem;
+    }
+    
+    .dashvio-demo-grid--health {
+        grid-template-columns: 1fr;
+    }
+}
+
