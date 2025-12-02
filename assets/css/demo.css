@@ -8,6 +8,11 @@ body.dashvio-demo-active:has(.dashvio-demo-shell--furniture) {
     background: #F5F1E8 !important;
 }
 
+.dashvio-demo-active.dashvio-demo-shell--gadgets,
+body.dashvio-demo-active:has(.dashvio-demo-shell--gadgets) {
+    background: #FFFFFF !important;
+}
+
 .dashvio-demo-active .site-header,
 .dashvio-demo-active .site-footer {
     display: none;
@@ -221,6 +226,11 @@ body.dashvio-demo-active:has(.dashvio-demo-shell--furniture) {
 .dashvio-demo-shell--furniture {
     background: #F5F1E8;
     color: #2C2C2C;
+}
+
+.dashvio-demo-shell--gadgets {
+    background: #FFFFFF;
+    color: #2D3142;
 }
 
 .dashvio-demo-shell--fallback {

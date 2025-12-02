@@ -1,0 +1,549 @@
+:root {
+    --gadget-primary: #0066FF;
+    --gadget-secondary: #1A1F36;
+    --gadget-accent: #00D9FF;
+    --gadget-dark: #2D3142;
+    --gadget-light: #F8F9FA;
+    --gadget-surface: #FFFFFF;
+    --gadget-border: rgba(0, 0, 0, 0.08);
+    --gadget-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --gadget-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --gadget-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --gadget-radius-sm: 8px;
+    --gadget-radius-md: 16px;
+    --gadget-radius-lg: 24px;
+    --gadget-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.7;
+    color: var(--gadget-dark);
+    background: #FFFFFF;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.09), transparent 70%);
+    top: -100px;
+    right: -100px;
+    animation: float 20s ease-in-out infinite;
+}
+
+body::after {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.09), transparent 70%);
+    bottom: -150px;
+    left: -150px;
+    animation: float 25s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+.dashvio-demo-section--gadgets {
+    position: relative;
+}
+
+.dashvio-demo-section--gadgets::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.09), transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    animation: pulse 15s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.dashvio-demo-section--gadgets:nth-child(even)::before {
+    right: auto;
+    left: 5%;
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.09), transparent 70%);
+    animation-delay: 2s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-50%) scale(1.2);
+        opacity: 0.6;
+    }
+}
+
+.dashvio-demo-container--gadgets {
+    position: relative;
+    z-index: 1;
+}
+
+.dashvio-demo-header--gadgets {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--gadget-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--gadget-transition);
+}
+
+.dashvio-demo-nav--gadgets {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashvio-demo-logo--gadgets {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gadget-primary);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: var(--gadget-transition);
+}
+
+.dashvio-demo-logo--gadgets:hover {
+    opacity: 0.8;
+}
+
+.dashvio-demo-menu--gadgets {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.dashvio-demo-menu--gadgets a {
+    color: var(--gadget-dark);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: var(--gadget-transition);
+    position: relative;
+}
+
+.dashvio-demo-menu--gadgets a::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: var(--gadget-primary);
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashvio-demo-menu--gadgets a:hover {
+    color: var(--gadget-primary);
+    background: rgba(0, 102, 255, 0.06);
+}
+
+.dashvio-demo-menu--gadgets a:hover::after {
+    transform: scaleX(1);
+}
+
+.dashvio-demo-section--gadgets {
+    padding: 6rem 2rem;
+}
+
+.dashvio-demo-container--gadgets {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashvio-demo-hero--gadgets {
+    background: 
+        linear-gradient(135deg, rgba(0, 102, 255, 0.92) 0%, rgba(26, 31, 54, 0.94) 100%),
+        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1600&q=80') center/cover no-repeat;
+    color: #fff;
+    padding: 8rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.dashvio-demo-hero--gadgets::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(0, 217, 255, 0.25), transparent 60%);
+    pointer-events: none;
+    animation: pulse-glow 8s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.dashvio-demo-hero--gadgets h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+}
+
+.dashvio-demo-hero--gadgets p {
+    font-size: 1.375rem;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    opacity: 0.96;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.dashvio-demo-btn--gadgets {
+    display: inline-block;
+    padding: 1.125rem 2.75rem;
+    background: #fff;
+    color: var(--gadget-primary);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--gadget-transition);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.01em;
+}
+
+.dashvio-demo-btn--gadgets:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.dashvio-demo-btn--gadgets:active {
+    transform: translateY(-1px) scale(1);
+}
+
+.dashvio-demo-title--gadgets {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    color: var(--gadget-secondary);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.dashvio-demo-subtitle--gadgets {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #5A5A5A;
+    margin-bottom: 4rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.dashvio-demo-grid--gadgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.dashvio-demo-card--gadgets {
+    background: var(--gadget-surface);
+    border-radius: var(--gadget-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--gadget-border);
+    transition: var(--gadget-transition);
+    box-shadow: var(--gadget-shadow-sm);
+}
+
+.dashvio-demo-card--gadgets:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--gadget-shadow-lg);
+    border-color: rgba(0, 102, 255, 0.2);
+}
+
+.dashvio-demo-card-img--gadgets {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    background: var(--gadget-light);
+    transition: var(--gadget-transition);
+}
+
+.dashvio-demo-card--gadgets:hover .dashvio-demo-card-img--gadgets {
+    transform: scale(1.05);
+}
+
+.dashvio-demo-card-content--gadgets {
+    padding: 2rem;
+}
+
+.dashvio-demo-card-content--gadgets h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0.875rem;
+    color: var(--gadget-secondary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.dashvio-demo-card-content--gadgets p {
+    color: #5A5A5A;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.dashvio-demo-features--gadgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.dashvio-demo-feature--gadgets {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--gadget-surface);
+    border-radius: var(--gadget-radius-lg);
+    border: 1px solid var(--gadget-border);
+    transition: var(--gadget-transition);
+}
+
+.dashvio-demo-feature--gadgets:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--gadget-shadow-md);
+    border-color: rgba(0, 102, 255, 0.15);
+}
+
+.dashvio-demo-feature-icon--gadgets {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 1.75rem;
+    background: linear-gradient(135deg, var(--gadget-primary), var(--gadget-accent));
+    border-radius: var(--gadget-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.2);
+    transition: var(--gadget-transition);
+}
+
+.dashvio-demo-feature--gadgets:hover .dashvio-demo-feature-icon--gadgets {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.dashvio-demo-feature--gadgets h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0.875rem;
+    color: var(--gadget-secondary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.dashvio-demo-feature--gadgets p {
+    color: #5A5A5A;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.dashvio-demo-cta--gadgets {
+    background: var(--gadget-secondary);
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.dashvio-demo-cta--gadgets h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashvio-demo-cta--gadgets p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.dashvio-demo-form--gadgets {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.dashvio-demo-form-group--gadgets {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.dashvio-demo-form-group--gadgets label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.dashvio-demo-form-group--gadgets input,
+.dashvio-demo-form-group--gadgets textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.dashvio-demo-form-group--gadgets input::placeholder,
+.dashvio-demo-form-group--gadgets textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.dashvio-demo-form-group--gadgets input:focus,
+.dashvio-demo-form-group--gadgets textarea:focus {
+    outline: none;
+    border-color: var(--gadget-accent);
+    background: rgba(255,255,255,0.15);
+}
+
+.dashvio-demo-form-group--gadgets textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.dashvio-demo-btn-submit--gadgets {
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--gadget-primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dashvio-demo-btn-submit--gadgets:hover {
+    background: var(--gadget-accent);
+    transform: translateY(-2px);
+}
+
+.dashvio-demo-footer--gadgets {
+    background: var(--gadget-secondary);
+    color: #fff;
+    padding: 3rem 2rem 2rem;
+}
+
+.dashvio-demo-footer-content--gadgets {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.dashvio-demo-footer-section--gadgets h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--gadget-accent);
+}
+
+.dashvio-demo-footer-section--gadgets p,
+.dashvio-demo-footer-section--gadgets a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.dashvio-demo-footer-section--gadgets a:hover {
+    color: var(--gadget-accent);
+}
+
+.dashvio-demo-footer-bottom--gadgets {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .dashvio-demo-menu--gadgets {
+        gap: 1.5rem;
+    }
+    
+    .dashvio-demo-hero--gadgets h1 {
+        font-size: 2.5rem;
+    }
+    
+    .dashvio-demo-title--gadgets {
+        font-size: 2rem;
+    }
+    
+    .dashvio-demo-grid--gadgets {
+        grid-template-columns: 1fr;
+    }
+}
+

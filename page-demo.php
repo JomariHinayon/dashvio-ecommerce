@@ -28,7 +28,7 @@ $demo_dir = DASHVIO_DIR . '/demos/' . $demo_slug;
 $demo_uri = DASHVIO_URI . '/demos/' . $demo_slug;
 $preview_dir = trailingslashit($demo_dir) . 'preview';
 $preview_uri = trailingslashit($demo_uri) . 'preview';
-$preview_assets = trailingslashit($preview_uri) . 'assets';
+$preview_assets = trailingslashit($preview_uri) . 'assets/';
 
 if (!is_dir($demo_dir)) {
     ?>

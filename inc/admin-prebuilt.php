@@ -298,6 +298,28 @@ function dashvio_get_prebuilt_demos() {
                 'Design consultation',
             ),
         ),
+        'gadgets' => array(
+            'id' => 'gadgets',
+            'name' => 'Tech Gadgets',
+            'category' => 'gadgets',
+            'description' => 'Modern tech store for electronics, smart devices, and innovative gadgets.',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/gadgets-thumb.webp',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/gadgets-thumb.webp',
+            'preview_url' => home_url('/demo/gadgets/'),
+            'colors' => array(
+                'primary' => '#0066FF',
+                'secondary' => '#1A1F36',
+                'accent' => '#00D9FF',
+                'dark' => '#2D3142',
+                'light' => '#F8F9FA',
+            ),
+            'features' => array(
+                'Tech-focused design',
+                'Product specifications',
+                'Innovation showcase',
+                'Smart integrations',
+            ),
+        ),
     );
 }
 
@@ -305,7 +327,7 @@ function dashvio_get_demo_categories() {
     return array(
         'all' => array(
             'name' => 'All',
-            'count' => 4,
+            'count' => 5,
         ),
         'car-accessories' => array(
             'name' => 'Car Accessories',
@@ -321,6 +343,10 @@ function dashvio_get_demo_categories() {
         ),
         'furniture' => array(
             'name' => 'Furniture',
+            'count' => 1,
+        ),
+        'gadgets' => array(
+            'name' => 'Tech & Gadgets',
             'count' => 1,
         ),
     );
