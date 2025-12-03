@@ -29,6 +29,30 @@
     </div>
 </section>
 
+<!-- Animated Stats Section -->
+<section class="furniture-features" style="padding: 4rem 2rem; background: rgba(139, 115, 85, 0.05);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+            <div class="dashvio-scroll-fade" style="text-align: center;">
+                <div class="dashvio-counter" data-target="500" style="color: var(--furniture-primary, #8B7355);">0</div>
+                <p style="margin-top: 0.75rem; color: var(--furniture-dark, #2C2C2C); font-weight: 500;">Furniture Pieces</p>
+            </div>
+            <div class="dashvio-scroll-fade" style="text-align: center;">
+                <div class="dashvio-counter" data-target="15" style="color: var(--furniture-primary, #8B7355);">0</div>
+                <p style="margin-top: 0.75rem; color: var(--furniture-dark, #2C2C2C); font-weight: 500;">Years Experience</p>
+            </div>
+            <div class="dashvio-scroll-fade" style="text-align: center;">
+                <div class="dashvio-counter" data-target="10000" style="color: var(--furniture-primary, #8B7355);">0</div>
+                <p style="margin-top: 0.75rem; color: var(--furniture-dark, #2C2C2C); font-weight: 500;">Happy Customers</p>
+            </div>
+            <div class="dashvio-scroll-fade" style="text-align: center;">
+                <div class="dashvio-counter" data-target="48" style="color: var(--furniture-primary, #8B7355);">0</div>
+                <p style="margin-top: 0.75rem; color: var(--furniture-dark, #2C2C2C); font-weight: 500;">Rating (5.0)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="furniture-collections">
     <div class="furniture-section-header">
         <div class="furniture-section-label">Collections</div>
@@ -147,3 +171,96 @@
     </div>
 </section>
 
+<!-- Sticky CTA Button -->
+<div class="dashvio-sticky-cta">
+    <a href="#collections" class="furniture-btn furniture-btn--primary" style="padding: 1rem 2rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+        Explore Collection
+    </a>
+</div>
+
+<!-- Image Lightbox -->
+<div class="dashvio-lightbox" onclick="closeLightbox()">
+    <span class="dashvio-lightbox-close">&times;</span>
+    <img src="" alt="" id="lightbox-image">
+</div>
+
+<script>
+(function() {
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.dashvio-scroll-fade').forEach(el => observer.observe(el));
+    document.querySelectorAll('.furniture-hero__title, .furniture-hero__subtitle, .furniture-section-header h2').forEach(el => {
+        el.classList.add('dashvio-scroll-fade');
+        observer.observe(el);
+    });
+    
+    // Animated Counters
+    function animateCounter(element, target, duration) {
+        duration = duration || 2000;
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(function() {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start).toLocaleString();
+            }
+        }, 16);
+    }
+    
+    const counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                animateCounter(entry.target, target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.dashvio-counter').forEach(counter => {
+        counterObserver.observe(counter);
+    });
+    
+    window.openLightbox = function(imgSrc, imgAlt) {
+        const lightbox = document.querySelector('.dashvio-lightbox');
+        const img = document.getElementById('lightbox-image');
+        if (lightbox && img) {
+            img.src = imgSrc;
+            img.alt = imgAlt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+    
+    window.closeLightbox = function() {
+        const lightbox = document.querySelector('.dashvio-lightbox');
+        if (lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+    
+    document.querySelectorAll('.furniture-card__media img, .furniture-hero__image img').forEach(img => {
+        img.classList.add('dashvio-image-zoom');
+        img.addEventListener('click', function() { openLightbox(this.src, this.alt); });
+    });
+    
+    const stickyCTA = document.querySelector('.dashvio-sticky-cta');
+    if (stickyCTA) {
+        const heroHeight = document.querySelector('.furniture-hero') ? document.querySelector('.furniture-hero').offsetHeight : 0;
+        window.addEventListener('scroll', function() {
+            stickyCTA.classList.toggle('visible', window.scrollY > heroHeight);
+        });
+    }
+    
+})();
+</script>

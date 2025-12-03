@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&display=swap');
+
 :root {
     --food-primary: #E63946;
     --food-secondary: #F77F00;
@@ -73,6 +75,25 @@ body {
     background: var(--food-light);
     color: var(--food-dark);
     font-family: 'DM Sans', 'Inter', sans-serif;
+}
+
+/* Food Delivery Typography - warm, editorial style for headings */
+.dashvio-demo-hero--food h1,
+.demo-section-header h2,
+.demo-section--menu h3,
+.demo-section--highlights h3,
+.demo-section--steps h3,
+.demo-section--stories h3,
+.demo-hero-card h3,
+.demo-stat__value {
+    font-family: 'Fraunces', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0.01em;
+}
+
+.demo-eyebrow {
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
 }
 
 .dashvio-demo-header--food {
@@ -595,4 +616,109 @@ body {
 .dashvio-demo-shell--food-delivery > * {
     position: relative;
     z-index: 1;
+}
+
+/* Interactive Elements */
+.dashvio-scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.dashvio-scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dashvio-counter {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--food-primary);
+    display: inline-block;
+}
+
+.dashvio-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.dashvio-lightbox.active {
+    display: flex;
+}
+
+.dashvio-lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.dashvio-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.dashvio-image-zoom {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.dashvio-image-zoom:hover {
+    transform: scale(1.05);
+}
+
+.dashvio-sticky-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dashvio-sticky-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dashvio-dark-toggle {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 9998;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dashvio-dark-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.dashvio-dark-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
 }

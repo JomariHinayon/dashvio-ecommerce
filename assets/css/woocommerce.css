@@ -519,3 +519,137 @@
     }
 }
 
+/* Shop Sidebar Layout - Same as Prebuilt Websites */
+.woocommerce-shop-content {
+    display: flex;
+    gap: 32px;
+    margin-top: 30px;
+}
+
+.woocommerce-shop-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.woocommerce-shop-main {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Use same styles as prebuilt websites categories */
+.woocommerce-shop-sidebar .dashvio-prebuilt-categories {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+[data-theme="dark"] .woocommerce-shop-sidebar .dashvio-prebuilt-categories {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-categories-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .woocommerce-shop-sidebar .dashvio-prebuilt-categories-title {
+    color: var(--color-text-light);
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-categories-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-category-item {
+    margin: 0;
+    padding: 0;
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-category-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: #111;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+}
+
+[data-theme="dark"] .woocommerce-shop-sidebar .dashvio-prebuilt-category-link {
+    color: var(--color-text-light);
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-category-link:hover {
+    background: #f0f0f1;
+    color: #2271b1;
+}
+
+[data-theme="dark"] .woocommerce-shop-sidebar .dashvio-prebuilt-category-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #2271b1;
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-category-item.active .dashvio-prebuilt-category-link {
+    background: #2271b1;
+    color: #fff;
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-category-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111;
+}
+
+[data-theme="dark"] .woocommerce-shop-sidebar .dashvio-prebuilt-category-name {
+    color: var(--color-text-light);
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-category-item.active .dashvio-prebuilt-category-name {
+    color: #fff;
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-category-count {
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #111;
+}
+
+[data-theme="dark"] .woocommerce-shop-sidebar .dashvio-prebuilt-category-count {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-light);
+}
+
+.woocommerce-shop-sidebar .dashvio-prebuilt-category-item.active .dashvio-prebuilt-category-count {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .woocommerce-shop-content {
+        flex-direction: column;
+    }
+    
+    .woocommerce-shop-sidebar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .woocommerce-shop-sidebar {
+        width: 100%;
+    }
+}
+

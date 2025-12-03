@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
 .dashvio-demo-shell {
     background: radial-gradient(circle at 20% 20%, rgba(255, 167, 51, 0.12), transparent 45%),
         radial-gradient(circle at 80% 0%, rgba(245, 97, 2, 0.25), transparent 50%),
@@ -12,6 +14,24 @@
 .demo-product-card,
 .demo-contact-card {
     border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Typography - Car Accessories (bold, automotive style) */
+.dashvio-demo-hero__content h1,
+.demo-section-header h2,
+.demo-collection-card h3,
+.demo-product-card h3,
+.demo-hero-card h3,
+.demo-eyebrow,
+.demo-subtitle,
+.dashvio-demo-nav a,
+.demo-stat__value {
+    font-family: 'Barlow Condensed', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0.06em;
+}
+
+.demo-eyebrow {
+    text-transform: uppercase;
 }
 
 .dashvio-demo-nav a {
@@ -33,5 +53,114 @@
 .demo-contact-form input,
 .demo-contact-form textarea {
     background: rgba(5, 7, 12, 0.85);
+}
+
+/* Interactive Elements - Scroll Animations */
+.dashvio-scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.dashvio-scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animated Counter */
+.dashvio-counter {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #FF6B35;
+    display: inline-block;
+}
+
+/* Image Lightbox */
+.dashvio-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.dashvio-lightbox.active {
+    display: flex;
+}
+
+.dashvio-lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.dashvio-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.dashvio-image-zoom {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.dashvio-image-zoom:hover {
+    transform: scale(1.05);
+}
+
+/* Sticky CTA */
+.dashvio-sticky-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dashvio-sticky-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dark Mode Toggle */
+.dashvio-dark-toggle {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 9998;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dashvio-dark-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.dashvio-dark-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
 }
 

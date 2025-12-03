@@ -42,36 +42,118 @@
                 </div>
             </div>
             
-            <form class="dashvio-demo-form--gadgets">
-                <div class="dashvio-demo-form-group--gadgets">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+            <!-- Multi-Step Form -->
+            <form class="dashvio-demo-form--gadgets dashvio-multistep-form" id="contactForm">
+                <!-- Progress Steps -->
+                <div class="dashvio-form-steps" style="display: flex; justify-content: space-between; margin-bottom: 2rem; position: relative;">
+                    <div class="dashvio-step-indicator active" data-step="1" style="flex: 1; text-align: center; position: relative; z-index: 2;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--gadget-primary); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: 600;">1</div>
+                        <span style="font-size: 0.875rem; color: var(--gadget-dark);">Personal Info</span>
+                    </div>
+                    <div class="dashvio-step-indicator" data-step="2" style="flex: 1; text-align: center; position: relative; z-index: 2;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 102, 255, 0.2); color: var(--gadget-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: 600;">2</div>
+                        <span style="font-size: 0.875rem; color: rgba(0, 0, 0, 0.5);">Details</span>
+                    </div>
+                    <div class="dashvio-step-indicator" data-step="3" style="flex: 1; text-align: center; position: relative; z-index: 2;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 102, 255, 0.2); color: var(--gadget-primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: 600;">3</div>
+                        <span style="font-size: 0.875rem; color: rgba(0, 0, 0, 0.5);">Review</span>
+                    </div>
+                    <div style="position: absolute; top: 20px; left: 20px; right: 20px; height: 2px; background: rgba(0, 102, 255, 0.2); z-index: 1;"></div>
                 </div>
                 
-                <div class="dashvio-demo-form-group--gadgets">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                <!-- Step 1: Personal Information -->
+                <div class="dashvio-form-step active" data-step="1">
+                    <div class="dashvio-demo-form-group--gadgets">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="dashvio-demo-form-group--gadgets">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="dashvio-demo-form-group--gadgets">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (234) 567-8900">
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                        <button type="button" class="dashvio-demo-btn-submit--gadgets" onclick="nextStep()">Next Step</button>
+                    </div>
                 </div>
                 
-                <div class="dashvio-demo-form-group--gadgets">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="How can we help you?" required>
+                <!-- Step 2: Details -->
+                <div class="dashvio-form-step" data-step="2" style="display: none;">
+                    <div class="dashvio-demo-form-group--gadgets">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="How can we help you?" required>
+                    </div>
+                    
+                    <div class="dashvio-demo-form-group--gadgets">
+                        <label for="category">Inquiry Category</label>
+                        <select id="category" name="category" style="width: 100%; padding: 0.875rem; border: 2px solid rgba(0, 102, 255, 0.2); border-radius: 8px; font-size: 1rem; background: #fff;">
+                            <option value="">Select a category</option>
+                            <option value="product">Product Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="order">Order Status</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="dashvio-demo-form-group--gadgets">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." rows="5" required></textarea>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: space-between; margin-top: 2rem;">
+                        <button type="button" class="dashvio-demo-btn-submit--gadgets" onclick="prevStep()" style="background: rgba(0, 102, 255, 0.1); color: var(--gadget-primary);">Previous</button>
+                        <button type="button" class="dashvio-demo-btn-submit--gadgets" onclick="nextStep()">Next Step</button>
+                    </div>
                 </div>
                 
-                <div class="dashvio-demo-form-group--gadgets">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
+                <!-- Step 3: Review & Submit -->
+                <div class="dashvio-form-step" data-step="3" style="display: none;">
+                    <div style="background: var(--gadget-light); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                        <h3 style="color: var(--gadget-primary); margin-bottom: 1.5rem;">Review Your Information</h3>
+                        <div id="form-review" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <!-- Review content will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: space-between; margin-top: 2rem;">
+                        <button type="button" class="dashvio-demo-btn-submit--gadgets" onclick="prevStep()" style="background: rgba(0, 102, 255, 0.1); color: var(--gadget-primary);">Previous</button>
+                        <button type="submit" class="dashvio-demo-btn-submit--gadgets">Send Message</button>
+                    </div>
                 </div>
-                
-                <button type="submit" class="dashvio-demo-btn-submit--gadgets">Send Message</button>
             </form>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Map Section -->
+<section class="dashvio-demo-section--gadgets" style="background: #fff;">
+    <div class="dashvio-demo-container--gadgets">
+        <h2 class="dashvio-demo-title--gadgets dashvio-scroll-fade">Find Us</h2>
+        <p class="dashvio-demo-subtitle--gadgets dashvio-scroll-fade">Visit our showroom and experience our products firsthand</p>
+        
+        <div class="dashvio-scroll-fade" style="margin-top: 3rem; border-radius: 16px; overflow: hidden; height: 400px; background: rgba(0, 102, 255, 0.05); position: relative;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509041!2d-122.4194154846814!3d37.774929279759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                width="100%" 
+                height="100%" 
+                style="border:0; border-radius: 16px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </div>
 </section>
 
 <section class="dashvio-demo-section--gadgets" style="background: #fff;">
     <div class="dashvio-demo-container--gadgets">
-        <h2 class="dashvio-demo-title--gadgets">Frequently Asked Questions</h2>
+        <h2 class="dashvio-demo-title--gadgets dashvio-scroll-fade">Frequently Asked Questions</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: left;">
             <div style="margin-bottom: 2rem; padding: 1.5rem; background: var(--gadget-light); border-radius: 12px;">
                 <h3 style="color: var(--gadget-primary); margin-bottom: 0.75rem;">What is your return policy?</h3>
@@ -88,11 +170,122 @@
                 <p style="color: #666; line-height: 1.7;">All products come with manufacturer warranty. Extended warranty options are available at checkout.</p>
             </div>
             
-            <div style="padding: 1.5rem; background: var(--gadget-light); border-radius: 12px;">
+            <div class="dashvio-scroll-fade" style="padding: 1.5rem; background: var(--gadget-light); border-radius: 12px;">
                 <h3 style="color: var(--gadget-primary); margin-bottom: 0.75rem;">How can I track my order?</h3>
                 <p style="color: #666; line-height: 1.7;">Once your order ships, you'll receive a tracking number via email. You can also track your order in your account dashboard.</p>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+(function() {
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.dashvio-scroll-fade').forEach(el => {
+        observer.observe(el);
+    });
+})();
+
+// Multi-Step Form Functions
+let currentStep = 1;
+const totalSteps = 3;
+
+function updateStepIndicators(step) {
+    document.querySelectorAll('.dashvio-step-indicator').forEach((indicator, index) => {
+        const stepNum = index + 1;
+        const circle = indicator.querySelector('div');
+        const label = indicator.querySelector('span');
+        
+        if (stepNum <= step) {
+            indicator.classList.add('active');
+            circle.style.background = 'var(--gadget-primary)';
+            circle.style.color = '#fff';
+            label.style.color = 'var(--gadget-dark)';
+        } else {
+            indicator.classList.remove('active');
+            circle.style.background = 'rgba(0, 102, 255, 0.2)';
+            circle.style.color = 'var(--gadget-primary)';
+            label.style.color = 'rgba(0, 0, 0, 0.5)';
+        }
+    });
+}
+
+function showStep(step) {
+    document.querySelectorAll('.dashvio-form-step').forEach(formStep => {
+        formStep.style.display = 'none';
+        formStep.classList.remove('active');
+    });
+    
+    const activeStep = document.querySelector(`.dashvio-form-step[data-step="${step}"]`);
+    if (activeStep) {
+        activeStep.style.display = 'block';
+        activeStep.classList.add('active');
+    }
+    
+    updateStepIndicators(step);
+    
+    if (step === 3) {
+        populateReview();
+    }
+}
+
+function nextStep() {
+    const currentFormStep = document.querySelector(`.dashvio-form-step[data-step="${currentStep}"]`);
+    const inputs = currentFormStep.querySelectorAll('input[required], textarea[required], select[required]');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            isValid = false;
+            input.style.borderColor = '#e74c3c';
+            setTimeout(() => {
+                input.style.borderColor = '';
+            }, 2000);
+        }
+    });
+    
+    if (isValid && currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+    }
+}
+
+function prevStep() {
+    if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+    }
+}
+
+function populateReview() {
+    const reviewDiv = document.getElementById('form-review');
+    const formData = new FormData(document.getElementById('contactForm'));
+    
+    reviewDiv.innerHTML = `
+        <div><strong>Name:</strong> ${formData.get('name') || 'N/A'}</div>
+        <div><strong>Email:</strong> ${formData.get('email') || 'N/A'}</div>
+        <div><strong>Phone:</strong> ${formData.get('phone') || 'Not provided'}</div>
+        <div><strong>Subject:</strong> ${formData.get('subject') || 'N/A'}</div>
+        <div><strong>Category:</strong> ${formData.get('category') || 'N/A'}</div>
+        <div><strong>Message:</strong> ${formData.get('message') || 'N/A'}</div>
+    `;
+}
+
+// Form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Here you would normally send the form data to your server
+    alert('Thank you! Your message has been sent. We will get back to you soon.');
+    this.reset();
+    currentStep = 1;
+    showStep(1);
+});
+</script>
 

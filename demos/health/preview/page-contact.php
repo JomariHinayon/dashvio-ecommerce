@@ -69,9 +69,29 @@
     </div>
 </section>
 
+<!-- Interactive Map Section -->
 <section class="dashvio-demo-section--health">
     <div class="dashvio-demo-container--health">
-        <h2 class="dashvio-demo-title--health">Frequently Asked Questions</h2>
+        <h2 class="dashvio-demo-title--health dashvio-scroll-fade">Find Us</h2>
+        <p class="dashvio-demo-subtitle--health dashvio-scroll-fade">Visit our state-of-the-art medical facility</p>
+        
+        <div class="dashvio-scroll-fade" style="margin-top: 3rem; border-radius: 16px; overflow: hidden; height: 400px; background: rgba(255, 255, 255, 0.1); position: relative;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509041!2d-122.4194154846814!3d37.774929279759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                width="100%" 
+                height="100%" 
+                style="border:0; border-radius: 16px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<section class="dashvio-demo-section--health">
+    <div class="dashvio-demo-container--health">
+        <h2 class="dashvio-demo-title--health dashvio-scroll-fade">Frequently Asked Questions</h2>
         <div style="max-width: 800px; margin: 0 auto; text-align: left;">
             <div style="margin-bottom: 2rem; padding: 1.5rem; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--health-border);">
                 <h3 style="color: var(--health-primary); margin-bottom: 0.75rem; font-size: 1.25rem;">What are your visiting hours?</h3>
@@ -88,11 +108,28 @@
                 <p style="color: #5A5A5A; line-height: 1.7;">Yes, we accept most major insurance plans. Please contact our billing department for specific information about your coverage.</p>
             </div>
             
-            <div style="padding: 1.5rem; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--health-border);">
+            <div class="dashvio-scroll-fade" style="padding: 1.5rem; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--health-border);">
                 <h3 style="color: var(--health-primary); margin-bottom: 0.75rem; font-size: 1.25rem;">What should I bring to my appointment?</h3>
                 <p style="color: #5A5A5A; line-height: 1.7;">Please bring a valid ID, insurance card, list of current medications, and any relevant medical records or test results.</p>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+(function() {
+    // Scroll Animations for Contact Page
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.dashvio-scroll-fade').forEach(el => {
+        observer.observe(el);
+    });
+})();
+</script>
 

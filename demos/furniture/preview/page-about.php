@@ -70,6 +70,56 @@
     </div>
 </section>
 
+<!-- Progress Bars Section -->
+<section class="furniture-features" style="padding: 4rem 2rem; background: rgba(139, 115, 85, 0.05);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: var(--furniture-dark, #2C2C2C);">Our Expertise</h2>
+        <p style="text-align: center; margin-bottom: 3rem; color: rgba(44, 44, 44, 0.6);">Specialized skills in furniture craftsmanship</p>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600; color: var(--furniture-dark, #2C2C2C);">Craftsmanship</span>
+                    <span style="opacity: 0.8; color: var(--furniture-dark, #2C2C2C);">97%</span>
+                </div>
+                <div class="dashvio-progress-bar" style="background: rgba(139, 115, 85, 0.1);">
+                    <div class="dashvio-progress-fill" data-width="97" style="background: linear-gradient(90deg, var(--furniture-primary, #8B7355), var(--furniture-accent, #A8B5A0));"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600; color: var(--furniture-dark, #2C2C2C);">Sustainability</span>
+                    <span style="opacity: 0.8; color: var(--furniture-dark, #2C2C2C);">95%</span>
+                </div>
+                <div class="dashvio-progress-bar" style="background: rgba(139, 115, 85, 0.1);">
+                    <div class="dashvio-progress-fill" data-width="95" style="background: linear-gradient(90deg, var(--furniture-primary, #8B7355), var(--furniture-accent, #A8B5A0));"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600; color: var(--furniture-dark, #2C2C2C);">Customer Satisfaction</span>
+                    <span style="opacity: 0.8; color: var(--furniture-dark, #2C2C2C);">96%</span>
+                </div>
+                <div class="dashvio-progress-bar" style="background: rgba(139, 115, 85, 0.1);">
+                    <div class="dashvio-progress-fill" data-width="96" style="background: linear-gradient(90deg, var(--furniture-primary, #8B7355), var(--furniture-accent, #A8B5A0));"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600; color: var(--furniture-dark, #2C2C2C);">Design Innovation</span>
+                    <span style="opacity: 0.8; color: var(--furniture-dark, #2C2C2C);">93%</span>
+                </div>
+                <div class="dashvio-progress-bar" style="background: rgba(139, 115, 85, 0.1);">
+                    <div class="dashvio-progress-fill" data-width="93" style="background: linear-gradient(90deg, var(--furniture-primary, #8B7355), var(--furniture-accent, #A8B5A0));"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="furniture-team">
     <div class="furniture-team__header">
         <h2>Meet the artisans</h2>
@@ -96,3 +146,41 @@
         </div>
     </div>
 </section>
+
+<script>
+(function() {
+    const progressObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+                const width = entry.target.getAttribute('data-width');
+                setTimeout(function() {
+                    entry.target.style.width = width + '%';
+                }, 100);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.dashvio-progress-fill').forEach(bar => {
+        progressObserver.observe(bar);
+    });
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.dashvio-scroll-fade, .dashvio-timeline-item').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Enhance existing furniture timeline
+    document.querySelectorAll('.furniture-timeline__item').forEach(item => {
+        item.classList.add('dashvio-timeline-item');
+        observer.observe(item);
+    });
+})();
+</script>

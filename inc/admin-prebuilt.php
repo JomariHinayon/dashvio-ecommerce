@@ -391,9 +391,9 @@ function dashvio_prebuilt_websites_content() {
         
         <div class="dashvio-prebuilt-hero">
             <div class="dashvio-prebuilt-hero-content">
-                <h2 class="dashvio-prebuilt-hero-number">1+</h2>
-                <h3 class="dashvio-prebuilt-hero-text">Prebuilt websites for WooCommerce</h3>
-                <p class="dashvio-prebuilt-hero-description">
+                <h2 class="dashvio-prebuilt-hero-number dash-scroll-fade">1+</h2>
+                <h3 class="dashvio-prebuilt-hero-text dash-scroll-fade">Prebuilt websites for WooCommerce</h3>
+                <p class="dashvio-prebuilt-hero-description dash-scroll-fade">
                     Eager to get your store online? With just one click, you'll be able to import one of these fast, responsive, and beautiful demos into your WooCommerce website.
                 </p>
             </div>
@@ -437,7 +437,7 @@ function dashvio_prebuilt_websites_content() {
                     
                     foreach ($filtered_demos as $demo): 
                     ?>
-                        <div class="dashvio-prebuilt-demo" data-demo-id="<?php echo esc_attr($demo['id']); ?>" data-category="<?php echo esc_attr($demo['category']); ?>">
+                        <div class="dashvio-prebuilt-demo dash-scroll-fade" data-demo-id="<?php echo esc_attr($demo['id']); ?>" data-category="<?php echo esc_attr($demo['category']); ?>">
                             <div class="dashvio-prebuilt-demo-thumbnail">
                                 <?php 
                                 $thumbnail_url = isset($demo['thumbnail_placeholder']) ? $demo['thumbnail_placeholder'] : $demo['thumbnail'];

@@ -1,21 +1,41 @@
 <section class="dashvio-demo-section--health" style="padding-top: 8rem;">
     <div class="dashvio-demo-container--health">
-        <h1 class="dashvio-demo-title--health">About HealthCare+</h1>
-        <p class="dashvio-demo-subtitle--health">Leading the way in compassionate, innovative healthcare</p>
+        <h1 class="dashvio-demo-title--health dashvio-scroll-fade">About HealthCare+</h1>
+        <p class="dashvio-demo-subtitle--health dashvio-scroll-fade">Leading the way in compassionate, innovative healthcare</p>
+        
+        <!-- Animated Stats -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-top: 4rem;">
+            <div class="dashvio-scroll-fade" style="text-align: center;">
+                <div class="dashvio-counter" data-target="15000">0</div>
+                <p style="margin-top: 0.5rem; opacity: 0.9;">Patients Served</p>
+            </div>
+            <div class="dashvio-scroll-fade" style="text-align: center;">
+                <div class="dashvio-counter" data-target="50">0</div>
+                <p style="margin-top: 0.5rem; opacity: 0.9;">Expert Doctors</p>
+            </div>
+            <div class="dashvio-scroll-fade" style="text-align: center;">
+                <div class="dashvio-counter" data-target="15">0</div>
+                <p style="margin-top: 0.5rem; opacity: 0.9;">Years Experience</p>
+            </div>
+            <div class="dashvio-scroll-fade" style="text-align: center;">
+                <div class="dashvio-counter" data-target="24">0</div>
+                <p style="margin-top: 0.5rem; opacity: 0.9;">Hours Available</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="dashvio-demo-section--health" style="background: #F8F9FA; padding-top: 3rem;">
+<section class="dashvio-demo-section--health" style="padding-top: 3rem;">
     <div class="dashvio-demo-container--health">
         <div style="max-width: 900px; margin: 0 auto;">
-            <h2 style="font-size: 2rem; color: var(--health-secondary); margin-bottom: 1.5rem;">Our Mission</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #5A5A5A; margin-bottom: 2rem;">
+            <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 1.5rem;">Our Mission</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #FFFFFF; margin-bottom: 2rem;">
                 At HealthCare+, we are committed to providing exceptional medical care that combines cutting-edge technology with compassionate service. Our mission is to improve the health and well-being of every patient we serve.
             </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #5A5A5A; margin-bottom: 2rem;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #FFFFFF; margin-bottom: 2rem;">
                 Founded in 2010, we have grown to become a trusted healthcare provider in the community, serving thousands of patients with dedication and excellence. Our team of experienced professionals works tirelessly to ensure you receive the best possible care.
             </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #5A5A5A;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #FFFFFF;">
                 We believe in a patient-centered approach where your needs, comfort, and recovery are our top priorities. Every member of our team is committed to making your healthcare experience positive and effective.
             </p>
         </div>
@@ -81,7 +101,7 @@
         
         <div class="dashvio-demo-grid--health">
             <div class="dashvio-demo-card--health" style="padding: 0; text-align: left;">
-                <img src="<?php echo esc_url($demo_assets . 'doctor-1.webp'); ?>" alt="Dr. Sarah Johnson" style="width: 100%; height: 320px; object-fit: cover;">
+                <img src="<?php echo esc_url($demo_assets . 'doctor-1.webp'); ?>" alt="Dr. Sarah Johnson" class="dashvio-image-zoom" style="width: 100%; height: 320px; object-fit: cover; cursor: zoom-in;">
                 <div style="padding: 2rem;">
                     <h3 style="margin-bottom: 0.5rem;">Dr. Sarah Johnson</h3>
                     <p style="color: var(--health-primary); font-weight: 600; margin-bottom: 0.75rem;">Chief Medical Officer</p>
@@ -90,7 +110,7 @@
             </div>
             
             <div class="dashvio-demo-card--health" style="padding: 0; text-align: left;">
-                <img src="<?php echo esc_url($demo_assets . 'doctor-2.webp'); ?>" alt="Dr. Michael Chen" style="width: 100%; height: 320px; object-fit: cover;">
+                <img src="<?php echo esc_url($demo_assets . 'doctor-2.webp'); ?>" alt="Dr. Michael Chen" class="dashvio-image-zoom" style="width: 100%; height: 320px; object-fit: cover; cursor: zoom-in;">
                 <div style="padding: 2rem;">
                     <h3 style="margin-bottom: 0.5rem;">Dr. Michael Chen</h3>
                     <p style="color: var(--health-primary); font-weight: 600; margin-bottom: 0.75rem;">Head of Surgery</p>
@@ -99,7 +119,7 @@
             </div>
             
             <div class="dashvio-demo-card--health" style="padding: 0; text-align: left;">
-                <img src="<?php echo esc_url($demo_assets . 'doctor-3.webp'); ?>" alt="Dr. Emily Rodriguez" style="width: 100%; height: 320px; object-fit: cover;">
+                <img src="<?php echo esc_url($demo_assets . 'doctor-3.webp'); ?>" alt="Dr. Emily Rodriguez" class="dashvio-image-zoom" style="width: 100%; height: 320px; object-fit: cover; cursor: zoom-in;">
                 <div style="padding: 2rem;">
                     <h3 style="margin-bottom: 0.5rem;">Dr. Emily Rodriguez</h3>
                     <p style="color: var(--health-primary); font-weight: 600; margin-bottom: 0.75rem;">Pediatrics Specialist</p>
@@ -109,4 +129,196 @@
         </div>
     </div>
 </section>
+
+<!-- Interactive Timeline -->
+<section class="dashvio-demo-section--health">
+    <div class="dashvio-demo-container--health">
+        <h2 class="dashvio-demo-title--health">Our Journey</h2>
+        <p class="dashvio-demo-subtitle--health">Milestones in our commitment to healthcare excellence</p>
+        
+        <div class="dashvio-timeline" style="max-width: 800px; margin: 4rem auto 0;">
+            <div class="dashvio-timeline-item" style="display: flex; align-items: center; margin-bottom: 4rem;">
+                <div style="flex: 1; text-align: right; padding-right: 3rem;">
+                    <h3 style="color: var(--health-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2010</h3>
+                    <p style="opacity: 0.9;">Founded with a vision to provide accessible, quality healthcare to the community.</p>
+                </div>
+                <div style="width: 20px; height: 20px; background: var(--health-primary); border-radius: 50%; border: 4px solid var(--health-secondary); z-index: 1;"></div>
+                <div style="flex: 1; padding-left: 3rem;"></div>
+            </div>
+            
+            <div class="dashvio-timeline-item" style="display: flex; align-items: center; margin-bottom: 4rem;">
+                <div style="flex: 1; padding-right: 3rem;"></div>
+                <div style="width: 20px; height: 20px; background: var(--health-primary); border-radius: 50%; border: 4px solid var(--health-secondary); z-index: 1;"></div>
+                <div style="flex: 1; text-align: left; padding-left: 3rem;">
+                    <h3 style="color: var(--health-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2015</h3>
+                    <p style="opacity: 0.9;">Expanded facilities and introduced advanced medical technology and specialized departments.</p>
+                </div>
+            </div>
+            
+            <div class="dashvio-timeline-item" style="display: flex; align-items: center; margin-bottom: 4rem;">
+                <div style="flex: 1; text-align: right; padding-right: 3rem;">
+                    <h3 style="color: var(--health-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2020</h3>
+                    <p style="opacity: 0.9;">Launched telemedicine services and digital health initiatives to reach more patients.</p>
+                </div>
+                <div style="width: 20px; height: 20px; background: var(--health-primary); border-radius: 50%; border: 4px solid var(--health-secondary); z-index: 1;"></div>
+                <div style="flex: 1; padding-left: 3rem;"></div>
+            </div>
+            
+            <div class="dashvio-timeline-item" style="display: flex; align-items: center;">
+                <div style="flex: 1; padding-right: 3rem;"></div>
+                <div style="width: 20px; height: 20px; background: var(--health-primary); border-radius: 50%; border: 4px solid var(--health-secondary); z-index: 1;"></div>
+                <div style="flex: 1; text-align: left; padding-left: 3rem;">
+                    <h3 style="color: var(--health-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2024</h3>
+                    <p style="opacity: 0.9;">Recognized as a leading healthcare provider, serving over 15,000 patients annually.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Progress Bars Section -->
+<section class="dashvio-demo-section--health">
+    <div class="dashvio-demo-container--health">
+        <h2 class="dashvio-demo-title--health">Our Expertise</h2>
+        <p class="dashvio-demo-subtitle--health">Specialized care across multiple medical disciplines</p>
+        
+        <div style="max-width: 800px; margin: 4rem auto 0;">
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600;">Cardiology</span>
+                    <span style="opacity: 0.8;">95%</span>
+                </div>
+                <div class="dashvio-progress-bar">
+                    <div class="dashvio-progress-fill" data-width="95"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600;">Surgery</span>
+                    <span style="opacity: 0.8;">90%</span>
+                </div>
+                <div class="dashvio-progress-bar">
+                    <div class="dashvio-progress-fill" data-width="90"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600;">Pediatrics</span>
+                    <span style="opacity: 0.8;">88%</span>
+                </div>
+                <div class="dashvio-progress-bar">
+                    <div class="dashvio-progress-fill" data-width="88"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600;">Emergency Care</span>
+                    <span style="opacity: 0.8;">92%</span>
+                </div>
+                <div class="dashvio-progress-bar">
+                    <div class="dashvio-progress-fill" data-width="92"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Image Lightbox -->
+<div class="dashvio-lightbox" onclick="closeLightbox()">
+    <span class="dashvio-lightbox-close">&times;</span>
+    <img src="" alt="" id="lightbox-image">
+</div>
+
+<script>
+(function() {
+    // Progress Bar Animation
+    const progressObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+                const width = entry.target.getAttribute('data-width');
+                setTimeout(function() {
+                    entry.target.style.width = width + '%';
+                }, 100);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.dashvio-progress-fill').forEach(bar => {
+        progressObserver.observe(bar);
+    });
+    
+    // Image Lightbox
+    window.openLightbox = function(imgSrc, imgAlt) {
+        const lightbox = document.querySelector('.dashvio-lightbox');
+        const img = document.getElementById('lightbox-image');
+        if (lightbox && img) {
+            img.src = imgSrc;
+            img.alt = imgAlt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+    
+    window.closeLightbox = function() {
+        const lightbox = document.querySelector('.dashvio-lightbox');
+        if (lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+    
+    document.querySelectorAll('.dashvio-image-zoom').forEach(function(img) {
+        img.addEventListener('click', function() {
+            openLightbox(this.src, this.alt);
+        });
+    });
+    
+    // Scroll Animations
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.dashvio-scroll-fade, .dashvio-timeline-item').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Animated Counters
+    function animateCounter(element, target, duration) {
+        duration = duration || 2000;
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(function() {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start).toLocaleString();
+            }
+        }, 16);
+    }
+    
+    const counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                animateCounter(entry.target, target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.dashvio-counter').forEach(counter => {
+        counterObserver.observe(counter);
+    });
+})();
+</script>
 

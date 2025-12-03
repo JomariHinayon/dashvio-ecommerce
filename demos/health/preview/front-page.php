@@ -1,15 +1,15 @@
 <section class="dashvio-demo-hero--health">
     <div class="dashvio-demo-container--health">
-        <h1>Your Health, Our Priority</h1>
-        <p>Comprehensive healthcare services delivered with compassion and excellence. Experience personalized care from our team of dedicated professionals.</p>
-        <a href="#services" class="dashvio-demo-btn--health">Book Appointment</a>
+        <h1 class="dashvio-scroll-fade">Your Health, Our Priority</h1>
+        <p class="dashvio-scroll-fade">Comprehensive healthcare services delivered with compassion and excellence. Experience personalized care from our team of dedicated professionals.</p>
+        <a href="#services" class="dashvio-demo-btn--health dashvio-scroll-fade">Book Appointment</a>
     </div>
 </section>
 
 <section class="dashvio-demo-section--health">
     <div class="dashvio-demo-container--health">
-        <h2 class="dashvio-demo-title--health">Our Services</h2>
-        <p class="dashvio-demo-subtitle--health">Comprehensive healthcare solutions tailored to your needs</p>
+        <h2 class="dashvio-demo-title--health dashvio-scroll-fade">Our Services</h2>
+        <p class="dashvio-demo-subtitle--health dashvio-scroll-fade">Comprehensive healthcare solutions tailored to your needs</p>
         
         <div class="dashvio-demo-grid--health" id="services">
             <div class="dashvio-demo-card--health">
@@ -82,10 +82,10 @@
     </div>
 </section>
 
-<section class="dashvio-demo-section--health">
+<section class="dashvio-demo-section--health" style="position: relative;">
     <div class="dashvio-demo-container--health">
-        <h2 class="dashvio-demo-title--health">Why Choose Us</h2>
-        <p class="dashvio-demo-subtitle--health">Excellence in healthcare with a patient-centered approach</p>
+        <h2 class="dashvio-demo-title--health dashvio-scroll-fade">Why Choose Us</h2>
+        <p class="dashvio-demo-subtitle--health dashvio-scroll-fade">Excellence in healthcare with a patient-centered approach</p>
         
         <div class="dashvio-demo-features--health">
             <div class="dashvio-demo-feature--health">
@@ -134,4 +134,136 @@
         </div>
     </div>
 </section>
+
+<!-- Sticky CTA Button -->
+<div class="dashvio-sticky-cta">
+    <a href="#services" class="dashvio-demo-btn--health" style="padding: 1rem 2rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+        Book Appointment
+    </a>
+</div>
+
+<!-- Image Lightbox -->
+<div class="dashvio-lightbox" onclick="closeLightbox()">
+    <span class="dashvio-lightbox-close">&times;</span>
+    <img src="" alt="" id="lightbox-image">
+</div>
+
+<script>
+(function() {
+    // Scroll Animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.dashvio-scroll-fade, .dashvio-scroll-slide-left, .dashvio-scroll-slide-right, .dashvio-timeline-item').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Animated Counters
+    function animateCounter(element, target, duration) {
+        duration = duration || 2000;
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(function() {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target + '+';
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start) + '+';
+            }
+        }, 16);
+    }
+    
+    const counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                animateCounter(entry.target, target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.dashvio-counter').forEach(counter => {
+        counterObserver.observe(counter);
+    });
+    
+    // Sticky CTA Visibility
+    const stickyCTA = document.querySelector('.dashvio-sticky-cta');
+    if (stickyCTA) {
+        const heroHeight = document.querySelector('.dashvio-demo-hero--health') ? document.querySelector('.dashvio-demo-hero--health').offsetHeight : 0;
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight) {
+                stickyCTA.classList.add('visible');
+            } else {
+                stickyCTA.classList.remove('visible');
+            }
+        });
+    }
+    
+    // Parallax Effect
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll('.dashvio-parallax').forEach(function(el, index) {
+            const speed = 0.5 + (index * 0.1);
+            el.style.transform = 'translateY(' + (scrolled * speed) + 'px)';
+        });
+    });
+    
+    // Image Lightbox
+    window.openLightbox = function(imgSrc, imgAlt) {
+        const lightbox = document.querySelector('.dashvio-lightbox');
+        const img = document.getElementById('lightbox-image');
+        if (lightbox && img) {
+            img.src = imgSrc;
+            img.alt = imgAlt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+    
+    window.closeLightbox = function() {
+        const lightbox = document.querySelector('.dashvio-lightbox');
+        if (lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+    
+    // Add click handlers to images with zoom class
+    document.querySelectorAll('.dashvio-image-zoom').forEach(function(img) {
+        img.addEventListener('click', function() {
+            openLightbox(this.src, this.alt);
+        });
+    });
+    
+})();
+</script>
+
+<style>
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #0a0e1a;
+    color: #fff;
+}
+
+body.dark-mode .dashvio-demo-section--health {
+    background: var(--health-secondary) !important;
+}
+
+body.dark-mode .dashvio-demo-card--health {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+</style>
 

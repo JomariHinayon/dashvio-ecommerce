@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap');
+
 .dashvio-demo-shell--furniture {
     --furniture-primary: #8B7355;
     --furniture-secondary: #2C2C2C;
@@ -16,6 +18,30 @@
     color: var(--furniture-dark);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
+}
+
+/* Furniture Typography - warm, editorial serif for headings */
+.furniture-hero__title,
+.furniture-section-header h2,
+.furniture-card__content h3,
+.furniture-story__content h2,
+.furniture-mission__card h3,
+.furniture-timeline__header h2,
+.furniture-team__header h2,
+.furniture-contact-hero__content h1,
+.furniture-contact-form__content h2,
+.furniture-consultation__content h2,
+.furniture-locations__header h2,
+.furniture-metric__value {
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    letter-spacing: 0.03em;
+}
+
+.furniture-hero__badge,
+.furniture-section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.8rem;
 }
 
 .dashvio-demo-shell--furniture .dashvio-demo-content {
@@ -1084,4 +1110,109 @@
 [data-theme="dark"] .dashvio-demo-shell--furniture .dashvio-demo-header {
     background: rgba(255, 255, 255, 0.95);
     border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Interactive Elements */
+.dashvio-scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.dashvio-scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dashvio-counter {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--furniture-dark);
+    display: inline-block;
+}
+
+.dashvio-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.dashvio-lightbox.active {
+    display: flex;
+}
+
+.dashvio-lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.dashvio-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.dashvio-image-zoom {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.dashvio-image-zoom:hover {
+    transform: scale(1.05);
+}
+
+.dashvio-sticky-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dashvio-sticky-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dashvio-dark-toggle {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 9998;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dashvio-dark-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.dashvio-dark-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--furniture-dark);
 }

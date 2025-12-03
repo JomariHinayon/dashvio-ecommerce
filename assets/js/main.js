@@ -79,6 +79,50 @@
             });
         }
         
+        // Scroll Fade Animation
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        document.querySelectorAll('.dash-scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Animated Counters
+        function animateCounter(element, target, duration, suffix) {
+            duration = duration || 2000;
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(function() {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + (suffix || '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + (suffix || '');
+                }
+            }, 16);
+        }
+        
+        const counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const suffix = entry.target.getAttribute('data-suffix') || '';
+                    animateCounter(entry.target, target, 2000, suffix);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('.dash-counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+        
     });
 
 })(jQuery);

@@ -5,10 +5,10 @@
         <section class="dash-hero dash-hero--templates">
             <div class="dash-hero__grid">
                 <div class="dash-hero__content">
-                    <span class="dash-badge">Premium Templates</span>
-                    <h1>Launch your store in minutes with professional templates</h1>
-                    <p>Choose from our collection of stunning, conversion-optimized templates. Each design is crafted for specific industries and ready to import with one click.</p>
-                    <div class="dash-btn-group">
+                    <span class="dash-badge dash-scroll-fade">Premium Templates</span>
+                    <h1 class="dash-scroll-fade">Launch your store in minutes with professional templates</h1>
+                    <p class="dash-scroll-fade">Choose from our collection of stunning, conversion-optimized templates. Each design is crafted for specific industries and ready to import with one click.</p>
+                    <div class="dash-btn-group dash-scroll-fade">
                         <a class="button button-primary" href="<?php echo esc_url(home_url('/prebuilt-websites/')); ?>">
                             Browse Templates
                         </a>
@@ -21,17 +21,17 @@
                         <?php endif; ?>
                     </div>
                     <div class="dash-hero__stats">
-                        <div class="dash-stat">
+                        <div class="dash-stat dash-scroll-fade">
                             <svg class="dash-stat__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <div>
-                                <strong>6+</strong>
+                                <strong class="dash-counter" data-target="6" data-suffix="+">0</strong>
                                 <span>Ready Templates</span>
                             </div>
                         </div>
-                        <div class="dash-stat">
+                        <div class="dash-stat dash-scroll-fade">
                             <svg class="dash-stat__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -40,12 +40,12 @@
                                 <span>Import System</span>
                             </div>
                         </div>
-                        <div class="dash-stat">
+                        <div class="dash-stat dash-scroll-fade">
                             <svg class="dash-stat__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <div>
-                                <strong>100%</strong>
+                                <strong class="dash-counter" data-target="100" data-suffix="%">0</strong>
                                 <span>Customizable</span>
                             </div>
                         </div>
@@ -134,9 +134,9 @@
         <section class="dash-section dash-section--templates">
             <div class="dash-section__header">
                 <div>
-                    <h2>Professional Templates for Every Industry</h2>
+                    <h2 class="dash-scroll-fade">Professional Templates for Every Industry</h2>
                 </div>
-                <a class="button button-outline" href="<?php echo esc_url(home_url('/prebuilt-websites/')); ?>">View All Templates</a>
+                <a class="button button-outline dash-scroll-fade" href="<?php echo esc_url(home_url('/prebuilt-websites/')); ?>">View All Templates</a>
             </div>
             <div class="dash-templates-grid">
                 <?php
@@ -146,7 +146,7 @@
                     if ($demo_count >= 3) break;
                     $demo_count++;
                 ?>
-                    <article class="dash-template-card">
+                    <article class="dash-template-card dash-scroll-fade">
                         <div class="dash-template-card__thumb">
                             <img src="<?php echo esc_url($demo['thumbnail']); ?>" alt="<?php echo esc_attr($demo['name']); ?>">
                             <div class="dash-template-card__overlay">
@@ -166,11 +166,11 @@
             <section class="dash-section dash-section--products">
                 <div class="dash-section__header">
                     <div>
-                        <h2>Featured Products</h2>
+                        <h2 class="dash-scroll-fade">Featured Products</h2>
                     </div>
-                    <a class="button button-outline" href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>">Shop All Products</a>
+                    <a class="button button-outline dash-scroll-fade" href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>">Shop All Products</a>
                 </div>
-                <div class="dash-products">
+                <div class="dash-products dash-scroll-fade">
                     <?php echo do_shortcode('[products limit="4" columns="4" orderby="date" visibility="visible"]'); ?>
                 </div>
             </section>
@@ -178,9 +178,9 @@
 
         <section class="dash-section" id="dashvio-insights">
             <div class="dash-cta">
-                <h3>Launch smarter with Dashvio Insights.</h3>
-                <p>Join our weekly digest for product strategy, conversion tips, and platform updates built for serious e-commerce teams.</p>
-                <form class="dash-newsletter">
+                <h3 class="dash-scroll-fade">Launch smarter with Dashvio Insights.</h3>
+                <p class="dash-scroll-fade">Join our weekly digest for product strategy, conversion tips, and platform updates built for serious e-commerce teams.</p>
+                <form class="dash-newsletter dash-scroll-fade">
                     <input type="email" placeholder="you@brand.com" required>
                     <button type="submit" class="button button-primary">Subscribe</button>
                 </form>

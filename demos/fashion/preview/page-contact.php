@@ -23,6 +23,19 @@
             <p style="font-size: 0.9rem; color: var(--fashion-silver);">Showroom hours: Mon–Sat 10AM–8PM, Sun 12PM–6PM</p>
         </div>
         
+        <!-- Interactive Map -->
+        <div style="margin-top: 3rem; border-radius: 12px; overflow: hidden; height: 400px; background: rgba(0, 0, 0, 0.02); position: relative;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1841338946687!2d-73.98082668459368!3d40.74844097932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sMadison%20Avenue%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
+                width="100%" 
+                height="100%" 
+                style="border:0; border-radius: 12px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        
         <div class="demo-contact-form">
             <h3 style="font-size: 1.5rem; font-weight: 400; margin-bottom: 24px; letter-spacing: 1px;">Send a Message</h3>
             <form style="display: flex; flex-direction: column; gap: 24px;">

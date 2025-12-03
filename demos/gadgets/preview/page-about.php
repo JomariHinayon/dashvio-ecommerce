@@ -78,6 +78,102 @@
     </div>
 </section>
 
+<!-- Progress Bars Section -->
+<section class="dashvio-demo-section--gadgets" style="background: #fff;">
+    <div class="dashvio-demo-container--gadgets">
+        <h2 class="dashvio-demo-title--gadgets">Our Expertise</h2>
+        <p class="dashvio-demo-subtitle--gadgets">Specialized knowledge across multiple tech categories</p>
+        
+        <div style="max-width: 800px; margin: 4rem auto 0;">
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600; color: var(--gadget-dark);">Product Quality</span>
+                    <span style="opacity: 0.8; color: var(--gadget-dark);">98%</span>
+                </div>
+                <div class="dashvio-progress-bar" style="background: rgba(0, 102, 255, 0.1);">
+                    <div class="dashvio-progress-fill" data-width="98" style="background: linear-gradient(90deg, var(--gadget-primary), var(--gadget-accent));"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600; color: var(--gadget-dark);">Customer Support</span>
+                    <span style="opacity: 0.8; color: var(--gadget-dark);">95%</span>
+                </div>
+                <div class="dashvio-progress-bar" style="background: rgba(0, 102, 255, 0.1);">
+                    <div class="dashvio-progress-fill" data-width="95" style="background: linear-gradient(90deg, var(--gadget-primary), var(--gadget-accent));"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600; color: var(--gadget-dark);">Innovation</span>
+                    <span style="opacity: 0.8; color: var(--gadget-dark);">92%</span>
+                </div>
+                <div class="dashvio-progress-bar" style="background: rgba(0, 102, 255, 0.1);">
+                    <div class="dashvio-progress-fill" data-width="92" style="background: linear-gradient(90deg, var(--gadget-primary), var(--gadget-accent));"></div>
+                </div>
+            </div>
+            
+            <div class="dashvio-scroll-fade">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="font-weight: 600; color: var(--gadget-dark);">Market Presence</span>
+                    <span style="opacity: 0.8; color: var(--gadget-dark);">88%</span>
+                </div>
+                <div class="dashvio-progress-bar" style="background: rgba(0, 102, 255, 0.1);">
+                    <div class="dashvio-progress-fill" data-width="88" style="background: linear-gradient(90deg, var(--gadget-primary), var(--gadget-accent));"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Timeline -->
+<section class="dashvio-demo-section--gadgets">
+    <div class="dashvio-demo-container--gadgets">
+        <h2 class="dashvio-demo-title--gadgets">Our Journey</h2>
+        <p class="dashvio-demo-subtitle--gadgets">Milestones in our commitment to technology excellence</p>
+        
+        <div class="dashvio-timeline" style="max-width: 800px; margin: 4rem auto 0;">
+            <div class="dashvio-timeline-item" style="display: flex; align-items: center; margin-bottom: 4rem;">
+                <div style="flex: 1; text-align: right; padding-right: 3rem;">
+                    <h3 style="color: var(--gadget-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2020</h3>
+                    <p style="opacity: 0.9; color: #fff;">Founded with a vision to make cutting-edge technology accessible to everyone.</p>
+                </div>
+                <div style="width: 20px; height: 20px; background: var(--gadget-primary); border-radius: 50%; border: 4px solid var(--gadget-secondary); z-index: 1;"></div>
+                <div style="flex: 1; padding-left: 3rem;"></div>
+            </div>
+            
+            <div class="dashvio-timeline-item" style="display: flex; align-items: center; margin-bottom: 4rem;">
+                <div style="flex: 1; padding-right: 3rem;"></div>
+                <div style="width: 20px; height: 20px; background: var(--gadget-primary); border-radius: 50%; border: 4px solid var(--gadget-secondary); z-index: 1;"></div>
+                <div style="flex: 1; text-align: left; padding-left: 3rem;">
+                    <h3 style="color: var(--gadget-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2022</h3>
+                    <p style="opacity: 0.9; color: #fff;">Expanded product catalog and launched our first premium gadget collection.</p>
+                </div>
+            </div>
+            
+            <div class="dashvio-timeline-item" style="display: flex; align-items: center; margin-bottom: 4rem;">
+                <div style="flex: 1; text-align: right; padding-right: 3rem;">
+                    <h3 style="color: var(--gadget-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2023</h3>
+                    <p style="opacity: 0.9; color: #fff;">Reached 10,000+ customers and introduced exclusive tech partnerships.</p>
+                </div>
+                <div style="width: 20px; height: 20px; background: var(--gadget-primary); border-radius: 50%; border: 4px solid var(--gadget-secondary); z-index: 1;"></div>
+                <div style="flex: 1; padding-left: 3rem;"></div>
+            </div>
+            
+            <div class="dashvio-timeline-item" style="display: flex; align-items: center;">
+                <div style="flex: 1; padding-right: 3rem;"></div>
+                <div style="width: 20px; height: 20px; background: var(--gadget-primary); border-radius: 50%; border: 4px solid var(--gadget-secondary); z-index: 1;"></div>
+                <div style="flex: 1; text-align: left; padding-left: 3rem;">
+                    <h3 style="color: var(--gadget-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2024</h3>
+                    <p style="opacity: 0.9; color: #fff;">Recognized as a leading tech retailer, serving customers worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="dashvio-demo-section--gadgets" style="background: #fff;">
     <div class="dashvio-demo-container--gadgets">
         <h2 class="dashvio-demo-title--gadgets">Our Team</h2>
@@ -113,4 +209,38 @@
         </div>
     </div>
 </section>
+
+<script>
+(function() {
+    // Progress Bar Animation
+    const progressObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+                const width = entry.target.getAttribute('data-width');
+                setTimeout(function() {
+                    entry.target.style.width = width + '%';
+                }, 100);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.dashvio-progress-fill').forEach(bar => {
+        progressObserver.observe(bar);
+    });
+    
+    // Scroll Animations
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.dashvio-scroll-fade, .dashvio-timeline-item').forEach(el => {
+        observer.observe(el);
+    });
+})();
+</script>
 
