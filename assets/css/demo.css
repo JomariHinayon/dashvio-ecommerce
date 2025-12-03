@@ -15,7 +15,7 @@ body.dashvio-demo-active:has(.dashvio-demo-shell--gadgets) {
 
 .dashvio-demo-active.dashvio-demo-shell--health,
 body.dashvio-demo-active:has(.dashvio-demo-shell--health) {
-    background: #1A4D7E !important;
+    background: #F5F7FB !important;
 }
 
 .dashvio-demo-active .site-header,
@@ -239,8 +239,8 @@ body.dashvio-demo-active:has(.dashvio-demo-shell--health) {
 }
 
 .dashvio-demo-shell--health {
-    background: #1A4D7E;
-    color: #FFFFFF;
+    background: #F5F7FB;
+    color: #1F2933;
 }
 
 .dashvio-demo-shell--fallback {
