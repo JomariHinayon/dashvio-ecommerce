@@ -284,7 +284,7 @@ body.dashvio-demo-active:has(.dashvio-demo-shell--health) {
 .dashvio-demo-tagline {
     margin: 0;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(0, 0, 0, 0.65);
 }
 
 .dashvio-demo-nav {

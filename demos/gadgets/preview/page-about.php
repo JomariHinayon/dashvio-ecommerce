@@ -138,7 +138,7 @@
             <div class="dashvio-timeline-item" style="display: flex; align-items: center; margin-bottom: 4rem;">
                 <div style="flex: 1; text-align: right; padding-right: 3rem;">
                     <h3 style="color: var(--gadget-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2020</h3>
-                    <p style="opacity: 0.9; color: #fff;">Founded with a vision to make cutting-edge technology accessible to everyone.</p>
+                    <p style="opacity: 0.9; color: var(--gadget-dark, #2D3142);">Founded with a vision to make cutting-edge technology accessible to everyone.</p>
                 </div>
                 <div style="width: 20px; height: 20px; background: var(--gadget-primary); border-radius: 50%; border: 4px solid var(--gadget-secondary); z-index: 1;"></div>
                 <div style="flex: 1; padding-left: 3rem;"></div>
@@ -149,14 +149,14 @@
                 <div style="width: 20px; height: 20px; background: var(--gadget-primary); border-radius: 50%; border: 4px solid var(--gadget-secondary); z-index: 1;"></div>
                 <div style="flex: 1; text-align: left; padding-left: 3rem;">
                     <h3 style="color: var(--gadget-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2022</h3>
-                    <p style="opacity: 0.9; color: #fff;">Expanded product catalog and launched our first premium gadget collection.</p>
+                    <p style="opacity: 0.9; color: var(--gadget-dark, #2D3142);">Expanded product catalog and launched our first premium gadget collection.</p>
                 </div>
             </div>
             
             <div class="dashvio-timeline-item" style="display: flex; align-items: center; margin-bottom: 4rem;">
                 <div style="flex: 1; text-align: right; padding-right: 3rem;">
                     <h3 style="color: var(--gadget-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2023</h3>
-                    <p style="opacity: 0.9; color: #fff;">Reached 10,000+ customers and introduced exclusive tech partnerships.</p>
+                    <p style="opacity: 0.9; color: var(--gadget-dark, #2D3142);">Reached 10,000+ customers and introduced exclusive tech partnerships.</p>
                 </div>
                 <div style="width: 20px; height: 20px; background: var(--gadget-primary); border-radius: 50%; border: 4px solid var(--gadget-secondary); z-index: 1;"></div>
                 <div style="flex: 1; padding-left: 3rem;"></div>
@@ -167,7 +167,7 @@
                 <div style="width: 20px; height: 20px; background: var(--gadget-primary); border-radius: 50%; border: 4px solid var(--gadget-secondary); z-index: 1;"></div>
                 <div style="flex: 1; text-align: left; padding-left: 3rem;">
                     <h3 style="color: var(--gadget-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">2024</h3>
-                    <p style="opacity: 0.9; color: #fff;">Recognized as a leading tech retailer, serving customers worldwide.</p>
+                    <p style="opacity: 0.9; color: var(--gadget-dark, #2D3142);">Recognized as a leading tech retailer, serving customers worldwide.</p>
                 </div>
             </div>
         </div>

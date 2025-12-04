@@ -28,14 +28,14 @@
 <section class="dashvio-demo-section--health" style="padding-top: 3rem;">
     <div class="dashvio-demo-container--health">
         <div style="max-width: 900px; margin: 0 auto;">
-            <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 1.5rem;">Our Mission</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #FFFFFF; margin-bottom: 2rem;">
+            <h2 style="font-size: 2rem; color: var(--health-dark, #1F2933); margin-bottom: 1.5rem;">Our Mission</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--health-dark, #1F2933); margin-bottom: 2rem;">
                 At HealthCare+, we are committed to providing exceptional medical care that combines cutting-edge technology with compassionate service. Our mission is to improve the health and well-being of every patient we serve.
             </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #FFFFFF; margin-bottom: 2rem;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--health-dark, #1F2933); margin-bottom: 2rem;">
                 Founded in 2010, we have grown to become a trusted healthcare provider in the community, serving thousands of patients with dedication and excellence. Our team of experienced professionals works tirelessly to ensure you receive the best possible care.
             </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #FFFFFF;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--health-dark, #1F2933);">
                 We believe in a patient-centered approach where your needs, comfort, and recovery are our top priorities. Every member of our team is committed to making your healthcare experience positive and effective.
             </p>
         </div>

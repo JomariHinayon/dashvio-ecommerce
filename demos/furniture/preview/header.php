@@ -3,6 +3,11 @@
         <div class="dashvio-demo-logo">FURNISH</div>
         <p class="dashvio-demo-tagline">Modern Living Spaces</p>
     </div>
+    <button class="dashvio-demo-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <nav class="dashvio-demo-nav">
         <a href="<?php echo esc_url($demo_base_url); ?>" class="<?php echo ($demo_page === 'home') ? 'is-active' : ''; ?>">Home</a>
         <a href="<?php echo esc_url($demo_about_url); ?>" class="<?php echo ($demo_page === 'about') ? 'is-active' : ''; ?>">About Us</a>

@@ -1,11 +1,16 @@
-<header class="dashvio-demo-header--health">
-    <nav class="dashvio-demo-nav--health">
+<header class="dashvio-demo-header dashvio-demo-header--health">
+    <div class="dashvio-demo-brand--health">
         <a href="<?php echo esc_url(home_url('/demo/health/')); ?>" class="dashvio-demo-logo--health">HealthCare+</a>
-        <ul class="dashvio-demo-menu--health">
-            <li><a href="<?php echo esc_url(home_url('/demo/health/')); ?>">Home</a></li>
-            <li><a href="<?php echo esc_url(home_url('/demo/health/about/')); ?>">About Us</a></li>
-            <li><a href="<?php echo esc_url(home_url('/demo/health/contact/')); ?>">Contact Us</a></li>
-        </ul>
+    </div>
+    <button class="dashvio-demo-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav class="dashvio-demo-nav dashvio-demo-nav--health">
+        <a href="<?php echo esc_url(home_url('/demo/health/')); ?>">Home</a>
+        <a href="<?php echo esc_url(home_url('/demo/health/about/')); ?>">About Us</a>
+        <a href="<?php echo esc_url(home_url('/demo/health/contact/')); ?>">Contact Us</a>
     </nav>
 </header>
 
