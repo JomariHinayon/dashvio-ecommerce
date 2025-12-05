@@ -276,6 +276,28 @@ function dashvio_get_prebuilt_demos() {
                 'Elegant animations',
             ),
         ),
+        'cosmetics' => array(
+            'id' => 'cosmetics',
+            'name' => 'BEAUTÉ Cosmetics',
+            'category' => 'fashion',
+            'description' => 'Elegant cosmetics store with premium beauty products and feminine design.',
+            'thumbnail' => DASHVIO_URI . '/assets/images/demos/cosmetics-thumb.webp',
+            'thumbnail_placeholder' => DASHVIO_URI . '/assets/images/demos/cosmetics-thumb.webp',
+            'preview_url' => home_url('/demo/cosmetics/'),
+            'colors' => array(
+                'primary' => '#D4A5A5',
+                'secondary' => '#E8B4B8',
+                'accent' => '#F5C6D3',
+                'dark' => '#8B4A6B',
+                'light' => '#FFF5F7',
+            ),
+            'features' => array(
+                'Elegant pink theme',
+                'Product showcase',
+                'Beauty-focused design',
+                'Premium cosmetics layout',
+            ),
+        ),
         'furniture' => array(
             'id' => 'furniture',
             'name' => 'Furniture Store',
@@ -349,7 +371,7 @@ function dashvio_get_demo_categories() {
     return array(
         'all' => array(
             'name' => 'All',
-            'count' => 6,
+            'count' => 7,
         ),
         'car-accessories' => array(
             'name' => 'Car Accessories',
@@ -361,7 +383,7 @@ function dashvio_get_demo_categories() {
         ),
         'fashion' => array(
             'name' => 'Fashion',
-            'count' => 1,
+            'count' => 2,
         ),
         'furniture' => array(
             'name' => 'Furniture',

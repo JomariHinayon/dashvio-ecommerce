@@ -129,7 +129,7 @@
 .woocommerce ul.products.columns-5,
 .woocommerce ul.products.columns-6 {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: var(--spacing-lg);
     list-style: none !important;
     margin: 0 !important;
@@ -141,6 +141,14 @@
     align-items: stretch;
     width: 100%;
     float: none !important;
+}
+
+/* Related Products - 2 columns only on single product page */
+.woocommerce div.product .related.products ul.products,
+.woocommerce div.product section.related ul.products,
+.woocommerce div.product .upsells.products ul.products,
+.woocommerce div.product section.upsells ul.products {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 
 /* Responsive product grid */
