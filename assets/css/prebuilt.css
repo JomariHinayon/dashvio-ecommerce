@@ -149,8 +149,13 @@
 }
 
 .dashvio-prebuilt-category-link:hover {
-    background: #f0f0f1;
-    color: #2271b1;
+    background: rgba(245, 168, 2, 0.15);
+    color: var(--color-primary-strong);
+}
+
+[data-theme="dark"] .dashvio-prebuilt-category-link:hover {
+    background: rgba(245, 168, 2, 0.2);
+    color: var(--color-primary-strong);
 }
 
 .dashvio-prebuilt-category-item.active .dashvio-prebuilt-category-link {
@@ -178,7 +183,8 @@
 }
 
 [data-theme="dark"] .dashvio-prebuilt-category-count {
-    color: #111;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-light);
 }
 
 .dashvio-prebuilt-category-item.active .dashvio-prebuilt-category-count {
