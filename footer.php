@@ -34,6 +34,26 @@
     </div>
 </footer>
 
+<!-- Quick View Modal -->
+<div class="dashvio-quick-view-modal" id="dashvio-quick-view-modal" aria-hidden="true">
+    <div class="dashvio-quick-view-overlay"></div>
+    <div class="dashvio-quick-view-content">
+        <button type="button" class="dashvio-quick-view-close" aria-label="<?php esc_attr_e('Close', 'dashvio'); ?>">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="dashvio-quick-view-loader">
+            <div class="dashvio-spinner"></div>
+            <p><?php esc_html_e('Loading...', 'dashvio'); ?></p>
+        </div>
+        <div class="dashvio-quick-view-body" style="display: none;">
+            <!-- Content will be loaded via AJAX -->
+        </div>
+    </div>
+</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>

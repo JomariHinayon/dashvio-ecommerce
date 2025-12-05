@@ -256,10 +256,18 @@
     color: #fff;
     text-decoration: none;
     font-weight: 600;
+    z-index: 5;
 }
 
 .dashvio-prebuilt-demo:hover .dashvio-prebuilt-demo-overlay {
     opacity: 1;
+}
+
+.dashvio-prebuilt-demo .dashvio-quick-view-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 15;
 }
 
 .dashvio-prebuilt-import-btn {

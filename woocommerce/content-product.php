@@ -15,6 +15,13 @@ if (empty($product) || !$product->is_visible()) {
                 <?php echo $product->get_image('woocommerce_thumbnail'); ?>
             </a>
             <?php woocommerce_show_product_loop_sale_flash(); ?>
+            <button type="button" class="dashvio-quick-view-btn" data-product-id="<?php echo esc_attr($product->get_id()); ?>" aria-label="<?php esc_attr_e('Quick view', 'dashvio'); ?>">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Quick View</span>
+            </button>
         </div>
         
         <div class="product-info">
