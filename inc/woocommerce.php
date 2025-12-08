@@ -147,3 +147,67 @@ function dashvio_exclude_demo_templates_from_shortcode($args) {
 }
 add_filter('woocommerce_shortcode_products_query', 'dashvio_exclude_demo_templates_from_shortcode', 10, 1);
 
+function dashvio_add_cart_item_data($cart_item_data, $product_id) {
+    if (isset($_POST['dashvio_license_type'])) {
+        $cart_item_data['dashvio_license_type'] = sanitize_text_field($_POST['dashvio_license_type']);
+    }
+    if (isset($_POST['dashvio_license_price'])) {
+        $cart_item_data['dashvio_license_price'] = floatval($_POST['dashvio_license_price']);
+    }
+    if (isset($_POST['dashvio_services'])) {
+        $cart_item_data['dashvio_services'] = json_decode(stripslashes($_POST['dashvio_services']), true);
+    }
+    if (isset($_POST['dashvio_total_price'])) {
+        $cart_item_data['dashvio_total_price'] = floatval($_POST['dashvio_total_price']);
+    }
+    return $cart_item_data;
+}
+add_filter('woocommerce_add_cart_item_data', 'dashvio_add_cart_item_data', 10, 2);
+
+function dashvio_calculate_cart_item_price($cart_object) {
+    foreach ($cart_object->cart_contents as $cart_item_key => $cart_item) {
+        if (isset($cart_item['dashvio_total_price']) && $cart_item['dashvio_total_price'] > 0) {
+            $cart_item['data']->set_price($cart_item['dashvio_total_price']);
+        }
+    }
+}
+add_action('woocommerce_before_calculate_totals', 'dashvio_calculate_cart_item_price', 10, 1);
+
+function dashvio_display_cart_item_data($item_data, $cart_item) {
+    if (isset($cart_item['dashvio_license_type'])) {
+        $licenseName = $cart_item['dashvio_license_type'] === 'commercial' ? 'Commercial License' : 'Personal License';
+        $licensePrice = isset($cart_item['dashvio_license_price']) ? floatval($cart_item['dashvio_license_price']) : 0;
+        if ($licensePrice > 0) {
+            $item_data[] = array(
+                'key' => 'License',
+                'value' => $licenseName . ' (+' . wc_price($licensePrice) . ')'
+            );
+        } else {
+            $item_data[] = array(
+                'key' => 'License',
+                'value' => $licenseName
+            );
+        }
+    }
+    
+    if (isset($cart_item['dashvio_services']) && is_array($cart_item['dashvio_services']) && !empty($cart_item['dashvio_services'])) {
+        $servicesList = array();
+        foreach ($cart_item['dashvio_services'] as $service) {
+            $serviceName = isset($service['name']) ? $service['name'] : 'Service';
+            $servicePrice = isset($service['price']) ? floatval($service['price']) : 0;
+            if ($servicePrice > 0) {
+                $servicesList[] = $serviceName . ' (+' . wc_price($servicePrice) . ')';
+            } else {
+                $servicesList[] = $serviceName;
+            }
+        }
+        $item_data[] = array(
+            'key' => 'Services',
+            'value' => implode('<br>', $servicesList)
+        );
+    }
+    
+    return $item_data;
+}
+add_filter('woocommerce_get_item_data', 'dashvio_display_cart_item_data', 10, 2);
+

@@ -175,6 +175,45 @@
         }
         
         function initQuickViewPricing(demoId) {
+            function formatPrice(price) {
+                if (typeof dashvioCurrency !== 'undefined') {
+                    var currencySymbol = dashvioCurrency.symbol || '$';
+                    var decimals = parseInt(dashvioCurrency.num_decimals) || 2;
+                    var decimalSep = dashvioCurrency.decimal_sep || '.';
+                    var thousandSep = dashvioCurrency.thousand_sep || ',';
+                    var priceFormat = dashvioCurrency.format || '%1$s%2$s';
+                    
+                    var formattedNumber = parseFloat(price).toFixed(decimals);
+                    if (thousandSep && thousandSep !== '') {
+                        var parts = formattedNumber.split('.');
+                        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousandSep);
+                        formattedNumber = parts.join(decimalSep);
+                    } else {
+                        formattedNumber = formattedNumber.replace('.', decimalSep);
+                    }
+                    
+                    return priceFormat.replace('%1$s', currencySymbol).replace('%2$s', formattedNumber);
+                } else if (typeof wc_add_to_cart_params !== 'undefined' && wc_add_to_cart_params.currency_format_num_decimals !== undefined) {
+                    var currencySymbol = wc_add_to_cart_params.currency_symbol || '$';
+                    var decimals = parseInt(wc_add_to_cart_params.currency_format_num_decimals) || 2;
+                    var decimalSep = wc_add_to_cart_params.currency_format_decimal_sep || '.';
+                    var thousandSep = wc_add_to_cart_params.currency_format_thousand_sep || ',';
+                    var priceFormat = wc_add_to_cart_params.currency_format || '%1$s%2$s';
+                    
+                    var formattedNumber = parseFloat(price).toFixed(decimals);
+                    if (thousandSep && thousandSep !== '') {
+                        var parts = formattedNumber.split('.');
+                        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousandSep);
+                        formattedNumber = parts.join(decimalSep);
+                    } else {
+                        formattedNumber = formattedNumber.replace('.', decimalSep);
+                    }
+                    
+                    return priceFormat.replace('%1$s', currencySymbol).replace('%2$s', formattedNumber);
+                }
+                return '$' + parseFloat(price).toFixed(2);
+            }
+            
             function calculateQuickViewTotal() {
                 var licenseSelector = 'input[name="quick_view_license_' + demoId + '"]:checked';
                 var selectedLicense = $(licenseSelector);
@@ -187,7 +226,7 @@
                     totalPrice += discountedPrice;
                 });
                 
-                $('#dashvio-quick-view-total-' + demoId).text('$' + totalPrice.toFixed(2));
+                $('#dashvio-quick-view-total-' + demoId).text(formatPrice(totalPrice));
             }
             
             $(document).on('change', 'input[name="quick_view_license_' + demoId + '"]', function() {

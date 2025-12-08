@@ -108,13 +108,49 @@
             var originalHtml = $btn.html();
             $btn.html('<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg> Adding...');
             
+            var licenseType = '';
+            var licensePrice = 0;
+            var selectedServices = [];
+            var totalPrice = 0;
+            
+            var $modal = $btn.closest('.dashvio-quick-view-modal');
+            if ($modal.length) {
+                var $selectedLicense = $modal.find('input[name^="quick_view_license"]:checked');
+                if ($selectedLicense.length) {
+                    licenseType = $selectedLicense.val();
+                    licensePrice = parseFloat($selectedLicense.data('price')) || 0;
+                    console.log('Selected license:', licenseType, 'Price:', licensePrice);
+                }
+                
+                $modal.find('input[name^="quick_view_services"]:checked').each(function() {
+                    var $service = $(this);
+                    selectedServices.push({
+                        id: $service.val(),
+                        name: $service.closest('.dashvio-service-item').find('.dashvio-service-item__name').text().trim(),
+                        price: parseFloat($service.data('discounted-price')) || 0
+                    });
+                });
+                console.log('Selected services:', selectedServices);
+                
+                var $totalPriceEl = $modal.find('.dashvio-total-price');
+                if ($totalPriceEl.length) {
+                    var totalText = $totalPriceEl.text().replace(/[^0-9.]/g, '');
+                    totalPrice = parseFloat(totalText) || 0;
+                    console.log('Total price:', totalPrice);
+                }
+            }
+            
             if (typeof wc_add_to_cart_params !== 'undefined' && wc_add_to_cart_params.wc_ajax_url) {
                 console.log('Using WooCommerce AJAX');
                 var ajaxUrl = wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'add_to_cart');
                 console.log('AJAX URL:', ajaxUrl);
                 var data = {
                     product_id: productId,
-                    quantity: 1
+                    quantity: 1,
+                    dashvio_license_type: licenseType,
+                    dashvio_license_price: licensePrice,
+                    dashvio_services: JSON.stringify(selectedServices),
+                    dashvio_total_price: totalPrice
                 };
                 console.log('AJAX data:', data);
                 

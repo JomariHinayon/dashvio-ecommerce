@@ -205,7 +205,7 @@ function dashvio_ajax_get_template_quick_view() {
                             >
                             <div class="dashvio-license-option__content">
                                 <span class="dashvio-license-option__name"><?php echo esc_html($license['name']); ?></span>
-                                <span class="dashvio-license-option__price">$<?php echo number_format($license['price'], 2); ?></span>
+                                <span class="dashvio-license-option__price"><?php echo wc_price($license['price']); ?></span>
                             </div>
                         </label>
                     <?php endforeach; ?>
@@ -231,8 +231,8 @@ function dashvio_ajax_get_template_quick_view() {
                                         <?php endif; ?>
                                     </div>
                                     <div class="dashvio-service-item__pricing">
-                                        <span class="dashvio-service-item__original-price">$<?php echo number_format($service['original_price'], 2); ?></span>
-                                        <span class="dashvio-service-item__discounted-price">$<?php echo number_format($service['discounted_price'], 2); ?></span>
+                                        <span class="dashvio-service-item__original-price"><?php echo wc_price($service['original_price']); ?></span>
+                                        <span class="dashvio-service-item__discounted-price"><?php echo wc_price($service['discounted_price']); ?></span>
                                     </div>
                                 </div>
                             </label>
@@ -243,7 +243,7 @@ function dashvio_ajax_get_template_quick_view() {
                 <div class="dashvio-pricing-panel__total">
                     <div class="dashvio-total-line">
                         <span class="dashvio-total-label">Total:</span>
-                        <span class="dashvio-total-price" id="dashvio-quick-view-total-<?php echo esc_attr($demo_id); ?>">$<?php echo number_format($base_price, 2); ?></span>
+                        <span class="dashvio-total-price" id="dashvio-quick-view-total-<?php echo esc_attr($demo_id); ?>" data-base-price="<?php echo esc_attr($base_price); ?>"><?php echo wc_price($base_price); ?></span>
                     </div>
                 </div>
                 
@@ -288,7 +288,7 @@ function dashvio_ajax_get_template_quick_view() {
                 
                 <div class="dashvio-pricing-panel__subscription">
                     <div class="dashvio-subscription-info">
-                        <h5 class="dashvio-subscription-title">MonsterONE - Unlimited Downloads for $14.00/mo</h5>
+                        <h5 class="dashvio-subscription-title">MonsterONE - Unlimited Downloads for <?php echo wc_price(14.00); ?>/mo</h5>
                         <p class="dashvio-subscription-details">540k Items | Commercial Use | Support</p>
                         <a href="#" class="dashvio-btn dashvio-btn--subscription">
                             Join to Download this Item for Free

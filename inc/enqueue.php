@@ -37,6 +37,16 @@ function dashvio_enqueue_scripts() {
             'ajaxurl' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('dashvio-nonce'),
         ));
+        
+        if (function_exists('wc_get_price_format')) {
+            wp_localize_script('dashvio-woocommerce', 'dashvioCurrency', array(
+                'symbol' => get_woocommerce_currency_symbol(),
+                'format' => get_woocommerce_price_format(),
+                'decimal_sep' => wc_get_price_decimal_separator(),
+                'thousand_sep' => wc_get_price_thousand_separator(),
+                'num_decimals' => wc_get_price_decimals(),
+            ));
+        }
     }
     
     wp_localize_script('dashvio-main', 'dashvioData', array(
