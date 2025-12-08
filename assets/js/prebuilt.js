@@ -129,5 +129,58 @@
         });
     });
     
+    // Mobile: Show preview buttons on click instead of going directly to preview
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+    
+    $(document).on('click', '.dashvio-prebuilt-demo-thumbnail', function(e) {
+        if (isMobile()) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var $demo = $(this).closest('.dashvio-prebuilt-demo');
+            var $overlay = $demo.find('.dashvio-prebuilt-demo-overlay');
+            
+            // Toggle overlay visibility
+            if ($overlay.hasClass('mobile-active')) {
+                $overlay.removeClass('mobile-active');
+            } else {
+                // Close other active overlays first
+                $('.dashvio-prebuilt-demo-overlay').removeClass('mobile-active');
+                $overlay.addClass('mobile-active');
+            }
+        }
+    });
+    
+    // Close overlay when clicking outside on mobile
+    $(document).on('click', function(e) {
+        if (isMobile()) {
+            if (!$(e.target).closest('.dashvio-prebuilt-demo-thumbnail').length) {
+                $('.dashvio-prebuilt-demo-overlay').removeClass('mobile-active');
+            }
+        }
+    });
+    
+    // Prevent overlay link from navigating on mobile (let user click the button instead)
+    $(document).on('click', '.dashvio-prebuilt-demo-overlay', function(e) {
+        if (isMobile()) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
+    
+    // Allow the "Try Demo" text/button inside overlay to work
+    $(document).on('click', '.dashvio-prebuilt-import-text', function(e) {
+        if (isMobile()) {
+            e.stopPropagation();
+            var $overlay = $(this).closest('.dashvio-prebuilt-demo-overlay');
+            var href = $overlay.attr('href');
+            if (href) {
+                window.open(href, '_blank');
+            }
+        }
+    });
+    
 })(jQuery);
 

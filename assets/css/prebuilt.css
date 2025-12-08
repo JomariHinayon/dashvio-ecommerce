@@ -263,6 +263,18 @@
     opacity: 1;
 }
 
+/* Mobile: Show overlay on click */
+@media (max-width: 768px) {
+    .dashvio-prebuilt-demo-overlay.mobile-active {
+        opacity: 1 !important;
+    }
+    
+    /* Hide overlay on hover for mobile (only show on click) */
+    .dashvio-prebuilt-demo:hover .dashvio-prebuilt-demo-overlay:not(.mobile-active) {
+        opacity: 0;
+    }
+}
+
 .dashvio-prebuilt-demo .dashvio-quick-view-btn {
     position: absolute;
     top: 12px;
