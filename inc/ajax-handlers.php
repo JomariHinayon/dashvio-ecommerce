@@ -134,30 +134,184 @@ function dashvio_ajax_get_template_quick_view() {
     // Get product if exists
     $product_id = get_option('dashvio_demo_product_' . $demo_id);
     $product = $product_id ? wc_get_product($product_id) : null;
-    $price = $product ? $product->get_price_html() : '$99.00';
+    $base_price = $product ? floatval($product->get_price()) : 99.00;
+    $price_html = $product ? $product->get_price_html() : '$99.00';
+    $has_purchased = function_exists('dashvio_user_has_purchased_demo') ? dashvio_user_has_purchased_demo($demo_id) : false;
+    
+    // Service add-ons pricing
+    $services = array(
+        array(
+            'id' => 'extended_support',
+            'name' => 'Get 6 more months of support and save $17',
+            'original_price' => 29.00,
+            'discounted_price' => 12.00,
+        ),
+        array(
+            'id' => 'installation_setup',
+            'name' => 'Installation & Setup',
+            'original_price' => 59.00,
+            'discounted_price' => 49.00,
+        ),
+        array(
+            'id' => 'customization_package',
+            'name' => 'Installation & Customization Package',
+            'original_price' => 369.00,
+            'discounted_price' => 259.00,
+        ),
+        array(
+            'id' => 'all_in_one',
+            'name' => 'All-in-One Store Setup + SEO',
+            'original_price' => 1777.00,
+            'discounted_price' => 1199.00,
+            'badge' => 'Service of the Day',
+        ),
+        array(
+            'id' => 'must_have_plugins',
+            'name' => 'Must-Have Plugins',
+            'original_price' => 89.00,
+            'discounted_price' => 49.00,
+        ),
+        array(
+            'id' => 'gdpr_compliance',
+            'name' => 'GDPR & CCPA Compliance - New Privacy Rules',
+            'original_price' => 89.00,
+            'discounted_price' => 59.00,
+        ),
+    );
+    
+    // License options
+    $licenses = array(
+        array(
+            'id' => 'personal',
+            'name' => 'Personal license',
+            'price' => $base_price,
+            'default' => true,
+        ),
+        array(
+            'id' => 'commercial',
+            'name' => 'Commercial license',
+            'price' => $base_price * 1.5, // 50% more for commercial
+        ),
+    );
     
     ob_start();
     ?>
-    <div class="dashvio-quick-view-product">
-        <div class="dashvio-quick-view-product-image">
-            <img src="<?php echo esc_url($demo['thumbnail']); ?>" alt="<?php echo esc_attr($demo['name']); ?>">
-        </div>
-        <div class="dashvio-quick-view-product-info">
-            <h2><?php echo esc_html($demo['name']); ?> Template</h2>
-            <span class="price"><?php echo $price; ?></span>
-            <div class="description">
-                <p><?php echo esc_html($demo['description']); ?></p>
-                <?php if (isset($demo['category'])) : ?>
-                    <p><strong><?php esc_html_e('Category:', 'dashvio'); ?></strong> <?php echo esc_html(ucfirst($demo['category'])); ?></p>
-                <?php endif; ?>
+    <div class="dashvio-quick-view-template">
+        <div class="dashvio-quick-view-template-preview">
+            <div class="dashvio-quick-view-product-image">
+                <img src="<?php echo esc_url($demo['thumbnail']); ?>" alt="<?php echo esc_attr($demo['name']); ?>">
             </div>
-            <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
-                <a href="<?php echo esc_url($demo['preview_url']); ?>" target="_blank" class="button button-primary"><?php esc_html_e('Try Demo', 'dashvio'); ?></a>
-                <?php if ($product && $product->is_purchasable() && $product->is_in_stock()) : ?>
-                    <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" class="button button-primary dashvio-add-to-cart-btn" data-product-id="<?php echo esc_attr($product->get_id()); ?>">
-                        <?php esc_html_e('Add to Cart', 'dashvio'); ?>
+            <div class="dashvio-quick-view-template-info">
+                <h2><?php echo esc_html($demo['name']); ?> Template</h2>
+                <div class="description">
+                    <p><?php echo esc_html($demo['description']); ?></p>
+                    <?php if (isset($demo['category'])) : ?>
+                        <p><strong><?php esc_html_e('Category:', 'dashvio'); ?></strong> <?php echo esc_html(ucfirst($demo['category'])); ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashvio-quick-view-pricing-panel">
+            <div class="dashvio-pricing-panel__inner">
+                <h3 class="dashvio-pricing-panel__title">License Options</h3>
+                <div class="dashvio-license-options">
+                    <?php foreach ($licenses as $license) : ?>
+                        <label class="dashvio-license-option <?php echo $license['default'] ? 'is-selected' : ''; ?>">
+                            <input 
+                                type="radio" 
+                                name="quick_view_license_<?php echo esc_attr($demo_id); ?>" 
+                                value="<?php echo esc_attr($license['id']); ?>" 
+                                data-price="<?php echo esc_attr($license['price']); ?>"
+                                <?php echo $license['default'] ? 'checked' : ''; ?>
+                            >
+                            <div class="dashvio-license-option__content">
+                                <span class="dashvio-license-option__name"><?php echo esc_html($license['name']); ?></span>
+                                <span class="dashvio-license-option__price">$<?php echo number_format($license['price'], 2); ?></span>
+                            </div>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+                
+                <div class="dashvio-pricing-panel__services">
+                    <h4 class="dashvio-services-title">Popular Services from WooCommerce Themes Experts</h4>
+                    <div class="dashvio-services-list">
+                        <?php foreach ($services as $service) : ?>
+                            <label class="dashvio-service-item">
+                                <input 
+                                    type="checkbox" 
+                                    name="quick_view_services_<?php echo esc_attr($demo_id); ?>[]" 
+                                    value="<?php echo esc_attr($service['id']); ?>"
+                                    data-original-price="<?php echo esc_attr($service['original_price']); ?>"
+                                    data-discounted-price="<?php echo esc_attr($service['discounted_price']); ?>"
+                                >
+                                <div class="dashvio-service-item__content">
+                                    <div class="dashvio-service-item__header">
+                                        <span class="dashvio-service-item__name"><?php echo esc_html($service['name']); ?></span>
+                                        <?php if (isset($service['badge'])) : ?>
+                                            <span class="dashvio-service-item__badge"><?php echo esc_html($service['badge']); ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="dashvio-service-item__pricing">
+                                        <span class="dashvio-service-item__original-price">$<?php echo number_format($service['original_price'], 2); ?></span>
+                                        <span class="dashvio-service-item__discounted-price">$<?php echo number_format($service['discounted_price'], 2); ?></span>
+                                    </div>
+                                </div>
+                            </label>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                
+                <div class="dashvio-pricing-panel__total">
+                    <div class="dashvio-total-line">
+                        <span class="dashvio-total-label">Total:</span>
+                        <span class="dashvio-total-price" id="dashvio-quick-view-total-<?php echo esc_attr($demo_id); ?>">$<?php echo number_format($base_price, 2); ?></span>
+                    </div>
+                </div>
+                
+                <div class="dashvio-pricing-panel__actions">
+                    <a href="<?php echo esc_url($demo['preview_url']); ?>" target="_blank" class="dashvio-btn dashvio-btn--outline dashvio-btn--full">
+                        Try Demo
                     </a>
-                <?php endif; ?>
+                    <?php if ($has_purchased) : ?>
+                        <button type="button" class="dashvio-btn dashvio-btn--primary dashvio-btn--full dashvio-import-demo-btn" data-demo-id="<?php echo esc_attr($demo_id); ?>" data-demo-name="<?php echo esc_attr($demo['name']); ?>">
+                            Import Demo
+                        </button>
+                    <?php else : ?>
+                        <?php if ($product && $product->is_purchasable() && $product->is_in_stock()) : ?>
+                            <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" class="dashvio-btn dashvio-btn--primary dashvio-btn--full dashvio-add-to-cart-btn" data-product-id="<?php echo esc_attr($product->get_id()); ?>" id="dashvio-quick-view-add-to-cart-<?php echo esc_attr($demo_id); ?>">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>
+                                Add to Cart
+                            </a>
+                        <?php else : ?>
+                            <a href="<?php echo esc_url(home_url('/shop')); ?>" class="dashvio-btn dashvio-btn--primary dashvio-btn--full">
+                                Add to Cart
+                            </a>
+                        <?php endif; ?>
+                        <a href="#" class="dashvio-btn dashvio-btn--secondary dashvio-btn--full">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            Get in Subscription
+                        </a>
+                    <?php endif; ?>
+                </div>
+                
+                <div class="dashvio-pricing-panel__subscription">
+                    <div class="dashvio-subscription-info">
+                        <h5 class="dashvio-subscription-title">MonsterONE - Unlimited Downloads for $14.00/mo</h5>
+                        <p class="dashvio-subscription-details">540k Items | Commercial Use | Support</p>
+                        <a href="#" class="dashvio-btn dashvio-btn--subscription">
+                            Join to Download this Item for Free
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

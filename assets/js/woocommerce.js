@@ -160,6 +160,9 @@
                     if (response.success && response.data) {
                         $quickViewBody.html(response.data.html).show();
                         $quickViewLoader.hide();
+                        
+                        // Initialize price calculation for this template
+                        initQuickViewPricing(demoId);
                     } else {
                         $quickViewBody.html('<p>Error loading template details.</p>').show();
                         $quickViewLoader.hide();
@@ -170,6 +173,39 @@
                     $quickViewLoader.hide();
                 }
             });
+        }
+        
+        // Initialize pricing calculation for Quick View modal
+        function initQuickViewPricing(demoId) {
+            function calculateQuickViewTotal() {
+                var licenseSelector = 'input[name="quick_view_license_' + demoId + '"]:checked';
+                var selectedLicense = $(licenseSelector);
+                var basePrice = selectedLicense.length ? parseFloat(selectedLicense.data('price')) : 99.00;
+                
+                var totalPrice = basePrice;
+                var servicesSelector = 'input[name="quick_view_services_' + demoId + '[]"]:checked';
+                $(servicesSelector).each(function() {
+                    var discountedPrice = parseFloat($(this).data('discounted-price'));
+                    totalPrice += discountedPrice;
+                });
+                
+                $('#dashvio-quick-view-total-' + demoId).text('$' + totalPrice.toFixed(2));
+            }
+            
+            // Update total when license changes
+            $(document).on('change', 'input[name="quick_view_license_' + demoId + '"]', function() {
+                $('.dashvio-license-option').removeClass('is-selected');
+                $(this).closest('.dashvio-license-option').addClass('is-selected');
+                calculateQuickViewTotal();
+            });
+            
+            // Update total when services change
+            $(document).on('change', 'input[name="quick_view_services_' + demoId + '[]"]', function() {
+                calculateQuickViewTotal();
+            });
+            
+            // Initialize total price
+            calculateQuickViewTotal();
         }
         
         function initQuantityControls() {

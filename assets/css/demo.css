@@ -233,14 +233,29 @@ body.dashvio-demo-active:has(.dashvio-demo-shell--health) {
     color: #2C2C2C;
 }
 
+.dashvio-demo-shell--furniture .dashvio-pricing-panel__inner {
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 .dashvio-demo-shell--gadgets {
     background: #FFFFFF;
     color: #2D3142;
 }
 
+.dashvio-demo-shell--gadgets .dashvio-pricing-panel__inner {
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 .dashvio-demo-shell--health {
     background: #F5F7FB;
     color: #1F2933;
+}
+
+.dashvio-demo-shell--health .dashvio-pricing-panel__inner {
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .dashvio-demo-shell--fallback {
