@@ -65,29 +65,7 @@ function dashvio_ajax_get_product_quick_view() {
                 <?php echo apply_filters('woocommerce_short_description', $product->get_short_description() ?: $product->get_description()); ?>
             </div>
             <?php if ($product->is_type('simple') && $product->is_purchasable() && $product->is_in_stock()) : ?>
-                <form class="dashvio-loop-cart" action="<?php echo esc_url($product->add_to_cart_url()); ?>" method="post">
-                    <div class="dashvio-qty-control">
-                        <button type="button" class="dashvio-qty__btn" data-type="minus" aria-label="<?php esc_attr_e('Decrease quantity', 'dashvio'); ?>">-</button>
-                        <?php
-                        echo woocommerce_quantity_input(
-                            array(
-                                'input_name'  => 'quantity',
-                                'input_value' => 1,
-                                'min_value'   => apply_filters('woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product),
-                                'max_value'   => apply_filters('woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product),
-                                'step'        => apply_filters('woocommerce_quantity_input_step', 1, $product),
-                            ),
-                            $product,
-                            false
-                        );
-                        ?>
-                        <button type="button" class="dashvio-qty__btn" data-type="plus" aria-label="<?php esc_attr_e('Increase quantity', 'dashvio'); ?>">+</button>
-                    </div>
-                    <button type="submit" class="dashvio-loop-cart__btn">
-                        <?php echo esc_html($product->add_to_cart_text()); ?>
-                    </button>
-                    <input type="hidden" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>">
-                </form>
+                <?php woocommerce_template_loop_add_to_cart(); ?>
             <?php else : ?>
                 <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button button-primary"><?php esc_html_e('View Product', 'dashvio'); ?></a>
             <?php endif; ?>
@@ -279,13 +257,18 @@ function dashvio_ajax_get_template_quick_view() {
                         </button>
                     <?php else : ?>
                         <?php if ($product && $product->is_purchasable() && $product->is_in_stock()) : ?>
-                            <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" class="dashvio-btn dashvio-btn--primary dashvio-btn--full dashvio-add-to-cart-btn" data-product-id="<?php echo esc_attr($product->get_id()); ?>" id="dashvio-quick-view-add-to-cart-<?php echo esc_attr($demo_id); ?>">
+                            <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" 
+                               class="dashvio-btn dashvio-btn--primary dashvio-btn--full dashvio-add-to-cart-btn" 
+                               data-product-id="<?php echo esc_attr($product->get_id()); ?>"
+                               data-product_id="<?php echo esc_attr($product->get_id()); ?>"
+                               data-quantity="1"
+                               rel="nofollow">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                                     <line x1="3" y1="6" x2="21" y2="6"></line>
                                     <path d="M16 10a4 4 0 0 1-8 0"></path>
                                 </svg>
-                                Add to Cart
+                                <?php echo esc_html($product->add_to_cart_text()); ?>
                             </a>
                         <?php else : ?>
                             <a href="<?php echo esc_url(home_url('/shop')); ?>" class="dashvio-btn dashvio-btn--primary dashvio-btn--full">

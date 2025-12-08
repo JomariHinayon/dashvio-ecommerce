@@ -31,7 +31,8 @@ function dashvio_enqueue_scripts() {
     }
     
     if (class_exists('WooCommerce')) {
-        wp_enqueue_script('dashvio-woocommerce', DASHVIO_URI . '/assets/js/woocommerce.js', array('jquery'), DASHVIO_VERSION, true);
+        wp_enqueue_script('dashvio-woocommerce', DASHVIO_URI . '/assets/js/woocommerce.js', array('jquery', 'wc-add-to-cart'), DASHVIO_VERSION, true);
+        wp_enqueue_script('dashvio-demo', DASHVIO_URI . '/assets/js/demo.js', array('jquery', 'wc-add-to-cart'), DASHVIO_VERSION, true);
         wp_localize_script('dashvio-woocommerce', 'dashvioQuickView', array(
             'ajaxurl' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('dashvio-nonce'),

@@ -458,6 +458,7 @@ function dashvio_prebuilt_websites_content() {
                     }
                     
                     foreach ($filtered_demos as $demo): 
+                        $has_purchased = function_exists('dashvio_user_has_purchased_demo') ? dashvio_user_has_purchased_demo($demo['id']) : false;
                     ?>
                         <div class="dashvio-prebuilt-demo dash-scroll-fade" data-demo-id="<?php echo esc_attr($demo['id']); ?>" data-category="<?php echo esc_attr($demo['category']); ?>">
                             <div class="dashvio-prebuilt-demo-thumbnail">
@@ -466,7 +467,7 @@ function dashvio_prebuilt_websites_content() {
                                 ?>
                                 <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($demo['name']); ?>" onerror="this.src='<?php echo esc_url($demo['thumbnail_placeholder'] ?? 'https://via.placeholder.com/600x450/FF6B35/FFFFFF?text=' . urlencode($demo['name'])); ?>'" />
                                 <a class="dashvio-prebuilt-demo-overlay" href="<?php echo esc_url($demo['preview_url']); ?>" target="_blank" rel="noopener">
-                                    <span class="dashvio-prebuilt-import-text">Try Demo</span>
+                                    <span class="dashvio-prebuilt-import-text">Preview Demo</span>
                                 </a>
                                 <button type="button" class="dashvio-quick-view-btn dashvio-quick-view-btn--template" data-demo-id="<?php echo esc_attr($demo['id']); ?>" aria-label="<?php esc_attr_e('Quick view', 'dashvio'); ?>">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -480,7 +481,8 @@ function dashvio_prebuilt_websites_content() {
                                 <h4 class="dashvio-prebuilt-demo-name"><?php echo esc_html($demo['name']); ?></h4>
                                 <p class="dashvio-prebuilt-demo-description"><?php echo esc_html($demo['description']); ?></p>
                                 <div class="dashvio-prebuilt-demo-actions">
-                                    <a href="<?php echo esc_url($demo['preview_url']); ?>" target="_blank" rel="noopener" class="dashvio-prebuilt-btn dashvio-prebuilt-btn--preview">Try Demo</a>
+                                    <a href="<?php echo esc_url($demo['preview_url']); ?>" target="_blank" rel="noopener" class="dashvio-prebuilt-btn dashvio-prebuilt-btn--preview">Preview Demo</a>
+                                    <button type="button" class="dashvio-prebuilt-btn dashvio-prebuilt-btn--use-template" data-demo-id="<?php echo esc_attr($demo['id']); ?>" data-demo-name="<?php echo esc_attr($demo['name']); ?>" data-has-purchased="<?php echo $has_purchased ? '1' : '0'; ?>">Use this Template</button>
                                 </div>
                             </div>
                         </div>

@@ -106,14 +106,14 @@
         });
         
         function openQuickView() {
-            $quickViewModal.addClass('active');
+            $quickViewModal.addClass('active').attr('aria-hidden', 'false');
             $quickViewBody.hide();
             $quickViewLoader.show();
             $('body').css('overflow', 'hidden');
         }
         
         function closeQuickView() {
-            $quickViewModal.removeClass('active');
+            $quickViewModal.removeClass('active').attr('aria-hidden', 'true');
             $quickViewBody.hide().html('');
             $quickViewLoader.hide();
             $('body').css('overflow', '');
@@ -161,7 +161,6 @@
                         $quickViewBody.html(response.data.html).show();
                         $quickViewLoader.hide();
                         
-                        // Initialize price calculation for this template
                         initQuickViewPricing(demoId);
                     } else {
                         $quickViewBody.html('<p>Error loading template details.</p>').show();
@@ -175,7 +174,6 @@
             });
         }
         
-        // Initialize pricing calculation for Quick View modal
         function initQuickViewPricing(demoId) {
             function calculateQuickViewTotal() {
                 var licenseSelector = 'input[name="quick_view_license_' + demoId + '"]:checked';
@@ -192,19 +190,16 @@
                 $('#dashvio-quick-view-total-' + demoId).text('$' + totalPrice.toFixed(2));
             }
             
-            // Update total when license changes
             $(document).on('change', 'input[name="quick_view_license_' + demoId + '"]', function() {
                 $('.dashvio-license-option').removeClass('is-selected');
                 $(this).closest('.dashvio-license-option').addClass('is-selected');
                 calculateQuickViewTotal();
             });
             
-            // Update total when services change
             $(document).on('change', 'input[name="quick_view_services_' + demoId + '[]"]', function() {
                 calculateQuickViewTotal();
             });
             
-            // Initialize total price
             calculateQuickViewTotal();
         }
         

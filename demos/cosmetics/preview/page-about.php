@@ -32,12 +32,22 @@
                     <p style="color: var(--cosmetics-text);">Cruelty-free formulas with natural ingredients</p>
                 </div>
                 <div class="dashvio-scroll-fade" style="text-align: center; padding: 2rem; background: var(--cosmetics-bg); border-radius: 16px;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+                    <div style="margin-bottom: 1rem;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
                     <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cosmetics-dark);">Premium Quality</h4>
                     <p style="color: var(--cosmetics-text);">Professional-grade products for everyday beauty</p>
                 </div>
                 <div class="dashvio-scroll-fade" style="text-align: center; padding: 2rem; background: var(--cosmetics-bg); border-radius: 16px;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">💝</div>
+                    <div style="margin-bottom: 1rem;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
                     <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cosmetics-dark);">Inclusive Beauty</h4>
                     <p style="color: var(--cosmetics-text);">Shades and formulas for every skin tone</p>
                 </div>

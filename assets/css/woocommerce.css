@@ -894,6 +894,8 @@
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(4px);
     cursor: pointer;
+    pointer-events: auto;
+    z-index: 0;
 }
 
 .dashvio-quick-view-content {
@@ -911,6 +913,7 @@
     transform: scale(0.95);
     transition: transform 0.3s ease;
     z-index: 1;
+    pointer-events: auto;
 }
 
 .dashvio-quick-view-modal.active .dashvio-quick-view-content {
@@ -1395,6 +1398,9 @@
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
 }
 
 .dashvio-quick-view-pricing-panel .dashvio-btn--full {

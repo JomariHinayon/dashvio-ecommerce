@@ -95,13 +95,23 @@ $demo_assets = isset($preview_assets) ? $preview_assets : (isset($demo_uri) ? $d
             </div>
             
             <div class="demo-feature dashvio-scroll-fade" style="text-align: center;">
-                <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--cosmetics-primary), var(--cosmetics-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">✨</div>
+                <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--cosmetics-primary), var(--cosmetics-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
                 <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cosmetics-dark);">Long-Lasting</h4>
                 <p style="color: var(--cosmetics-text);">Stay flawless all day with our premium formulas</p>
             </div>
             
             <div class="demo-feature dashvio-scroll-fade" style="text-align: center;">
-                <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--cosmetics-primary), var(--cosmetics-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">💝</div>
+                <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--cosmetics-primary), var(--cosmetics-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
                 <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cosmetics-dark);">Expert Curated</h4>
                 <p style="color: var(--cosmetics-text);">Selected by professional makeup artists</p>
             </div>

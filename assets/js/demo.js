@@ -61,45 +61,69 @@
     }
     
     $(document).ready(function() {
-        $('.dashvio-add-to-cart-btn').on('click', function(e) {
+        $(document).off('click', 'a.dashvio-add-to-cart-btn, button.dashvio-add-to-cart-btn').on('click', 'a.dashvio-add-to-cart-btn, button.dashvio-add-to-cart-btn', function(e) {
+            console.log('Add to Cart button clicked');
             e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            
             var $btn = $(this);
-            var addToCartUrl = $btn.attr('href');
+            console.log('Button element:', $btn);
+            console.log('Button classes:', $btn.attr('class'));
+            console.log('Button href:', $btn.attr('href'));
             
-            if (!addToCartUrl) {
-                return;
-            }
+            var productId = $btn.data('product-id') || $btn.data('product_id');
+            console.log('Product ID from data-product-id:', $btn.data('product-id'));
+            console.log('Product ID from data-product_id:', $btn.data('product_id'));
+            console.log('Final Product ID:', productId);
             
-            var productId = $btn.data('product-id');
             if (!productId) {
-                var urlMatch = addToCartUrl.match(/add-to-cart=(\d+)/);
-                if (urlMatch) {
-                    productId = urlMatch[1];
+                var addToCartUrl = $btn.attr('href');
+                console.log('No product ID, checking href:', addToCartUrl);
+                if (addToCartUrl) {
+                    var urlMatch = addToCartUrl.match(/add-to-cart=(\d+)/);
+                    if (urlMatch) {
+                        productId = urlMatch[1];
+                        console.log('Product ID extracted from URL:', productId);
+                    }
                 }
             }
             
             if (!productId) {
-                window.location = addToCartUrl;
+                console.log('No product ID found, redirecting to href');
+                var addToCartUrl = $btn.attr('href');
+                if (addToCartUrl) {
+                    window.location = addToCartUrl;
+                }
                 return;
             }
             
             if ($btn.data('dashvio-added') === 'true') {
+                console.log('Product already added to cart');
                 return;
             }
 
-            $btn.prop('disabled', true).text('Adding...');
+            console.log('Processing add to cart for product:', productId);
+            $btn.prop('disabled', true);
+            var originalHtml = $btn.html();
+            $btn.html('<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg> Adding...');
             
-            if (typeof wc_add_to_cart_params !== 'undefined') {
+            if (typeof wc_add_to_cart_params !== 'undefined' && wc_add_to_cart_params.wc_ajax_url) {
+                console.log('Using WooCommerce AJAX');
+                var ajaxUrl = wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'add_to_cart');
+                console.log('AJAX URL:', ajaxUrl);
                 var data = {
                     product_id: productId,
                     quantity: 1
                 };
+                console.log('AJAX data:', data);
                 
                 $.ajax({
-                    url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'add_to_cart'),
+                    url: ajaxUrl,
                     type: 'POST',
                     data: data,
                     success: function(response) {
+                        console.log('AJAX success response:', response);
                         if (response.error && response.product_url) {
                             window.location = response.product_url;
                             return;
@@ -128,40 +152,27 @@
                             window.location = wc_add_to_cart_params.cart_url;
                         }
                     },
-                    error: function() {
+                    error: function(xhr, status, error) {
+                        console.error('AJAX error:', xhr, status, error);
                         showSuccessNotification('Error adding to cart. Please try again.');
+                        $btn.prop('disabled', false).html(originalHtml);
                     },
                     complete: function() {
                         if (!$btn.hasClass('dashvio-add-to-cart-btn--added')) {
-                            $btn.prop('disabled', false).text('Add to Cart');
+                            $btn.prop('disabled', false).html(originalHtml);
                         }
                     }
                 });
             } else {
-                $.ajax({
-                    url: addToCartUrl,
-                    type: 'GET',
-                    success: function() {
-                        setTimeout(function() {
-                            updateCartCount();
-                        }, 200);
-                        
-                        markButtonAdded($btn);
-                        showSuccessNotification('Template added to cart successfully!');
-                    },
-                    error: function() {
-                        showSuccessNotification('Error adding to cart. Please try again.');
-                    },
-                    complete: function() {
-                        if (!$btn.hasClass('dashvio-add-to-cart-btn--added')) {
-                            $btn.prop('disabled', false).text('Add to Cart');
-                        }
-                    }
-                });
+                console.log('WooCommerce params not available, using fallback');
+                console.log('wc_add_to_cart_params:', typeof wc_add_to_cart_params);
+                var addToCartUrl = window.location.origin + '/?add-to-cart=' + productId;
+                console.log('Fallback URL:', addToCartUrl);
+                window.location.href = addToCartUrl;
             }
         });
         
-        $('.dashvio-import-demo-btn').on('click', function(e) {
+        $(document).on('click', '.dashvio-import-demo-btn', function(e) {
             e.preventDefault();
             var $btn = $(this);
             var demoId = $btn.data('demo-id');
