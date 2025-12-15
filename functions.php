@@ -18,3 +18,7 @@ require_once DASHVIO_DIR . '/inc/theme-options.php';
 require_once DASHVIO_DIR . '/inc/ajax-handlers.php';
 require_once DASHVIO_DIR . '/inc/admin-prebuilt.php';
 
+if (did_action('elementor/loaded')) {
+    require_once DASHVIO_DIR . '/inc/elementor/elementor.php';
+}
+
