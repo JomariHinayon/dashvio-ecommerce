@@ -148,6 +148,28 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+        $repeater->add_control(
+            'stat_icon',
+            [
+                'label' => esc_html__('Icon', 'dashvio'),
+                'type' => \Elementor\Controls_Manager::ICONS,
+                'default' => [
+                    'value' => 'fas fa-check',
+                    'library' => 'solid',
+                ],
+            ]
+        );
+
+        $repeater->add_control(
+            'stat_suffix',
+            [
+                'label' => esc_html__('Suffix', 'dashvio'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'placeholder' => esc_html__('+', 'dashvio'),
+                'description' => esc_html__('Optional suffix like +, %, etc.', 'dashvio'),
+            ]
+        );
+
         $this->add_control(
             'stats_list',
             [
@@ -187,8 +209,9 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Layout', 'dashvio'),
                 'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => 'split',
+                'default' => 'dashvio',
                 'options' => [
+                    'dashvio' => esc_html__('Dashvio Style (1fr / 1.5fr)', 'dashvio'),
                     'split' => esc_html__('Split (50/50)', 'dashvio'),
                     'content-left' => esc_html__('Content Left (60/40)', 'dashvio'),
                     'content-right' => esc_html__('Content Right (40/60)', 'dashvio'),
@@ -294,6 +317,7 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
                 'label' => esc_html__('Eyebrow Color', 'dashvio'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
+                    '{{WRAPPER}} .dash-badge' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .demo-eyebrow' => 'color: {{VALUE}};',
                 ],
             ]
@@ -303,7 +327,7 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'eyebrow_typography',
-                'selector' => '{{WRAPPER}} .demo-eyebrow',
+                'selector' => '{{WRAPPER}} .dash-badge, {{WRAPPER}} .demo-eyebrow',
             ]
         );
 
@@ -322,6 +346,7 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
                 'label' => esc_html__('Title Color', 'dashvio'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
+                    '{{WRAPPER}} .dash-hero__content h1' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .dashvio-demo-hero__content h1' => 'color: {{VALUE}};',
                 ],
             ]
@@ -331,7 +356,7 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .dashvio-demo-hero__content h1',
+                'selector' => '{{WRAPPER}} .dash-hero__content h1, {{WRAPPER}} .dashvio-demo-hero__content h1',
             ]
         );
 
@@ -350,6 +375,7 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
                 'label' => esc_html__('Subtitle Color', 'dashvio'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
+                    '{{WRAPPER}} .dash-hero__content p' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .demo-subtitle' => 'color: {{VALUE}};',
                 ],
             ]
@@ -359,7 +385,7 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'subtitle_typography',
-                'selector' => '{{WRAPPER}} .demo-subtitle',
+                'selector' => '{{WRAPPER}} .dash-hero__content p, {{WRAPPER}} .demo-subtitle',
             ]
         );
 
@@ -377,53 +403,65 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
         $secondary_button_target = $settings['secondary_button_link']['is_external'] ? ' target="_blank"' : '';
         $secondary_button_nofollow = $settings['secondary_button_link']['nofollow'] ? ' rel="nofollow"' : '';
 
-        $layout_class = 'dashvio-demo-hero--' . $settings['layout'];
+        $layout_class = $settings['layout'] === 'dashvio' ? 'dash-hero dash-hero--templates' : 'dashvio-demo-hero dashvio-demo-hero--' . $settings['layout'];
+        $content_class = $settings['layout'] === 'dashvio' ? 'dash-hero__content' : 'dashvio-demo-hero__content';
+        $grid_class = $settings['layout'] === 'dashvio' ? 'dash-hero__grid' : 'dashvio-demo-hero__grid';
+        $visual_class = $settings['layout'] === 'dashvio' ? 'dash-hero__carousel' : 'dashvio-demo-hero__visual';
         ?>
-        <section class="dashvio-demo-hero <?php echo esc_attr($layout_class); ?>">
-            <div class="dashvio-demo-hero__content">
-                <?php if (!empty($settings['eyebrow_text'])) : ?>
-                    <span class="demo-eyebrow"><?php echo esc_html($settings['eyebrow_text']); ?></span>
-                <?php endif; ?>
-                
-                <?php if (!empty($settings['title'])) : ?>
-                    <h1><?php echo esc_html($settings['title']); ?></h1>
-                <?php endif; ?>
-                
-                <?php if (!empty($settings['subtitle'])) : ?>
-                    <p class="demo-subtitle"><?php echo esc_html($settings['subtitle']); ?></p>
-                <?php endif; ?>
-                
-                <div class="demo-cta-group">
-                    <?php if (!empty($settings['primary_button_text'])) : ?>
-                        <a class="demo-btn demo-btn--primary" href="<?php echo esc_url($primary_button_url); ?>"<?php echo $primary_button_target . $primary_button_nofollow; ?>>
-                            <?php echo esc_html($settings['primary_button_text']); ?>
-                        </a>
+        <section class="<?php echo esc_attr($layout_class); ?>">
+            <div class="<?php echo esc_attr($grid_class); ?>">
+                <div class="<?php echo esc_attr($content_class); ?>">
+                    <?php if (!empty($settings['eyebrow_text'])) : ?>
+                        <span class="dash-badge"><?php echo esc_html($settings['eyebrow_text']); ?></span>
                     <?php endif; ?>
                     
-                    <?php if (!empty($settings['secondary_button_text'])) : ?>
-                        <a class="demo-btn demo-btn--ghost" href="<?php echo esc_url($secondary_button_url); ?>"<?php echo $secondary_button_target . $secondary_button_nofollow; ?>>
-                            <?php echo esc_html($settings['secondary_button_text']); ?>
-                        </a>
+                    <?php if (!empty($settings['title'])) : ?>
+                        <h1><?php echo esc_html($settings['title']); ?></h1>
+                    <?php endif; ?>
+                    
+                    <?php if (!empty($settings['subtitle'])) : ?>
+                        <p><?php echo esc_html($settings['subtitle']); ?></p>
+                    <?php endif; ?>
+                    
+                    <div class="dash-btn-group">
+                        <?php if (!empty($settings['primary_button_text'])) : ?>
+                            <a class="button button-primary" href="<?php echo esc_url($primary_button_url); ?>"<?php echo $primary_button_target . $primary_button_nofollow; ?>>
+                                <?php echo esc_html($settings['primary_button_text']); ?>
+                            </a>
+                        <?php endif; ?>
+                        
+                        <?php if (!empty($settings['secondary_button_text'])) : ?>
+                            <a class="button button-outline" href="<?php echo esc_url($secondary_button_url); ?>"<?php echo $secondary_button_target . $secondary_button_nofollow; ?>>
+                                <?php echo esc_html($settings['secondary_button_text']); ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <?php if (!empty($settings['stats_list'])) : ?>
+                        <div class="dash-hero__stats">
+                            <?php foreach ($settings['stats_list'] as $stat) : ?>
+                                <div class="dash-stat">
+                                    <?php if (!empty($stat['stat_icon']['value'])) : ?>
+                                        <div class="dash-stat__icon">
+                                            <?php \Elementor\Icons_Manager::render_icon($stat['stat_icon'], ['aria-hidden' => 'true']); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div>
+                                        <strong><?php echo esc_html($stat['stat_value']); ?><?php if (!empty($stat['stat_suffix'])) : ?><span class="dash-counter-suffix"><?php echo esc_html($stat['stat_suffix']); ?></span><?php endif; ?></strong>
+                                        <span><?php echo esc_html($stat['stat_label']); ?></span>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     <?php endif; ?>
                 </div>
                 
-                <?php if (!empty($settings['stats_list'])) : ?>
-                    <div class="demo-stats">
-                        <?php foreach ($settings['stats_list'] as $stat) : ?>
-                            <div class="demo-stat">
-                                <span class="demo-stat__value"><?php echo esc_html($stat['stat_value']); ?></span>
-                                <span class="demo-stat__label"><?php echo esc_html($stat['stat_label']); ?></span>
-                            </div>
-                        <?php endforeach; ?>
+                <?php if (!empty($settings['image']['url'])) : ?>
+                    <div class="<?php echo esc_attr($visual_class); ?>">
+                        <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php echo esc_attr($settings['title']); ?>" />
                     </div>
                 <?php endif; ?>
             </div>
-            
-            <?php if (!empty($settings['image']['url'])) : ?>
-                <div class="dashvio-demo-hero__visual">
-                    <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php echo esc_attr($settings['title']); ?>" />
-                </div>
-            <?php endif; ?>
         </section>
         <?php
     }
@@ -439,53 +477,65 @@ class Dashvio_Elementor_Hero_Widget extends \Elementor\Widget_Base {
         var secondaryButtonTarget = settings.secondary_button_link.is_external ? ' target="_blank"' : '';
         var secondaryButtonNofollow = settings.secondary_button_link.nofollow ? ' rel="nofollow"' : '';
         
-        var layoutClass = 'dashvio-demo-hero--' + settings.layout;
+        var layoutClass = settings.layout === 'dashvio' ? 'dash-hero dash-hero--templates' : 'dashvio-demo-hero dashvio-demo-hero--' + settings.layout;
+        var contentClass = settings.layout === 'dashvio' ? 'dash-hero__content' : 'dashvio-demo-hero__content';
+        var gridClass = settings.layout === 'dashvio' ? 'dash-hero__grid' : 'dashvio-demo-hero__grid';
+        var visualClass = settings.layout === 'dashvio' ? 'dash-hero__carousel' : 'dashvio-demo-hero__visual';
         #>
-        <section class="dashvio-demo-hero {{{ layoutClass }}}">
-            <div class="dashvio-demo-hero__content">
-                <# if (settings.eyebrow_text) { #>
-                    <span class="demo-eyebrow">{{{ settings.eyebrow_text }}}</span>
-                <# } #>
-                
-                <# if (settings.title) { #>
-                    <h1>{{{ settings.title }}}</h1>
-                <# } #>
-                
-                <# if (settings.subtitle) { #>
-                    <p class="demo-subtitle">{{{ settings.subtitle }}}</p>
-                <# } #>
-                
-                <div class="demo-cta-group">
-                    <# if (settings.primary_button_text) { #>
-                        <a class="demo-btn demo-btn--primary" href="{{{ primaryButtonUrl }}}"{{{ primaryButtonTarget }}}{{{ primaryButtonNofollow }}}>
-                            {{{ settings.primary_button_text }}}
-                        </a>
+        <section class="{{{ layoutClass }}}">
+            <div class="{{{ gridClass }}}">
+                <div class="{{{ contentClass }}}">
+                    <# if (settings.eyebrow_text) { #>
+                        <span class="dash-badge">{{{ settings.eyebrow_text }}}</span>
                     <# } #>
                     
-                    <# if (settings.secondary_button_text) { #>
-                        <a class="demo-btn demo-btn--ghost" href="{{{ secondaryButtonUrl }}}"{{{ secondaryButtonTarget }}}{{{ secondaryButtonNofollow }}}>
-                            {{{ settings.secondary_button_text }}}
-                        </a>
+                    <# if (settings.title) { #>
+                        <h1>{{{ settings.title }}}</h1>
+                    <# } #>
+                    
+                    <# if (settings.subtitle) { #>
+                        <p>{{{ settings.subtitle }}}</p>
+                    <# } #>
+                    
+                    <div class="dash-btn-group">
+                        <# if (settings.primary_button_text) { #>
+                            <a class="button button-primary" href="{{{ primaryButtonUrl }}}"{{{ primaryButtonTarget }}}{{{ primaryButtonNofollow }}}>
+                                {{{ settings.primary_button_text }}}
+                            </a>
+                        <# } #>
+                        
+                        <# if (settings.secondary_button_text) { #>
+                            <a class="button button-outline" href="{{{ secondaryButtonUrl }}}"{{{ secondaryButtonTarget }}}{{{ secondaryButtonNofollow }}}>
+                                {{{ settings.secondary_button_text }}}
+                            </a>
+                        <# } #>
+                    </div>
+                    
+                    <# if (settings.stats_list && settings.stats_list.length > 0) { #>
+                        <div class="dash-hero__stats">
+                            <# _.each(settings.stats_list, function(stat) { #>
+                                <div class="dash-stat">
+                                    <# if (stat.stat_icon && stat.stat_icon.value) { #>
+                                        <div class="dash-stat__icon">
+                                            <i class="{{{ stat.stat_icon.value }}}"></i>
+                                        </div>
+                                    <# } #>
+                                    <div>
+                                        <strong>{{{ stat.stat_value }}}<# if (stat.stat_suffix) { #><span class="dash-counter-suffix">{{{ stat.stat_suffix }}}</span><# } #></strong>
+                                        <span>{{{ stat.stat_label }}}</span>
+                                    </div>
+                                </div>
+                            <# }); #>
+                        </div>
                     <# } #>
                 </div>
                 
-                <# if (settings.stats_list && settings.stats_list.length > 0) { #>
-                    <div class="demo-stats">
-                        <# _.each(settings.stats_list, function(stat) { #>
-                            <div class="demo-stat">
-                                <span class="demo-stat__value">{{{ stat.stat_value }}}</span>
-                                <span class="demo-stat__label">{{{ stat.stat_label }}}</span>
-                            </div>
-                        <# }); #>
+                <# if (settings.image && settings.image.url) { #>
+                    <div class="{{{ visualClass }}}">
+                        <img src="{{{ settings.image.url }}}" alt="{{{ settings.title }}}" />
                     </div>
                 <# } #>
             </div>
-            
-            <# if (settings.image && settings.image.url) { #>
-                <div class="dashvio-demo-hero__visual">
-                    <img src="{{{ settings.image.url }}}" alt="{{{ settings.title }}}" />
-                </div>
-            <# } #>
         </section>
         <?php
     }
