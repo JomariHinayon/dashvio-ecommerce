@@ -135,6 +135,7 @@
 .dashvio-pricing-button:hover {
     transform: translateY(-2px);
     background: var(--demo-secondary, #F7931E);
+    color: #0b0d11;
     box-shadow: 0 8px 20px rgba(255, 167, 51, 0.4);
 }
 
