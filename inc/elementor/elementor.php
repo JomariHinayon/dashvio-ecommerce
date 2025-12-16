@@ -22,6 +22,10 @@ function dashvio_register_elementor_widgets($widgets_manager) {
     require_once DASHVIO_DIR . '/inc/elementor/widgets/features.php';
     require_once DASHVIO_DIR . '/inc/elementor/widgets/buttons.php';
     require_once DASHVIO_DIR . '/inc/elementor/widgets/faqs.php';
+    require_once DASHVIO_DIR . '/inc/elementor/widgets/why-dashvio.php';
+    require_once DASHVIO_DIR . '/inc/elementor/widgets/templates-grid.php';
+    require_once DASHVIO_DIR . '/inc/elementor/widgets/products-grid.php';
+    require_once DASHVIO_DIR . '/inc/elementor/widgets/featured-posts.php';
     
     $widgets_manager->register(new \Dashvio_Elementor_Hero_Widget());
     $widgets_manager->register(new \Dashvio_Elementor_Pricing_Widget());
@@ -29,6 +33,10 @@ function dashvio_register_elementor_widgets($widgets_manager) {
     $widgets_manager->register(new \Dashvio_Elementor_Features_Widget());
     $widgets_manager->register(new \Dashvio_Elementor_Buttons_Widget());
     $widgets_manager->register(new \Dashvio_Elementor_FAQs_Widget());
+    $widgets_manager->register(new \Dashvio_Elementor_Why_Dashvio_Widget());
+    $widgets_manager->register(new \Dashvio_Elementor_Templates_Grid_Widget());
+    $widgets_manager->register(new \Dashvio_Elementor_Products_Grid_Widget());
+    $widgets_manager->register(new \Dashvio_Elementor_Featured_Posts_Widget());
 }
 
 add_action('elementor/widgets/register', 'dashvio_register_elementor_widgets');
