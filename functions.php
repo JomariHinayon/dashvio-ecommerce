@@ -17,6 +17,8 @@ require_once DASHVIO_DIR . '/inc/woocommerce.php';
 require_once DASHVIO_DIR . '/inc/theme-options.php';
 require_once DASHVIO_DIR . '/inc/ajax-handlers.php';
 require_once DASHVIO_DIR . '/inc/admin-prebuilt.php';
+require_once DASHVIO_DIR . '/inc/dashassist-ai.php';
+require_once DASHVIO_DIR . '/inc/admin-dashassist.php';
 
 if (did_action('elementor/loaded')) {
     require_once DASHVIO_DIR . '/inc/elementor/elementor.php';

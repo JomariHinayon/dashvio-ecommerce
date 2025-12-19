@@ -1,0 +1,12 @@
+.env
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+vendor/
+*.swp
+*.swo
+*~
+wp-config.php
+.htaccess
+

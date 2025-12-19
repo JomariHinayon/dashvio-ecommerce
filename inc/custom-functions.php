@@ -80,3 +80,43 @@ function dashvio_show_woocommerce() {
     return class_exists('WooCommerce');
 }
 
+function dashvio_load_env_file() {
+    $env_file = DASHVIO_DIR . '/.env';
+    if (!file_exists($env_file) || !is_readable($env_file)) {
+        return;
+    }
+    
+    $lines = file($env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if ($lines === false) {
+        return;
+    }
+    
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if (empty($line) || strpos($line, '#') === 0) {
+            continue;
+        }
+        
+        if (strpos($line, '=') === false) {
+            continue;
+        }
+        
+        list($key, $value) = explode('=', $line, 2);
+        $key = trim($key);
+        $value = trim($value);
+        
+        if (empty($key)) {
+            continue;
+        }
+        
+        $value = trim($value, '"\'');
+        $value = trim($value);
+        
+        if (!empty($value) && !defined($key)) {
+            define($key, $value);
+        }
+    }
+}
+
+dashvio_load_env_file();
+
